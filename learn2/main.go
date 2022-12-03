@@ -8,3 +8,7 @@ func main() {
 
 	log.Println("myString is set to", myString)
 }
+
+func changeUsingPointer(s *string) {
+	newValue := "Red"
+}
