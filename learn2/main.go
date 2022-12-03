@@ -11,4 +11,5 @@ func main() {
 
 func changeUsingPointer(s *string) {
 	newValue := "Red"
+	*s = newValue
 }
