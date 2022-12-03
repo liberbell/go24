@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+var myName string
+var i int
+
 func main() {
 	fmt.Println("hello")
 
