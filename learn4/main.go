@@ -1,5 +1,7 @@
 package main
 
+import "log"
+
 type myStruct struct {
 	FirstName string
 }
@@ -11,4 +13,7 @@ func main() {
 	myVar2 := myStruct{
 		FirstName: "Alex",
 	}
+
+	log.Println("myvar is set to ", myVar.FirstName)
+	log.Println("myvar2 is set to ", myVar2.FirstName)
 }
