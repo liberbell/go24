@@ -43,5 +43,7 @@ func main() {
 		log.Println("Cat is set to dog")
 	case "fish":
 		log.Println("Cat is set to fish")
+	default:
+		log.Println("Cat is set to something else.")
 	}
 }
