@@ -11,7 +11,7 @@ func main() {
 
 	animals := []string{"dog", "fish", "horse", "cow", "cat"}
 
-	for i, animal := range animals {
-		log.Println(i, animal)
+	for _, animal := range animals {
+		log.Println(animal)
 	}
 }
