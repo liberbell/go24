@@ -7,7 +7,7 @@ func main() {
 
 	isTrue = true
 
-	if isTrue {
+	if isTrue == true {
 		log.Println("isTrue is ", isTrue)
 	} else {
 		log.Println("isTrue is ", isTrue)
