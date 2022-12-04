@@ -16,7 +16,7 @@ var birthday time.Time
 type User struct {
 	FirstName string
 	LastName  string
-	PhoneNaem string
+	PhoneNum  string
 	Age       int
 	Birthday  time.Time
 }
@@ -32,6 +32,7 @@ func main() {
 	user := User{
 		FirstName: "Bob",
 		LastName:  "Mary",
+		PhoneNum:  "1 555 5555-5555",
 	}
 	log.Println(user.FirstName, user.LastName, "Birthdate: ", user.Birthday)
 }
@@ -40,3 +41,9 @@ func main() {
 // 	log.Println("s say from the saySomething func is ", s)
 // 	return s3, "world"
 // }
+
+var Special string
+
+func whatever() {
+	log.Fatalf("")
+}
