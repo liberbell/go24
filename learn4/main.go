@@ -7,4 +7,8 @@ type myStruct struct {
 func main() {
 	var myVar myStruct
 	myVar.FirstName = "Elton"
+
+	myVar2 := myStruct{
+		FirstName: "Alex",
+	}
 }
