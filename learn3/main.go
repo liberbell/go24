@@ -1,5 +1,11 @@
 package main
 
+var s = "seven"
+
 func main() {
-	a
+
+}
+
+func saySomething(s string) (string, string) {
+	return s, "world"
 }
