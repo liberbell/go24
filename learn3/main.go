@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-var s = "seven"
+// var s = "seven"
 
 var firstName string
 var lastName string
@@ -22,16 +22,21 @@ type User struct {
 }
 
 func main() {
-	var s2 = "six"
-	// s := "eight"
+	// var s2 = "six"
+	// // s := "eight"
 
-	log.Println("s is ", s)
-	log.Println("s2 is ", s2)
+	// log.Println("s is ", s)
+	// log.Println("s2 is ", s2)
 
-	saySomething("xxx")
+	// saySomething("xxx")
+	user := User{
+		FirstName: "Bob",
+		LastName:  "Mary",
+	}
+	log.Println(user)
 }
 
-func saySomething(s3 string) (string, string) {
-	log.Println("s say from the saySomething func is ", s)
-	return s3, "world"
-}
+// func saySomething(s3 string) (string, string) {
+// 	log.Println("s say from the saySomething func is ", s)
+// 	return s3, "world"
+// }
