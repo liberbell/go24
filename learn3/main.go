@@ -33,7 +33,7 @@ func main() {
 		FirstName: "Bob",
 		LastName:  "Mary",
 	}
-	log.Println(user)
+	log.Println(user.FirstName)
 }
 
 // func saySomething(s3 string) (string, string) {
