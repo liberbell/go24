@@ -13,6 +13,14 @@ var phoneNumber string
 var age int
 var birthday time.Time
 
+type User struct {
+	FirstName string
+	LastName  string
+	PhoneNaem string
+	Age       int
+	Birthday  time.Time
+}
+
 func main() {
 	var s2 = "six"
 	// s := "eight"
