@@ -22,6 +22,9 @@ func main() {
 		Age       int
 	}
 
+	var users []User
+	users = append(users, User{"Bob", "Mary", "bob.mary@example.com", 54})
+
 	for i, l := range firstLine {
 		// log.Println(animalType, animal)
 		log.Println(i, ":", l)
