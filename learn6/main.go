@@ -24,10 +24,14 @@ func main() {
 
 	var users []User
 	users = append(users, User{"Bob", "Mary", "bob.mary@example.com", 54})
+	users = append(users, User{"Elton", "John", "elton.john@example.com", 78})
+	users = append(users, User{"Eric", "Crapton", "eric.crapton@example.com", 72})
+	users = append(users, User{"Alex", "Hep", "alex.hep@example.com", 36})
 
-	for i, l := range firstLine {
+	for _, l := range users {
 		// log.Println(animalType, animal)
-		log.Println(i, ":", l)
+		// log.Println(i, ":", l)
+		log.Println(l.FirstName, l.LastName, l.Email, l.Age)
 
 	}
 }
