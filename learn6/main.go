@@ -13,8 +13,14 @@ func main() {
 	// animals := make(map[string]string)
 	// animals["dog"] = "Fido"
 	// animals["cat"] = "Fluffy"
-	var firstLine = "Once upon a midnight dreary"
-	firstLine = "x"
+	// var firstLine = "Once upon a midnight dreary"
+	// firstLine = "x"
+	type User struct {
+		FirstName string
+		LastName  string
+		Email     string
+		Age       int
+	}
 
 	for i, l := range firstLine {
 		// log.Println(animalType, animal)
