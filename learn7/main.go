@@ -27,5 +27,5 @@ func main() {
 }
 
 func PrintInfo(a Animal) {
-	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs(). "legs.")
+	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs(), "legs.")
 }
