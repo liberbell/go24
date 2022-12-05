@@ -23,8 +23,9 @@ func main() {
 		Name:  "George",
 		Breed: "German Shephered",
 	}
+	PrintInfo(dog)
 }
 
 func PrintInfo(a Animal) {
-	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs())
+	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs(). "legs.")
 }
