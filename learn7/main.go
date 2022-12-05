@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Animal interface {
 	Says() string
 	NumberOfLegs() int
@@ -21,4 +23,8 @@ func main() {
 		Name:  "George",
 		Breed: "German Shephered",
 	}
+}
+
+func PrintInfo(a Animal) {
+	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs())
 }
