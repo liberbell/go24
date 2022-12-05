@@ -29,3 +29,11 @@ func main() {
 func PrintInfo(a Animal) {
 	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs(), "legs.")
 }
+
+func (d Dog) Says() string {
+	return "Woof"
+}
+
+func (d Dog) NumberOfLegs() int {
+	return 4
+}
