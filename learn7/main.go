@@ -10,6 +10,12 @@ type Dog struct {
 	Breed string
 }
 
+type Gorilla struct {
+	Name         string
+	Color        string
+	NumberOfLegs int
+}
+
 func main() {
 	a
 }
