@@ -23,17 +23,17 @@ func main() {
 		Name:  "George",
 		Breed: "German Shephered",
 	}
-	PrintInfo(dog)
+	PrintInfo(&dog)
 }
 
 func PrintInfo(a Animal) {
 	fmt.Println("This animal syas ", a.Says(), "and has", a.NumberOfLegs(), "legs.")
 }
 
-func (d Dog) Says() string {
+func (d *Dog) Says() string {
 	return "Woof"
 }
 
-func (d Dog) NumberOfLegs() int {
+func (d *Dog) NumberOfLegs() int {
 	return 4
 }
