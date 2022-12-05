@@ -10,11 +10,14 @@ func main() {
 	// }
 
 	// animals := []string{"dog", "fish", "horse", "cow", "cat"}
-	animals := make(map[string]string)
-	animals["dog"] = "Fido"
-	animals["cat"] = "Fluffy"
+	// animals := make(map[string]string)
+	// animals["dog"] = "Fido"
+	// animals["cat"] = "Fluffy"
+	var firstLine := "Once upon a midnight dreary"
 
-	for animalType, animal := range animals {
-		log.Println(animalType, animal)
+	for i, l := range firstLine {
+		// log.Println(animalType, animal)
+		log.Println(i, ":", l)
+
 	}
 }
