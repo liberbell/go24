@@ -13,7 +13,7 @@ func main() {
 	// animals := make(map[string]string)
 	// animals["dog"] = "Fido"
 	// animals["cat"] = "Fluffy"
-	var firstLine := "Once upon a midnight dreary"
+	var firstLine = "Once upon a midnight dreary"
 
 	for i, l := range firstLine {
 		// log.Println(animalType, animal)
