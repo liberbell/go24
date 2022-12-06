@@ -45,3 +45,11 @@ func (d *Dog) Says() string {
 func (d *Dog) NumberOfLegs() int {
 	return 4
 }
+
+func (d *Gorilla) Says() string {
+	return "Ugh"
+}
+
+func (d *Gorilla) NumberOfLegs() int {
+	return 2
+}
