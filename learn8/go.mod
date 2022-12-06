@@ -1,5 +1,3 @@
-module ("github.com/tsawler/myniceprogram"
-        "helpers/helpers"
-        )
+module "github.com/tsawler/myniceprogram"
 
 go 1.19
