@@ -13,9 +13,9 @@ type Dog struct {
 }
 
 type Gorilla struct {
-	Name         string
-	Color        string
-	NumberOfLegs int
+	Name          string
+	Color         string
+	NumberOfTeeth int
 }
 
 func main() {
@@ -24,6 +24,14 @@ func main() {
 		Breed: "German Shephered",
 	}
 	PrintInfo(&dog)
+
+	gorilla := Gorilla{
+		Name:          "Elton",
+		Color:         "Gray",
+		NumberOfTeeth: 38,
+	}
+
+	PrintInfo(gorilla)
 }
 
 func PrintInfo(a Animal) {
