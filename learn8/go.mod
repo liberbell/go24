@@ -1,5 +1,4 @@
 module github.com/tsawler/myniceprogram
-
-import helpers/helpers
+module "helpers/helpers"
 
 go 1.19
