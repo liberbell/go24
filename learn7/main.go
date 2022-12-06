@@ -31,7 +31,7 @@ func main() {
 		NumberOfTeeth: 38,
 	}
 
-	PrintInfo(gorilla)
+	PrintInfo(&gorilla)
 }
 
 func PrintInfo(a Animal) {
