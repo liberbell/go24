@@ -1,4 +1,5 @@
-module github.com/tsawler/myniceprogram
-module "helpers/helpers"
+module ("github.com/tsawler/myniceprogram"
+        "helpers/helpers"
+        )
 
 go 1.19
