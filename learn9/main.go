@@ -6,10 +6,10 @@ import (
 	"github.com/helpers"
 )
 
-const numPool = 10
+const numPool = 1000
 
 func CalculateValue(intChan chan int) {
-	randomNumber := helpers.RandomNumber(10)
+	randomNumber := helpers.RandomNumber(numPool)
 	intChan <- randomNumber
 }
 
