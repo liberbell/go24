@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/helpers"
-	_ "github.com/helpers"
 )
 
 func main() {
