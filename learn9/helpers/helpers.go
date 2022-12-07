@@ -1,5 +1,8 @@
 package helpers
 
+import "math/rand"
+
 func RandomNumber(n int) int {
-	value := 
+	value := rand.Intn(n)
+	return value
 }
