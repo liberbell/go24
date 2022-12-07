@@ -1,7 +1,9 @@
 package main
 
+import "github.com/helpers"
+
 func CalculateValue(intChan chan int) {
-	a
+	randomNumber := helpers.RandomNumber(10)
 }
 
 func main() {
