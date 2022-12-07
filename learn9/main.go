@@ -1,5 +1,9 @@
 package main
 
+func CalculateValue(intChan chan int) {
+	a
+}
+
 func main() {
 	// PrintText("Hi")
 	intChan := make(chan int)
