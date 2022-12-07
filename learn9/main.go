@@ -1,6 +1,10 @@
 package main
 
-import "github.com/helpers"
+import (
+	"log"
+
+	"github.com/helpers"
+)
 
 const numPool = 10
 
@@ -12,6 +16,12 @@ func CalculateValue(intChan chan int) {
 func main() {
 	// PrintText("Hi")
 	intChan := make(chan int)
+	defer close(intChan)
+
+	go CalculateValue(intChan)
+
+	num := <-intChan
+	log.Println(num)
 }
 
 // func PrintText(s string) {
