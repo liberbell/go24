@@ -2,7 +2,9 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
+	"strings"
 )
 
 type Person struct {
@@ -55,4 +57,8 @@ func main() {
 	mySlice = append(mySlice, m2)
 
 	newJson, err := json.MarshalIndent(mySlice, "", "   ")
+	if err != nil {
+		log.Println("error marshalling", err)
+	}
+	fmt.Println(string(newJson)
 }
