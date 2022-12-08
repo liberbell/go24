@@ -17,8 +17,8 @@ func main() {
 	myJson := `
 	[
 		{
-			"first_name": "Eric,
-			"last_name": "Crapton,
+			"first_name": "Eric",
+			"last_name": "Crapton",
 			"hair_color": "grya",
 			"has_dog": true
 		},
