@@ -10,6 +10,7 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
+	log.Println("result of division is ", result)
 }
 
 func divide(x, y float32) (float32, error) {
