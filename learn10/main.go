@@ -43,4 +43,14 @@ func main() {
 	m1.LastName = "Harrison"
 	m1.HairColor = "brown"
 	m1.HasDog = false
+
+	mySlice = append(mySlice, m1)
+
+	var m2 Person
+	m2.FirstName = "Bob"
+	m2.LastName = "Marry"
+	m2.HairColor = "white"
+	m2.HasDog = true
+
+	mySlice = append(mySlice, m2)
 }
