@@ -36,4 +36,11 @@ func main() {
 		log.Println("Error unmarshalling json", err)
 	}
 	log.Printf("Unmarshalled: %v", unmarshalled)
+
+	var mySlice []Person
+	var m1 Person
+	m1.FirstName = "George"
+	m1.LastName = "Harrison"
+	m1.HairColor = "brown"
+	m1.HasDog = false
 }
