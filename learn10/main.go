@@ -1,5 +1,10 @@
 package main
 
+import (
+	"encoding/json"
+	"log"
+)
+
 type Person struct {
 	FirstName string `json:"first_name"`
 	LastName string `json:"last_name"`
@@ -24,3 +29,10 @@ func main() {
 			"has_dog": false
 		}
 	]`
+
+	var unmarshalled []Person
+	err := json.Unmarshal([]byte(myJson), &unmarshalled)
+	if err != nil {
+		log.Println("Error unmarshalling json", err)
+	}
+	log.Printf("Unmarshalled: %v", unmarshalled)
