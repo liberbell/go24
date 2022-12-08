@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
-	"strings"
 )
 
 type Person struct {
@@ -60,5 +59,5 @@ func main() {
 	if err != nil {
 		log.Println("error marshalling", err)
 	}
-	fmt.Println(string(newJson)
+	fmt.Println(string(newJson))
 }
