@@ -20,6 +20,10 @@ func TestDivision(t *testing.T)  {
 			if err == nil {
 				t.Error("expected an error but did not get one")
 			}
+		}else {
+			if err != nil {
+				t.Error("did not expect an error but gone one", err.Error())
+			}
 		}
 	}
 }
