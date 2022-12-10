@@ -5,6 +5,9 @@ import "testing"
 var tests = []struct {
 	name string
 	dividend float32
+	divisor float32
+	expected float32
+	isErr bool
 }
 
 func TestDivide(t *testing.T) {
