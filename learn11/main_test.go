@@ -3,24 +3,24 @@ package main
 import "testing"
 
 var tests = []struct {
-	name string
+	name     string
 	dividend float32
-	divisor float32
+	divisor  float32
 	expected float32
-	isErr bool
+	isErr    bool
 }{
 	{"valid-data", 100.0, 10.0, 10.0, false},
-	{"invalid-data", 100.0, 0, 0, true}
+	{"invalid-data", 100.0, 0, 0, true},
 }
 
-func TestDivision(t *testing.T)  {
+func TestDivision(t *testing.T) {
 	for _, tt := range tests {
 		got, err := divide(tt.dividend, tt.divisor)
 		if tt.isErr {
 			if err == nil {
 				t.Error("expected an error but did not get one")
 			}
-		}else {
+		} else {
 			if err != nil {
 				t.Error("did not expect an error but gone one", err.Error())
 			}
