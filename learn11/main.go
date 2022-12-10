@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	result, err := divide(100.0, 10.0)
+	result, err := divide(100.0, 0)
 	if err != nil {
 		log.Println(err)
 	}
