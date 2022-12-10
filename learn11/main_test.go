@@ -13,6 +13,10 @@ var tests = []struct {
 	{"invalid-data", 100.0, 0, 0, true}
 }
 
+func TestDivision(t *testing.T)  {
+	for _, tt := range tests
+}
+
 func TestDivide(t *testing.T) {
 	_, err := divide(10.0, 1.0)
 	if err != nil {
