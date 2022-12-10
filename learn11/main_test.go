@@ -11,7 +11,7 @@ func TestDivide(t *testing.T) {
 
 func TestBadDivide(t *testing.T) {
 	_, err := divide(10.0, 0)
-	if err != nil {
+	if err == nil {
 		t.Error("Got an error when we should not have")
 	}
 }
