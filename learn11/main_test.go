@@ -14,7 +14,10 @@ var tests = []struct {
 }
 
 func TestDivision(t *testing.T)  {
-	for _, tt := range tests
+	for _, tt := range tests {
+		got, err := divide(tt.dividend, tt.divisor)
+		if tt.isErr
+	}
 }
 
 func TestDivide(t *testing.T) {
