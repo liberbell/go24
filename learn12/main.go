@@ -9,6 +9,6 @@ func main() {
 	// fmt.Println("Hello World")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("Hello World")
+		fmt.Fprintf(w, "Hello World")
 	})
 }
