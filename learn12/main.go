@@ -17,5 +17,5 @@ func main() {
 		fmt.Println(fmt.Sprintf("Number of bytes written: %d", n))
 	})
 
-	http.ListenAndServe(":8080", nil)
+	_ = http.ListenAndServe(":8080", nil)
 }
