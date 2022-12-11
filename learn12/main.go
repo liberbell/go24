@@ -18,8 +18,10 @@ func About(w http.ResponseWriter, r *http.Request) {
 }
 
 func Divide(w http.ResponseWriter, r *http.Request) {
-	sum := addValues(2, 2)
-	fmt.Fprintf(w, fmt.Sprintf("This is the About page and 2 + 2 is %d", sum))
+	f, err := divideValues(100.0, 10.0)
+	if err != nil {
+		fmt.Fprintf(w, "Cannot divide by zero")
+	}
 }
 
 func addValues(x, y int) int {
