@@ -1,11 +1,14 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 )
 
 func main() {
 	// fmt.Println("Hello World")
 
-	http.HandleFunc("/")
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("Hello World")
+	})
 }
