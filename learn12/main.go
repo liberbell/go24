@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-const portNumber := ":8080"
+const portNumber = ":8080"
 
 func Home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "This is the Home page")
