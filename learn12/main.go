@@ -13,6 +13,10 @@ func About(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "This is the About page")
 }
 
+func AddValues(x, y int) int {
+	return x + y
+}
+
 func main() {
 	// fmt.Println("Hello World")
 
