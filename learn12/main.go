@@ -6,6 +6,10 @@ import (
 	"net/http"
 )
 
+func Home(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func main() {
 	// fmt.Println("Hello World")
 
