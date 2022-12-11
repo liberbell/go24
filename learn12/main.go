@@ -14,7 +14,9 @@ func About(w http.ResponseWriter, r *http.Request) {
 }
 
 func AddValues(x, y int) int {
-	return x + y
+	var sum int
+	sum = x + y
+	return sum
 }
 
 func main() {
