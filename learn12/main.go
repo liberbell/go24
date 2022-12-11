@@ -6,7 +6,11 @@ import (
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "")
+	fmt.Fprintf(w, "This is the Home page")
+}
+
+func About(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(W, "This is the About page")
 }
 
 func main() {
@@ -21,6 +25,7 @@ func main() {
 	// })
 
 	http.HandleFunc("/", Home)
+	http.HandleFunc("/about", About)
 
 	_ = http.ListenAndServe(":8080", nil)
 }
