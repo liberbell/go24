@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 )
 
@@ -16,7 +17,7 @@ func About(w http.ResponseWriter, r *http.Request) {
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string) {
-
+	parsedTemplate, _ := template.ParseFiles("./templates/" + tmpl)
 }
 
 func main() {
