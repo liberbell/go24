@@ -2,12 +2,14 @@ package handlers
 
 import (
 	"net/http"
+
+	_ "github.com/tsawler/go-course/pkg/render"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "home.page.tmpl")
+	RenderTemplate(w, "home.page.tmpl")
 }
 
 func About(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "about.page.tmpl")
+	RenderTemplate(w, "about.page.tmpl")
 }
