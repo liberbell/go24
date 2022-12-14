@@ -13,3 +13,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 		fmt.Println("error parsing template:", err)
 	}
 }
+
+func RenderTemplateTest(w http.ResponseWriter, t string) {
+
+}
