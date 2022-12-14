@@ -32,7 +32,8 @@ func RenderTemplateTest(w http.ResponseWriter, t string) {
 }
 
 func createTemplateCache(t string) error {
-	templates := []string
-	fmt.Sprintf("./templates/%s", t), "./templates/base.layout.tmpl",
+	templates := []string{
+		fmt.Sprintf("./templates/%s", t), "./templates/base.layout.tmpl",
+	}
 
 }
