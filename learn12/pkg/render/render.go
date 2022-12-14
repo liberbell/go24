@@ -26,7 +26,11 @@ func RenderTemplateTest(w http.ResponseWriter, t string) {
 		log.Println("using cached template")
 	}
 
-	tmpl := tc[t]
+	tmpl = tc[t]
 
 	err = tmpl.Execute(w, nil)
+}
+
+func createTemplateCache(t string) error {
+
 }
