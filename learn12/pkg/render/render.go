@@ -9,6 +9,8 @@ import (
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	//create a template cache
 
+	//get request template from cache
+
 	//render the template
 	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
 	err := parsedTemplate.Execute(w, nil)
