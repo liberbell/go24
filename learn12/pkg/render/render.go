@@ -3,12 +3,17 @@ package render
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"path/filepath"
 )
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	//create a template cache
+	tc, err := createTemplateCache()
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	//get request template from cache
 
