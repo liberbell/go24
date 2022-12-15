@@ -23,6 +23,12 @@ func RenderTemplateTest(w http.ResponseWriter, t string) {
 
 	_, inMap := tc[t]
 	if !inMap {
+		// log.Println("using cached template")
+		err = createTemplateCache(t)
+		if err != nil {
+			log.Println(err)
+		}
+	} else {
 		log.Println("using cached template")
 	}
 
@@ -40,4 +46,6 @@ func createTemplateCache(t string) error {
 		return err
 	}
 
+	tc[t] = tmpl
+	return nil
 }
