@@ -41,12 +41,14 @@ func createTemplateCache() (map[string]*template.Template, error) {
 		}
 
 		if len(matches) > 0 {
-			ts, err := ts.ParseFiles("./templates/*.layout.tmpl")
+			ts, err = ts.ParseFiles("./templates/*.layout.tmpl")
 			if err != nil {
 				return myCache, err
 			}
 		}
+		myCache[name] = ts
 	}
+	return myCache, nil
 }
 
 // var tc = make(map[string]*template.Template)
