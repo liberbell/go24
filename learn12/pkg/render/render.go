@@ -25,6 +25,9 @@ func createTemplateCache() (map[string]*template.Template, error) {
 
 	//get all of the files name *.page.tmpl from ./templates
 	pages, err := filepath.Glob("./templates/*.page.tmpl")
+	if err != nil {
+		return myCache, err
+	}
 }
 
 // var tc = make(map[string]*template.Template)
