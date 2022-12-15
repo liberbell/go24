@@ -28,6 +28,11 @@ func createTemplateCache() (map[string]*template.Template, error) {
 	if err != nil {
 		return myCache, err
 	}
+	// range through the all files ending with *.page.tmpl
+	for _, page := range pages {
+		name := filepath.Base(page)
+		ts, err := template.New(name).ParseFiles(page)
+	}
 }
 
 // var tc = make(map[string]*template.Template)
