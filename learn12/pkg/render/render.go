@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"path/filepath"
 )
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
@@ -22,6 +23,8 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 func createTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
+	//get all of the files name
+	pages, err := filepath.Glob("./templates/*.page.tmpl")
 }
 
 // var tc = make(map[string]*template.Template)
