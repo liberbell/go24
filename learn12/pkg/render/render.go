@@ -23,7 +23,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 func createTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
-	//get all of the files name
+	//get all of the files name *.page.tmpl from ./templates
 	pages, err := filepath.Glob("./templates/*.page.tmpl")
 }
 
