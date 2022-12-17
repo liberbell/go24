@@ -24,6 +24,9 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	buf := new(bytes.Buffer)
 
 	_ = t.Execute(buf, nil)
+	if err != nil {
+		log.Println(err)
+	}
 
 	//render the template
 	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
