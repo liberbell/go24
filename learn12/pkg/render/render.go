@@ -2,7 +2,6 @@ package render
 
 import (
 	"bytes"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -29,11 +28,11 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	}
 
 	//render the template
-	parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
-	err := parsedTemplate.Execute(w, nil)
-	if err != nil {
-		fmt.Println("error parsing template:", err)
-	}
+	// parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
+	// err := parsedTemplate.Execute(w, nil)
+	// if err != nil {
+	// 	fmt.Println("error parsing template:", err)
+	// }
 }
 
 func createTemplateCache() (map[string]*template.Template, error) {
