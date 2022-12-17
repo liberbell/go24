@@ -7,7 +7,6 @@ import (
 
 	"github.com/tsawler/go-course/pkg/config"
 	"github.com/tsawler/go-course/pkg/handlers"
-	_ "github.com/tsawler/go-course/pkg/render"
 )
 
 const portNumber = ":8080"
