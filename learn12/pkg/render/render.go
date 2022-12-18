@@ -19,11 +19,8 @@ func NewTemplates(a *config.AppConfig) {
 }
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
-	//create a template cache
-	tc, err := CreateTemplateCache()
-	if err != nil {
-		log.Fatal(err)
-	}
+
+	tc := app.TemplateCache
 
 	//get request template from cache
 	t, ok := tc[tmpl]
