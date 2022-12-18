@@ -8,6 +8,8 @@ import (
 	"path/filepath"
 )
 
+var functions = template.FuncMap{}
+
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	//create a template cache
 	tc, err := CreateTemplateCache()
