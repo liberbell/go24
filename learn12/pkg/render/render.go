@@ -24,7 +24,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	if app.UseCache {
 		tc = app.TemplateCache
 	} else {
-		tc = CreateTemplateCache()
+		tc, _ = CreateTemplateCache()
 	}
 
 	//get request template from cache
