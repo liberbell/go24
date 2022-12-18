@@ -6,9 +6,17 @@ import (
 	"log"
 	"net/http"
 	"path/filepath"
+
+	"github.com/tsawler/go-course/pkg/config"
 )
 
 var functions = template.FuncMap{}
+
+var app *config.AppConfig
+
+func NewTemplates(a *config.AppConfig) {
+
+}
 
 func RenderTemplate(w http.ResponseWriter, tmpl string) {
 	//create a template cache
