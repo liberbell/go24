@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 
 	"github.com/tsawler/go-course/pkg/config"
 	"github.com/tsawler/go-course/pkg/handlers"
@@ -33,4 +34,8 @@ func main() {
 	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
 
 	// _ = http.ListenAndServe(portNumber, nil)
+	srv := &http.Server{
+		Addr:    portNumber,
+		Handler: routes(&app),
+	}
 }
