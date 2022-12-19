@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"todos/apps/models"
 
 	"github.com/tsawler/go-course/pkg/config"
 	"github.com/tsawler/go-course/pkg/render"
@@ -23,7 +24,7 @@ func NewHandlers(r *Repository) {
 }
 
 func (m *Repository) Home(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "home.page.tmpl", &TemplateData{})
+	render.RenderTemplate(w, "home.page.tmpl", &models.TemplateData{})
 }
 
 func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
