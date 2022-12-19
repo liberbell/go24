@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/tsawler/go-course/pkg/config"
+	"github.com/tsawler/go-course/pkg/handlers"
 )
 
 var functions = template.FuncMap{}
@@ -18,7 +19,7 @@ func NewTemplates(a *config.AppConfig) {
 	app = a
 }
 
-func RenderTemplate(w http.ResponseWriter, tmpl string) {
+func RenderTemplate(w http.ResponseWriter, tmpl string, td handlers.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {
