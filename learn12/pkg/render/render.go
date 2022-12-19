@@ -38,6 +38,7 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)
 		log.Fatal("could not get template from template cache")
 	}
 	buf := new(bytes.Buffer)
+	td = AddDefaultData(td)
 
 	_ = t.Execute(buf, td)
 
