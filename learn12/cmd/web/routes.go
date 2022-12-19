@@ -7,5 +7,5 @@ import (
 )
 
 func routes(app *config.AppConfig) http.Handler {
-
+	mux := pat.New()
 }
