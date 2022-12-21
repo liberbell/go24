@@ -19,6 +19,8 @@ func main() {
 
 	session := scs.New()
 	session.Lifetime = 24 * time.Hour
+	session.Cookie.Persist = true
+	session.Cookie.SameTime = http.SameSiteLaxMode
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
