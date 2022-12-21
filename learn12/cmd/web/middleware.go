@@ -11,3 +11,8 @@ func WriteToConsole(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
+
+func NoSurf(next http.Handler) http.Handler {
+	csrfHandler := nosurf.New(next)
+	csrfHandler.SetBaseCookie()
+}
