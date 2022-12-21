@@ -21,6 +21,7 @@ func main() {
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true
 	session.Cookie.SameTime = http.SameSiteLaxMode
+	session.Cookie.Secure = false
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
