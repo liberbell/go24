@@ -17,11 +17,13 @@ const portNumber = ":8080"
 func main() {
 	var app config.AppConfig
 
+	app.InProduction = false
+
 	session := scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true
 	session.Cookie.SameTime = http.SameSiteLaxMode
-	session.Cookie.Secure = false
+	session.Cookie.Secure = app.InProduction
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
