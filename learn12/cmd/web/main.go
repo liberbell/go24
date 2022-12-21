@@ -15,6 +15,7 @@ import (
 const portNumber = ":8080"
 
 var app config.AppConfig
+var session *scs.SessionManager
 
 func main() {
 	var app config.AppConfig
