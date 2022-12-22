@@ -8,9 +8,14 @@
                 <p>This is some text</p>
                 <p>This is a paragraph of text</p>
                 <p>This is a paragraph of text</p>
-                <p>This is a paragraph of text</p>
-                <p>This is a paragraph of text</p>
+
                 <p>This came from the template: {{ index .StringMap "test" }}</p>
+
+                <p>
+                    {{ if ne (index .StringMap "remote_ip") ""}}
+                    {{ else }}
+                    {{ end }}
+                </p>
             </div>
         </div>
     </div>
