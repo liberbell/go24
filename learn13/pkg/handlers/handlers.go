@@ -3,9 +3,9 @@ package handlers
 import (
 	"net/http"
 
-	"github.com/tsawler/go-course/pkg/config"
-	"github.com/tsawler/go-course/pkg/models"
-	"github.com/tsawler/go-course/pkg/render"
+	"github.com/tsawler/bookings/pkg/config"
+	"github.com/tsawler/bookings/pkg/models"
+	"github.com/tsawler/bookings/pkg/render"
 )
 
 var Repo *Repository
@@ -35,7 +35,6 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 	StringMap["test"] = "Hello, again."
 
 	remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
-	// m.App.Session
 	StringMap["remote_ip"] = remoteIP
 
 	render.RenderTemplate(w, "about.page.tmpl", &models.TemplateData{
