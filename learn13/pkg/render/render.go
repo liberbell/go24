@@ -46,13 +46,6 @@ func RenderTemplate(w http.ResponseWriter, tmpl string, td *models.TemplateData)
 	if err != nil {
 		log.Println(err)
 	}
-
-	//render the template
-	// parsedTemplate, _ := template.ParseFiles("./templates/"+tmpl, "./templates/base.layout.tmpl")
-	// err := parsedTemplate.Execute(w, nil)
-	// if err != nil {
-	// 	fmt.Println("error parsing template:", err)
-	// }
 }
 
 func CreateTemplateCache() (map[string]*template.Template, error) {
