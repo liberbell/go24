@@ -22,6 +22,11 @@
         max-width: 50%;
       }
 
+      .redText {
+        color: red;
+
+      }
+
     </style>
 
 </head>
@@ -122,6 +127,7 @@
       console.log("I am printing from javascript");
 
       let myEl = document.getElementById("my_paragraph");
+      myEl.classList.add("redText");
 
     </script>
 </body>
