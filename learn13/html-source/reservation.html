@@ -133,7 +133,12 @@
       // myEl.classList.add("redText");
       document.getElementById("colorButton").addEventListener("click", function() {
         let myEl = document.getElementById("my_paragraph");
-        myEl.classList.add("redText")
+
+        if (myEl.classList.contains("redText")) {
+          a
+        } else {
+          myEl.classList.add("redText")
+        }
       })
 
     </script>
