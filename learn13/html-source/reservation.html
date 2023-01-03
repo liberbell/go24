@@ -129,17 +129,28 @@
     <script>
       console.log("I am printing from javascript");
 
+      (function) {
+        'use strict';
+        window.addEventListener('load', function()) {
+          var forms = document.getElementsByClassName("needs-validation");
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener
+          })
+        }
+      }
+
       // let myEl = document.getElementById("my_paragraph");
       // myEl.classList.add("redText");
-      document.getElementById("colorButton").addEventListener("click", function() {
-        let myEl = document.getElementById("my_paragraph");
+      // document.getElementById("colorButton").addEventListener("click", function() {
+      //   let myEl = document.getElementById("my_paragraph");
 
-        if (myEl.classList.contains("redText")) {
-          myEl.classList.remove("redText");
-        } else {
-          myEl.classList.add("redText");
-        }
-      })
+      //   if (myEl.classList.contains("redText")) {
+      //     myEl.classList.remove("redText");
+      //   } else {
+      //     myEl.classList.add("redText");
+      //   }
+
+      // })
 
     </script>
 </body>
