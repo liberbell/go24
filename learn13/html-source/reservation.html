@@ -148,6 +148,14 @@
 
       document.getElementById("colorButton").addEventListener("click", function(){
         let myEl = document.getElementById("myParagraph");
+
+        if (myEl.classList.contains("redText")) {
+          myEl.classList.remove("redText");
+        } else {
+          myEl.classList.add("redText");
+        }
+
+      })
       })
 
       // let myEl = document.getElementById("my_paragraph");
