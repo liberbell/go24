@@ -129,7 +129,7 @@
     <script>
       console.log("I am printing from javascript");
 
-      (function) {
+      (function() {
         'use strict';
         window.addEventListener('load', function() {
           var forms = document.getElementsByClassName("needs-validation");
@@ -141,10 +141,9 @@
               }
               form.classList.add('was-validated');
             }, false);
-            )
           });
         }, false);
-      }
+      })();
 
       // let myEl = document.getElementById("my_paragraph");
       // myEl.classList.add("redText");
