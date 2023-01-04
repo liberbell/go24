@@ -167,10 +167,24 @@
         format: "yyyy-mm-dd",
       });
 
-      function alart(msg) {
+      function alartSuccess(msg) {
         notie.alert({
           type: "success",
           text: msg
+        })
+      }
+
+      function alartError(msg) {
+        notie.alert({
+          type: "error",
+          text: msg,
+        })
+      }
+
+      function alartWarning(msg) {
+        notie.alert({
+          type: "worning",
+          text: msg,
         })
       }
 
