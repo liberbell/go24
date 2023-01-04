@@ -152,13 +152,7 @@
       })();
 
       document.getElementById("colorButton").addEventListener("click", function(){
-        let myEl = document.getElementById("myParagraph");
-
-        if (myEl.classList.contains("redText")) {
-          myEl.classList.remove("redText");
-        } else {
-          myEl.classList.add("redText");
-        }
+        notify("This is my message", success)
 
       })
 
@@ -167,24 +161,10 @@
         format: "yyyy-mm-dd",
       });
 
-      function alartSuccess(msg) {
+      function alartSuccess(msg, msgType) {
         notie.alert({
-          type: "success",
+          type: msgType,
           text: msg
-        })
-      }
-
-      function alartError(msg) {
-        notie.alert({
-          type: "error",
-          text: msg,
-        })
-      }
-
-      function alartWarning(msg) {
-        notie.alert({
-          type: "worning",
-          text: msg,
         })
       }
 
