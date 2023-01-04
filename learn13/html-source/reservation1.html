@@ -165,7 +165,17 @@
       const elem = document.getElementById('reservation-dates');
       const rangepicker = new DateRangePicker(elem, {
         format: "yyyy-mm-dd",
-      }); 
+      });
+
+      function alart() {
+        notie.alert({
+          type: Number|String, // optional, default = 4, enum: [1, 2, 3, 4, 5, 'success', 'warning', 'error', 'info', 'neutral']
+          text: String,
+          stay: Boolean,
+          time: Number,
+          position: String
+        })
+      }
 
 
     </script>
