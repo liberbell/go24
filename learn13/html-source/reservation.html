@@ -76,10 +76,12 @@
 
                 <form action="reservation.html" method="GET" novalidate class="needs-validate">
                   <div class="form-row">
-                    <div id="foo">
-                      <input type="text" name="start">
-                      <span>to</span>
-                      <input type="text" name="end">  
+                    <div class="col">
+                      <div id="foo">
+                        <input type="text" name="start">
+                        <span>to</span>
+                        <input type="text" name="end">  
+                      </div>
                     </div>
                   </div>
                   <!-- <div class="row">
@@ -167,6 +169,12 @@
         }
 
       })
+
+      const elem = document.getElementById('foo');
+      const rangepicker = new DateRangePicker(elem, {
+        // ...options
+      }); 
+
 
     </script>
 </body>
