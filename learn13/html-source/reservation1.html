@@ -155,12 +155,7 @@
 
       document.getElementById("colorButton").addEventListener("click", function(){
         // notify("This is my message", "warning")
-        Swal.fire({
-          title: 'Error!',
-          text: 'Do you want to continue',
-          icon: 'error',
-          confirmButtonText: 'Cool'
-        })
+        notifyModel("title", "<em>Hello World</em>", "success", "My text for the button")
 
       })
 
