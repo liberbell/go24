@@ -183,12 +183,12 @@
 
       function Prompt() {
         let toast = function() {
-          const Toast = Swal.mixins({
+          const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
             timer: 3000,
-            timeProgressBar: true,
+            timerProgressBar: true,
             didOpen: (toast) => {
               toast.addEventListener("mouseenter", Swal.stopTimer),
               toast.addEventListener("mouseleave", Swal.resumeTimer)
