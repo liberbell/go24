@@ -156,7 +156,7 @@
       document.getElementById("colorButton").addEventListener("click", function(){
         // notify("This is my message", "warning")
         // notifyModel("title", "<em>Hello World</em>", "success", "My text for the button")
-        attention.toast({msg: "Hello world.", icon: "warning"});
+        attention.success({msg: "Hello world."});
 
       })
 
@@ -205,7 +205,7 @@
           Toast.fire({})
         }
 
-        let success = function() {
+        let success = function(c) {
           const {
             msg = "",
             title = "",
