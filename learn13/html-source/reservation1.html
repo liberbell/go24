@@ -193,6 +193,7 @@
             toast: true,
             title: msg,
             position: position,
+            icon: icon,
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
@@ -201,10 +202,7 @@
               toast.addEventListener("mouseleave", Swal.resumeTimer)
             }
           })
-          Toast.fire({
-            icon: "success",
-            title: "Signed in successfully"
-          })
+          Toast.fire({})
         }
 
         let success = function() {
