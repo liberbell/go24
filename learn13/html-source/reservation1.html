@@ -173,7 +173,7 @@
           </div>
         </form>
         `
-        attention.error({msg: "Hello world."});
+        attention.custom({msg: html});
 
       })
 
@@ -282,6 +282,7 @@
           toast: toast,
           success: success,
           error: error,
+          custom: custom,
         }
       }
 
