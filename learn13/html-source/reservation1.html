@@ -162,12 +162,10 @@
             <div class="col">
               <div class="row g-3" id="reservation-model">
                 <div class="col mb-3">
-                  // <label for="Input" class="form-label">Start date</label>
                   <input required class="form-control" type="text" name="start" id="start" placeholder="Arrival">
                 </div>
 
                 <div class="col mb-3">
-                  // <label for="Input2" class="form-label">Start date</label>
                   <input required class="form-control" type="text" name="end" id="end" placeholder="Departure">
                 </div>
               </div>
@@ -236,6 +234,13 @@
             backdrop: false,
             focusConfirm: false,
             showCancelButton: true,
+            willOpen: () => {
+              const elem = document.getElementById("reservation-model");
+              const rp = new DateRangePicker(elem, {
+                format: "yyyy-mm-dd",
+                showOnFocus: true,
+              })
+            },
             preConfirm: () => {
               return [
                 document.getElementById('start').value,
