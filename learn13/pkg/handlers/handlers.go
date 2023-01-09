@@ -41,3 +41,7 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 		StringMap: StringMap,
 	})
 }
+
+func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
+	render.RenderTemplate(w, "make-reservation.tmpl", &models.TemplateData{})
+}
