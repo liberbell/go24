@@ -47,9 +47,9 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "make-reservation.tmpl", &models.TemplateData{})
+	render.RenderTemplate(w, "generals.base.tmpl", &models.TemplateData{})
 }
 
 func (m *Repository) Majors(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "make-reservation.tmpl", &models.TemplateData{})
+	render.RenderTemplate(w, "majors.tmpl", &models.TemplateData{})
 }
