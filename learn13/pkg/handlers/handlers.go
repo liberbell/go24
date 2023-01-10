@@ -47,6 +47,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 	err := render.RenderTemplate(w, "make-reservation.page.tmpl", &models.TemplateData{})
 	if err != nil {
 		log.Println(err)
+		return
 	}
 }
 
