@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/tsawler/bookings/pkg/config"
@@ -43,7 +44,10 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, "make-reservation.page.tmpl", &models.TemplateData{})
+	err := render.RenderTemplate(w, "make-reservation.page.tmpl", &models.TemplateData{})
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
