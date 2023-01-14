@@ -58,6 +58,10 @@ func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "search-availability.page.tmpl", &models.TemplateData{})
 }
 
+func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Posted search availability"))
+}
+
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, "contact.page.tmpl", &models.TemplateData{})
 }
