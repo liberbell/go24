@@ -101,37 +101,19 @@
         <script>
         let attention = Prompt();
     
-        (function() {
-            'use strict';
-            window.addEventListener('load', function() {
-            let forms = document.getElementsByClassName('needs-validation');
-    
-            Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-                }, false);
-            });
-            }, false);
-        })();
-    
         document.getElementById("colorButton").addEventListener("click", function(){
-            // notify("This is my message", "warning")
-            // notifyModel("title", "<em>Hello World</em>", "success", "My text for the button")
+
             let html = `
             <form id="check-availability-form" action="" method="POST" novalidate class="needs-validation">
             <div class="form-row">
                 <div class="col">
                 <div class="row g-3" id="reservation-model">
                     <div class="col mb-3">
-                    <input disabled required class="form-control" type="text" name="start" id="start" placeholder="Arrival">
+                        <input disabled required class="form-control" type="text" name="start" id="start" placeholder="Arrival">
                     </div>
     
                     <div class="col mb-3">
-                    <input disabled required class="form-control" type="text" name="end" id="end" placeholder="Departure">
+                        <input disabled required class="form-control" type="text" name="end" id="end" placeholder="Departure">
                     </div>
                 </div>
                 </div>
