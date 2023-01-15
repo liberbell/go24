@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"path/filepath"
 
+	"github.com/justinas/nosurf"
 	"github.com/tsawler/bookings/pkg/config"
 	"github.com/tsawler/bookings/pkg/models"
 )
@@ -25,7 +26,7 @@ func AddDefaultData(td *models.TemplateData, r http.Request) *models.TemplateDat
 	return td
 }
 
-func RenderTemplate(w http.ResponseWriter, r http.Request, tmpl string, td *models.TemplateData) {
+func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *models.TemplateData) {
 	var tc map[string]*template.Template
 
 	if app.UseCache {
