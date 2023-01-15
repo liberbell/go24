@@ -59,6 +59,8 @@ func (m *Repository) Availability(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
+	start := r.Form.Get(("start"))
+	end := r.Form.Get(("end"))
 	w.Write([]byte("Posted search availability"))
 }
 
