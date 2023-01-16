@@ -75,7 +75,7 @@ type jsonResponse struct {
 
 func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 	resp := jsonResponse{
-		OK:      true,
+		OK:      false,
 		Message: "Available",
 	}
 
