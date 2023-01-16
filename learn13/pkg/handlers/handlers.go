@@ -63,7 +63,7 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	start := r.Form.Get(("start"))
 	end := r.Form.Get(("end"))
 
-	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end))
+	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
 }
 
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
