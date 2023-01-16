@@ -66,6 +66,10 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
 }
 
+func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "contact.page.tmpl", &models.TemplateData{})
 }
