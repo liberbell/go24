@@ -79,10 +79,12 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 		Message: "Available",
 	}
 
-	out, err := json.MarshalIndent(out, "", "     ")
+	out, err := json.MarshalIndent(resp, "", "     ")
 	if err != nil {
 		log.Println(err)
 	}
+
+	w.Write(out)
 }
 
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
