@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
 
@@ -72,7 +73,12 @@ type jsonResponse struct {
 }
 
 func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
+	resp := jsonResponse{
+		OK:      true,
+		Message: "Available",
+	}
 
+	out, err := json.MarshalIndent(out, "", "     ")
 }
 
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
