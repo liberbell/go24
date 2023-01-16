@@ -3,6 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/tsawler/bookings/pkg/config"
@@ -79,6 +80,9 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 	}
 
 	out, err := json.MarshalIndent(out, "", "     ")
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
