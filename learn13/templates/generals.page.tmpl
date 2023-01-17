@@ -64,7 +64,9 @@
                     let formData = new FormData(form);
                     formData.append("csrf_token", "{{.csrf_token}}");
 
-                    fetch("/search-availability-json")
+                    fetch("/search-availability-json", {
+                        method: "Post",
+                    })
                         .then(response => response.json())
                         .then(data => {
                             console.log(data);
