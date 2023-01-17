@@ -12,6 +12,7 @@ import (
 func routes(app *config.AppConfig) http.Handler {
 
 	// test
+	// test
 	mux := chi.NewRouter()
 
 	mux.Use(middleware.Recoverer)
