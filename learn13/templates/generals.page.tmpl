@@ -66,6 +66,7 @@
 
                     fetch("/search-availability-json", {
                         method: "Post",
+                        body: formData,
                     })
                         .then(response => response.json())
                         .then(data => {
