@@ -57,6 +57,14 @@
             attention.custom({
                 msg: html,
                 title: "choose your dates",
+                willOpen: () => {
+                    const elem = document.getElementById("reservation-model");
+                    const rp = new DateRangePicker(elem, {
+                        format: "yyyy-mm-dd",
+                        showOnFocus: true,
+                    })
+                },
+
                 callback: function(result) {
                     console.log("called");
 
