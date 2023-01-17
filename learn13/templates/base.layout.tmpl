@@ -154,11 +154,11 @@
                 focusConfirm: false,
                 showCancelButton: true,
                 willOpen: () => {
-                const elem = document.getElementById("reservation-model");
-                const rp = new DateRangePicker(elem, {
-                    format: "yyyy-mm-dd",
-                    showOnFocus: true,
-                })
+                  const elem = document.getElementById("reservation-model");
+                  const rp = new DateRangePicker(elem, {
+                      format: "yyyy-mm-dd",
+                      showOnFocus: true,
+                  })
                 },
                 preConfirm: () => {
                 return [
