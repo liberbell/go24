@@ -54,7 +54,11 @@
             </div>
             </form>
             `
-            attention.custom({msg: html, title: "choose your dates"});
+            attention.custom({
+                msg: html,
+                title: "choose your dates",
+                callback: function(result)
+            });
         })
     </script>
 {{ end }}
