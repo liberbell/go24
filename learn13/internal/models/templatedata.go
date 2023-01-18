@@ -1,5 +1,9 @@
 package models
 
+import (
+	"github.com/tsawler/bookings/internal/forms"
+)
+
 type TemplateData struct {
 	StringMap map[string]string
 	IntMap    map[string]int
