@@ -1,4 +1,4 @@
-package errors
+package forms
 
 type errors map[string][]string
 
