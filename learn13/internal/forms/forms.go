@@ -1,6 +1,7 @@
 package forms
 
 import (
+	"net/http"
 	"net/url"
 )
 
@@ -14,4 +15,8 @@ func New(data url.Values) *Form {
 		data,
 		errors(map[string][]string),
 	}
+}
+
+func (f *Form) Has(field string, r http.Request) bool {
+
 }
