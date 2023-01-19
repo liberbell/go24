@@ -140,7 +140,37 @@
               })
               Toast.fire({})
               }
-      
+              let success = function (c) {
+                const {
+                    msg = "",
+                    title = "",
+                    footer = "",
+                } = c
+
+                Swal.fire({
+                    icon: 'success',
+                    title: title,
+                    text: msg,
+                    footer: footer,
+                })
+
+            }
+
+            let error = function (c) {
+                const {
+                    msg = "",
+                    title = "",
+                    footer = "",
+                } = c
+
+                Swal.fire({
+                    icon: 'error',
+                    title: title,
+                    text: msg,
+                    footer: footer,
+                })
+
+            }
               async function custom(c) {
               const {
                   msg = "",
