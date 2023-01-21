@@ -59,8 +59,10 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	reservation := models.Reservation{
-		FirstName: r.Form.Get("first-name"),
-		LastName:  r.Form.get("last-name"),
+		FirstName: r.Form.Get("first_name"),
+		LastName:  r.Form.Get("last_name"),
+		Email: r.Form.Get("email"),
+		Phone: r.Form.Get("phone")
 	}
 }
 
