@@ -58,7 +58,10 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 		return
 	}
-	reservation := models.
+	reservation := models.Reservation{
+		FirstName: r.Form.Get("first-name"),
+		LastName:  r.Form.get("last-name"),
+	}
 }
 
 func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
