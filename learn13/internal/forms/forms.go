@@ -10,7 +10,7 @@ type Form struct {
 	Errors errors
 }
 
-func (f *Form) valid() bool {
+func (f *Form) Valid() bool {
 	return len(f.Errors) == 0
 }
 
