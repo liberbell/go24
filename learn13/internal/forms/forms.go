@@ -10,6 +10,10 @@ type Form struct {
 	Errors errors
 }
 
+func (f *Form) valid() bool {
+	return len(f.Errors) == 0
+}
+
 func New(data url.Values) *Form {
 	return &Form{
 		data,
