@@ -53,7 +53,11 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
-	render.RenderTemplate(w, r, "make-reservation.page.tmpl", &models.TemplateData{})
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+		return
+	}
 }
 
 func (m *Repository) Generals(w http.ResponseWriter, r *http.Request) {
