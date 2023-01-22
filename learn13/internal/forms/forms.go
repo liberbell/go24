@@ -22,7 +22,9 @@ func New(data url.Values) *Form {
 }
 
 func (f *Form) Required(field ...string) {
-
+	for _, field := range fields {
+		value := f.Get(field)
+	}
 }
 
 func (f *Form) Has(field string, r *http.Request) bool {
