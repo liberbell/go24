@@ -39,3 +39,7 @@ func (f *Form) Has(field string, r *http.Request) bool {
 	}
 	return true
 }
+
+func (f *Form) MinLength(field string, length int, r *http.Request) bool {
+	x := r.Form.Get(field)
+}
