@@ -24,6 +24,9 @@
 
                     <div class="form-group">
                         <label for="last_name">Last Name:</label>
+                        {{ with .Form.Errors.Get "first_name"}}
+                            <label class="text-danger">{{.}}</label>
+                        {{ end }}
                         <input class="form-control"
                                id="last_name" autocomplete="off" type='text'
                                name='last_name' value="{{$res.LastName}}" required>
