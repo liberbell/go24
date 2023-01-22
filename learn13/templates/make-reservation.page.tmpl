@@ -14,7 +14,7 @@
                         {{ with .Form.Errors.Get "first_name"}}
                             <label class="text-danger">{{.}}</label>
                         {{ end }}
-                        <input class="form-control" id="first_name" autocomplete="off" type='text'
+                        <input class="form-control {{with .Form.Errors.Get "first_name"}} is_invalid" {{end}} id="first_name" autocomplete="off" type='text'
                                name='first_name' value="" required>
                     </div>
 
