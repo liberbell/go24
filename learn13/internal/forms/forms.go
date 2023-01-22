@@ -23,7 +23,7 @@ func New(data url.Values) *Form {
 }
 
 func (f *Form) Required(field ...string) {
-	for _, field := range fields {
+	for _, field := range field {
 		value := f.Get(field)
 		if strings.TrimSpace(value) == "" {
 			f.Errors.Add(field, "This filed cannot be blank.")
