@@ -131,3 +131,7 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 	render.RenderTemplate(w, r, "contact.page.tmpl", &models.TemplateData{})
 }
+
+func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
+
+}
