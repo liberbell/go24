@@ -139,5 +139,8 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 	if !ok {
 		log.Println("Cannot get item from session")
 	}
-	render.RenderTemplate(w, r, "reservation-summay.page.tmpl", &models.TemplateData{})
+	data := make(map[string]interface{})
+	render.RenderTemplate(w, r, "reservation-summay.page.tmpl", &models.TemplateData{
+		Data: ,
+	})
 }
