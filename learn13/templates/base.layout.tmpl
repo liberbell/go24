@@ -135,6 +135,8 @@
               confirmButtonText: confirmationButtonText
               })
           }
+
+          notify("{{.}}", "error")
       
           function Prompt() {
               let toast = function (c) {
