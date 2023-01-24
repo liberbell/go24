@@ -143,6 +143,6 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 	data["reservation"] = reservation
 
 	render.RenderTemplate(w, r, "reservation-summay.page.tmpl", &models.TemplateData{
-		Data:
+		Data: data,
 	})
 }
