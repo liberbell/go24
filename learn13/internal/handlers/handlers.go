@@ -135,5 +135,6 @@ func (m *Repository) Contact(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) {
+	reservation, ok := m.App.Session.Get(r.Context(), "reservation")
 	render.RenderTemplate(w, r, "reservation-summay.page.tmpl", &models.TemplateData{})
 }
