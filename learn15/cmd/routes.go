@@ -10,5 +10,7 @@ func routes() http.Handler {
 	mux := pat.New
 
 	mux.Get("/", http.HandlerFunc(handlers.Home))
-	mux.Get("")
+	mux.Get("/send", http.HandleFunc(handlers.SendData))
+
+	return mux
 }
