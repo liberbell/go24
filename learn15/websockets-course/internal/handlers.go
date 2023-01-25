@@ -19,5 +19,9 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		"Sunday",
 		"Monday",
 		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday",
 	}
 }
