@@ -31,3 +31,10 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		_, _ = fmt.Fprintf(w, "Error executing template: ", err)
 	}
 }
+
+func SendData(w http.ResponseWriter, r *http.Request) {
+	err := renderPage(w, "send.jet", nil)
+	if err != nil {
+		_, _ = fmt.Fprintf(w, "Error executing template: ", err)
+	}
+}
