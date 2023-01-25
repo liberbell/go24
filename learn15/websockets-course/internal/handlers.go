@@ -29,14 +29,14 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	data.Set("dow", dow)
 	err := renderPage(w, "home.jet", data)
 	if err != nil {
-		_, _ = fmt.Fprintf(w, "Error executing template: ", err)
+		_, _ = fmt.Fprint(w, "Error executing template: ", err)
 	}
 }
 
 func SendData(w http.ResponseWriter, r *http.Request) {
 	err := renderPage(w, "send.jet", nil)
 	if err != nil {
-		_, _ = fmt.Fprintf(w, "Error executing template: ", err)
+		_, _ = fmt.Fprint(w, "Error executing template: ", err)
 	}
 }
 
@@ -49,5 +49,7 @@ func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 	err = view.Execute(w, data, nil)
 	if err != nil {
 		log.Println("Error executing template: ", err)
+		return err
 	}
+	return nil
 }
