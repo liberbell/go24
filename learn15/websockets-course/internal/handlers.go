@@ -11,6 +11,13 @@ var views = jet.NewSet(
 	jet.InDevelopmentMode(),
 )
 
-func Home(w http.ResponseWriter, r *http.Request)  {
-	data := 	
+func Home(w http.ResponseWriter, r *http.Request) {
+	data := make(jet.VarMap)
+	data.Set("user_id", 1)
+	data.Set("first", "Eric")
+	dow := []string{
+		"Sunday",
+		"Monday",
+		"Tuesday",
+	}
 }
