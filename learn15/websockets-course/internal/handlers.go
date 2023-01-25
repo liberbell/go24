@@ -38,3 +38,7 @@ func SendData(w http.ResponseWriter, r *http.Request) {
 		_, _ = fmt.Fprintf(w, "Error executing template: ", err)
 	}
 }
+
+func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
+
+}
