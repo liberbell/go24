@@ -6,7 +6,6 @@ import (
 	"net/http"
 
 	"github.com/CloudyKit/jet"
-	_ "github.com/tsawler/websockets-course/internal/handlers"
 )
 
 var views = jet.NewSet(
