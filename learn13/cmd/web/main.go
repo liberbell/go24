@@ -21,6 +21,11 @@ var session *scs.SessionManager
 
 func main() {
 
+	err := run()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	gob.Register(models.Reservation{})
 
 	app.InProduction = false
