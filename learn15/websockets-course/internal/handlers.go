@@ -30,7 +30,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	data.Set("dow", dow)
 	err := renderPage(w, "home.jet", data)
 	if err != nil {
-		_, _ = fmt.Fprint(w, "Error executing template: ", err)
+		_, _ = fmt.Fprint(w, "Error executing template: ", err.Error())
 	}
 }
 
