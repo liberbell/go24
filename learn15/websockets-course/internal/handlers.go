@@ -30,7 +30,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	data.Set("dow", dow)
 	err := renderPage(w, "home.jet", data)
 	if err != nil {
-		_, _ = fmt.Fprint(w, "Error executing template: ", err.Error())
+		_, _ = fmt.Fprint(w, "Error executing template: ", err)
 	}
 }
 
@@ -44,7 +44,8 @@ func SendData(w http.ResponseWriter, r *http.Request) {
 func renderPage(w http.ResponseWriter, tmpl string, data jet.VarMap) error {
 	view, err := views.GetTemplate(tmpl)
 	if err != nil {
-		log.Println("Unexpected template err: ", err)
+		log.Println("Unexpected template err: ", err.Error())
+		return err
 	}
 
 	err = view.Execute(w, data, nil)
