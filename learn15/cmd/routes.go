@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/bmizerany/pat"
+	"github.com/tsawler/websockets-course/internal/handlers"
 )
 
 func routes() http.Handler {
