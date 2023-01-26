@@ -58,3 +58,8 @@ func main() {
 		log.Fatal(err)
 	}
 }
+
+func run() error {
+
+	return nil
+}
