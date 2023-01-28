@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"net/http"
+	"testing"
+)
 
 func TestNoSurf(t *testing.T) {
 	var myH myHandler
