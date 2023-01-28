@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestNoSurve(t *testing.T) {
+func TestNoSurf(t *testing.T) {
 	var myH myHandler
 
 	h := NoSurf(&myH)
