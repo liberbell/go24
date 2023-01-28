@@ -6,3 +6,7 @@ func TestMain(m *testing.M) {
 }
 
 type myhandler struct{}
+
+func (mh *myHandler) ServeHTTP(w http.ResponseWriter) {
+
+}
