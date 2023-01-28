@@ -10,7 +10,7 @@ func TestNoSurve(t *testing.T) {
 	switch v := h.(type) {
 	case http.Handler:
 	default:
-		t.Error(fmt.Sprintf("type is not http.Handler"))
+		t.Error(fmt.Sprintf("type is not http.Handler, but is %T"), v)
 
 	}
 }
