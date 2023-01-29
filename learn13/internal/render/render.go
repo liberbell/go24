@@ -16,6 +16,7 @@ import (
 var functions = template.FuncMap{}
 
 var app *config.AppConfig
+var pathToTemplates = "/templates"
 
 func NewTemplates(a *config.AppConfig) {
 	app = a
@@ -58,7 +59,7 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
 	//get all of the files name *.page.tmpl from ./templates
-	pages, err := filepath.Glob("./templates/*.page.tmpl")
+	pages, err := filepath.Glob(fmt.Sprintf()("%s/*.page.tmpl", pathToTemplates))
 	if err != nil {
 		return myCache, err
 	}
