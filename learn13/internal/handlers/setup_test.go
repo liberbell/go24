@@ -7,6 +7,10 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"net/http"
 	"time"
+
+	"github.com/tsawler/bookings/internal/config"
+	"github.com/tsawler/bookings/internal/models"
+	"github.com/tsawler/bookings/internal/render"
 )
 
 var app config.AppConfig
