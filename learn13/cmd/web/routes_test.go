@@ -8,7 +8,7 @@ import (
 	"github.com/tsawler/bookings/internal/config"
 )
 
-func testRoutes(t *testing.T) {
+func TestRoutes(t *testing.T) {
 	var app config.AppConfig
 
 	mux := routes(&app)
