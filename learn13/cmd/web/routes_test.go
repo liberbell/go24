@@ -1,6 +1,12 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/tsawler/bookings/internal/config"
+)
 
 func testRoutes(t *testing.T) {
 	var app config.AppConfig
