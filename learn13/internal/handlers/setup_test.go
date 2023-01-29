@@ -1,12 +1,17 @@
 package handlers
 
 import (
+	"encoding/gob"
 	"github.com/alexedwards/scs/v2"
 	"net/http"
 	"time"
 )
 
+var app config.AppConfig
+var session *scs.SessionManager
+
 func getRoutes() http.Handler {
+
 	gob.Register(models.Reservation{})
 	app.InProduction = false
 
