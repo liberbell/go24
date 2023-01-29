@@ -25,14 +25,13 @@ func getRoutes() http.Handler {
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
-		// return err
 	}
 
 	app.TemplateCache = tc
 	app.UseCache = false
 
 	repo := handlers.NewRepo(&app)
-	handlers.NewHandlers(repo)
+	NewHandlers(repo)
 
 	render.NewTemplates(&app)
 	return nil
