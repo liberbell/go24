@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"net/http"
-	"html/templae"
+	"html/template"
 )
 
 type postData struct {
