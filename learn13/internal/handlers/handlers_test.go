@@ -1,8 +1,9 @@
 package handlers
 
 import (
-	"net/http"
 	"html/template"
+	"net/http"
+	"net/http/httptest"
 )
 
 type postData struct {
@@ -11,16 +12,16 @@ type postData struct {
 }
 
 var theTests = []struct {
-	name   string
-	url    string
-	method string
-	params []postData
+	name               string
+	url                string
+	method             string
+	params             []postData
 	expectedStatusCode int
 }{
-	{"name", "/", "GET", []postData, http.StatusOK},
+	{"name", "/", "GET", []postData{}, http.StatusOK},
 }
 
-func TestHandlers(t *testing.T)  {
+func TestHandlers(t *testing.T) {
 	routes := getRoutes()
 	ts := httptest.NewTLSServer(routes)
 
