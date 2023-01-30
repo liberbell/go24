@@ -5,9 +5,12 @@ type postData struct {
 	value string
 }
 
-var theTests []struct {
+var theTests = []struct {
 	name   string
 	url    string
 	method string
 	params []postData
+	expectedStatusCode int
+}{
+	{"name", "/", "GET", []postData, 200}
 }
