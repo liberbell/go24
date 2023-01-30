@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"html/template"
 	"net/http"
 	"net/http/httptest"
+	"testing"
 )
 
 type postData struct {
@@ -37,6 +37,7 @@ func TestHandlers(t *testing.T) {
 			if resp.StatusCode != e.expectedStatusCode {
 				t.Errorf("for %s, expected %d but got %d", e.name, e.expectedStatusCode, resp.StatusCode)
 			}
+
 		} else {
 
 		}
