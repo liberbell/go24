@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/tsawler/bookings/internal/config"
+	"github.com/tsawler/bookings/internal/handlers"
 	"github.com/tsawler/bookings/internal/models"
 	"github.com/tsawler/bookings/internal/render"
 )
