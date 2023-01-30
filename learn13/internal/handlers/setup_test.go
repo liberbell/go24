@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/justinas/nosurf"
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/handlers"
 	"github.com/tsawler/bookings/internal/models"
