@@ -15,6 +15,8 @@ import (
 	"github.com/tsawler/bookings/internal/render"
 )
 
+var functions = templae.FuncMap{}
+
 var app config.AppConfig
 var session *scs.SessionManager
 var pathToTemplates = "./../../templates"
