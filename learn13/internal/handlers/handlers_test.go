@@ -16,3 +16,7 @@ var theTests = []struct {
 }{
 	{"name", "/", "GET", []postData, http.StatusOK},
 }
+
+func TestHandlers(t *testing.T)  {
+	
+}
