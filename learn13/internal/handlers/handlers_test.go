@@ -24,6 +24,8 @@ func TestHandlers(t *testing.T)  {
 	defer ts.Close()
 
 	for _, e := range theTests {
-		if e.method == "POST"
+		if e.method == "GET" {
+			ts.Client().Get(ts.URL + e.url)
+		}
 	}
 }
