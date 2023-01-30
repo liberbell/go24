@@ -17,6 +17,7 @@ import (
 
 var app config.AppConfig
 var session *scs.SessionManager
+var pathToTemplates = "./../../templates"
 
 func getRoutes() http.Handler {
 
