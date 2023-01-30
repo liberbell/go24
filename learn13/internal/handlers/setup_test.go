@@ -15,7 +15,7 @@ import (
 	"github.com/tsawler/bookings/internal/render"
 )
 
-var functions = templae.FuncMap{}
+var functions = template.FuncMap{}
 
 var app config.AppConfig
 var session *scs.SessionManager
