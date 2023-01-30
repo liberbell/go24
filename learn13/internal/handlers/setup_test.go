@@ -92,7 +92,7 @@ func SessionLoad(next http.Handler) http.Handler {
 	return session.LoadAndSave(next)
 }
 
-func CreateTemplateCache() (map[string]*template.Template, error) {
+func CreateTestTemplateCache() (map[string]*template.Template, error) {
 	myCache := map[string]*template.Template{}
 
 	//get all of the files name *.page.tmpl from ./templates
