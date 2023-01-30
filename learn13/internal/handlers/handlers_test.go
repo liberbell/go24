@@ -1,5 +1,7 @@
 package handlers
 
+import "net/http"
+
 type postData struct {
 	key   string
 	value string
@@ -12,5 +14,5 @@ var theTests = []struct {
 	params []postData
 	expectedStatusCode int
 }{
-	{"name", "/", "GET", []postData, 200}
+	{"name", "/", "GET", []postData, http.StatusOK},
 }
