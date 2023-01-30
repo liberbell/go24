@@ -14,7 +14,6 @@ import (
 
 	"github.com/justinas/nosurf"
 	"github.com/tsawler/bookings/internal/config"
-	"github.com/tsawler/bookings/internal/handlers"
 	"github.com/tsawler/bookings/internal/models"
 	"github.com/tsawler/bookings/internal/render"
 )
@@ -45,7 +44,7 @@ func getRoutes() http.Handler {
 	app.TemplateCache = tc
 	app.UseCache = true
 
-	repo := handlers.NewRepo(&app)
+	repo := NewRepo(&app)
 	NewHandlers(repo)
 
 	render.NewTemplates(&app)
