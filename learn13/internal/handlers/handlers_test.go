@@ -60,6 +60,9 @@ func TestHandlers(t *testing.T) {
 
 		} else {
 			values := url.Values{}
+			for _, x := range.e.params{
+				values.Add(x.key, x.value)
+			}
 		}
 	}
 }
