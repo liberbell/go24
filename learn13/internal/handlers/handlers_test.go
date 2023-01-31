@@ -63,6 +63,7 @@ func TestHandlers(t *testing.T) {
 			for _, x := range.e.params{
 				values.Add(x.key, x.value)
 			}
+			resp, err := ts.Client().PostForm(ts.URL + e.url, values)
 		}
 	}
 }
