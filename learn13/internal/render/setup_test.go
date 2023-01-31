@@ -13,5 +13,16 @@ var testApp config.AppConfig
 
 func testMain(m *testing.M) {
 
+	gob.Register(models.Reservation{})
+	testApp.InProduction = false
+
+	session = scs.New()
+	session.Lifetime = 24 * time.Hour
+	session.Cookie.Persist = true
+	session.Cookie.SameSite = http.SameSiteLaxMode
+	session.Cookie.Secure = false
+
+	testApp.Session = session
+
 	os.Exit(m.Run())
 }
