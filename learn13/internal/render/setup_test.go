@@ -13,5 +13,5 @@ var testApp config.AppConfig
 
 func testMain(m *testing.M) {
 
-	os.Exit()
+	os.Exit(m.Run())
 }
