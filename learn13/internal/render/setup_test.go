@@ -1,11 +1,13 @@
 package render
 
 import (
+	"encoding/gob"
 	"os"
 	"testing"
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/tsawler/bookings/internal/config"
+	"github.com/tsawler/bookings/internal/models"
 )
 
 var session *scs.SessionManager
