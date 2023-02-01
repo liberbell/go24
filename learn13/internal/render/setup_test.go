@@ -24,5 +24,7 @@ func testMain(m *testing.M) {
 
 	testApp.Session = session
 
+	app = &testApp
+
 	os.Exit(m.Run())
 }
