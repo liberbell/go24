@@ -15,7 +15,7 @@ import (
 var session *scs.SessionManager
 var testApp config.AppConfig
 
-func testMain(m *testing.M) {
+func TestMain(m *testing.M) {
 
 	gob.Register(models.Reservation{})
 	testApp.InProduction = false
