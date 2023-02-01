@@ -13,7 +13,7 @@ func TestAddDefaultData(t *testing.T) {
 	if err != nil {
 		t.Error(error)
 	}
-	result := AddDefaultData(td, r)
+	result := AddDefaultData(&td, r)
 
 	if result == nil {
 		t.Error("failed to add default data.")
