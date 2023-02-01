@@ -14,13 +14,11 @@ func TestAddDefaultData(t *testing.T) {
 		t.Error(err)
 	}
 
-	r, err := http.NewRequest("GET", "/some-url", nil)
-	if err != nil {
-		t.Error(error)
-	}
+	session.Put(r.Context(), "flash", "123")
+
 	result := AddDefaultData(&td, r)
 
-	if result == nil {
+	if result.Flash == "123" {
 		t.Error("failed to add default data.")
 	}
 }
