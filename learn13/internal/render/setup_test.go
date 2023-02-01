@@ -2,8 +2,10 @@ package render
 
 import (
 	"encoding/gob"
+	"net/http"
 	"os"
 	"testing"
+	"time"
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/tsawler/bookings/internal/config"
