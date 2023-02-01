@@ -24,6 +24,7 @@ func getSession() (*http.Request, error) {
 	r, err := http.NewRequest("GET", "/some-url", nil)
 	if err != nil {
 		return nil, err
-
 	}
+	ctx := r.Context()
+	ctx, _ = session.Load(ctx, r.Header.Get("X-Session-"))
 }
