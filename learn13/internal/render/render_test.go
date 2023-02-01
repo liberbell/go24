@@ -19,3 +19,7 @@ func TestAddDefaultData(t *testing.T) {
 		t.Error("failed to add default data.")
 	}
 }
+
+func getSession() (*http.Request, error) {
+	r, err := http.NewRequest("GET", "/some-url", nil)
+}
