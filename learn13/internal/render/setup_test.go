@@ -32,3 +32,9 @@ func TestMain(m *testing.M) {
 
 	os.Exit(m.Run())
 }
+
+type myWriter struct{}
+
+func (tw *mywriter) Header() http.Header {
+
+}
