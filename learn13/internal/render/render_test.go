@@ -35,9 +35,9 @@ func TestRenderTemplate(t *testing.T) {
 		t.Error(err)
 	}
 
-	ww := httl
+	var ww myWriter
 
-	err = RenderTemplate(ww, r, "home.page.tmpl", &models.templateData{}) {
+	err = RenderTemplate(&ww, r, "home.page.tmpl", &models.templateData{}) {
 		a
 	}
 }
