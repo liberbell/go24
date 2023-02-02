@@ -2,6 +2,7 @@ package render
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"html/template"
 	"log"
@@ -43,6 +44,7 @@ func RenderTemplate(w http.ResponseWriter, r *http.Request, tmpl string, td *mod
 	t, ok := tc[tmpl]
 	if !ok {
 		log.Fatal("could not get template from template cache")
+		return errors.New("can`t get template from chache")
 	}
 	buf := new(bytes.Buffer)
 	td = AddDefaultData(td, r)
