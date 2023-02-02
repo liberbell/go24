@@ -36,5 +36,6 @@ func TestMain(m *testing.M) {
 type myWriter struct{}
 
 func (tw *mywriter) Header() http.Header {
-
+	var h http.Header
+	return h
 }
