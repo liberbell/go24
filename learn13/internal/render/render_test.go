@@ -35,7 +35,9 @@ func TestRenderTemplate(t *testing.T) {
 		t.Error(err)
 	}
 
-	err = RenderTemplate(w, r, "home.page.tmpl", &models.templateData{}) {
+	ww := httl
+
+	err = RenderTemplate(ww, r, "home.page.tmpl", &models.templateData{}) {
 		a
 	}
 }
