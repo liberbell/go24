@@ -26,6 +26,9 @@ func TestAddDefaultData(t *testing.T) {
 func TestRenderTemplate(t *testing.T) {
 	pathToTemplates = "./../../templates"
 	tc, err := CreateTemplateCache()
+	if err != nil {
+		t.Error(err)
+	}
 }
 
 func getSession() (*http.Request, error) {
