@@ -35,7 +35,16 @@ func TestMain(m *testing.M) {
 
 type myWriter struct{}
 
-func (tw *mywriter) Header() http.Header {
+func (tw *myWriter) Header() http.Header {
 	var h http.Header
 	return h
+}
+
+func (tw *myWriter) WriteHeader(i int) {
+
+}
+
+func (tw *myWriter) Writer(b []byte) (int, error) {
+	length := len(b)
+	return length, nil
 }
