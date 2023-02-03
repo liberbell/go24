@@ -42,7 +42,7 @@ func TestRenderTemplate(t *testing.T) {
 		t.Error("error writing template to browser")
 	}
 
-	err = RenderTemplate(&ww, r, "non-exitent.page.tmpl", &models.templateData{})
+	err = RenderTemplate(&ww, r, "non-exitent.page.tmpl", &models.TemplateData{})
 	if err != nil {
 		t.Error("render template does not exit")
 	}
