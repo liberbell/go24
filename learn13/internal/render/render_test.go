@@ -37,9 +37,16 @@ func TestRenderTemplate(t *testing.T) {
 
 	var ww myWriter
 
-	err = RenderTemplate(&ww, r, "home.page.tmpl", &models.templateData{}) {
-		a
+	err = RenderTemplate(&ww, r, "home.page.tmpl", &models.templateData{})
+	if err != nil {
+		t.Error("error writing template to browser")
 	}
+
+	err = RenderTemplate(&ww, r, "non-exitent.page.tmpl", &models.templateData{})
+	if err != nil {
+		t.Error("render template does not exit")
+	}
+
 }
 
 func getSession() (*http.Request, error) {
