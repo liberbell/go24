@@ -23,4 +23,11 @@ func TestForm_Required(t *testing.T) {
 	if form.Valid() {
 		t.Error("form shows valid when required fields missing")
 	}
+
+	postedData := url.Values{}
+	postedData.Add("a", "a")
+	postedData.Add("b", "b")
+	postedData.Add("c", "c")
+
+	r, _ = http.NewRequest("POST", "/whatever", nil)
 }
