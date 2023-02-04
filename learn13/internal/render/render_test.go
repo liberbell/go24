@@ -11,7 +11,7 @@ func TestAddDefaultData(t *testing.T) {
 
 	r, err := getSession()
 	if err != nil {
-		t.Error(err)
+		t.Fatal(err)
 	}
 
 	session.Put(r.Context(), "flash", "123")
