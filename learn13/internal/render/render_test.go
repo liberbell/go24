@@ -68,7 +68,7 @@ func TestNewTemplates(t *testing.T) {
 
 func TestCreateTemplateCache(t *testing.T) {
 	pathToTemplates = "./../../templates"
-	tc, err := CreateTemplateCache()
+	_, err := CreateTemplateCache()
 	if err != nil {
 		t.Error(err)
 	}
