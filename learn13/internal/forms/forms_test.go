@@ -30,4 +30,5 @@ func TestForm_Required(t *testing.T) {
 	postedData.Add("c", "c")
 
 	r, _ = http.NewRequest("POST", "/whatever", nil)
+	r.PostForm = postedData
 }
