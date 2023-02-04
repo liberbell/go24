@@ -17,7 +17,7 @@ import (
 var functions = template.FuncMap{}
 
 var app *config.AppConfig
-var pathToTemplates = "/templates"
+var pathToTemplates = "./templates"
 
 func NewTemplates(a *config.AppConfig) {
 	app = a
