@@ -19,7 +19,7 @@ func TestAddDefaultData(t *testing.T) {
 	result := AddDefaultData(&td, r)
 
 	if result.Flash != "123" {
-		t.Error("falsh value of 123 not found in session")
+		t.Error("flash value of 123 not found in session")
 	}
 }
 
