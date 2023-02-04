@@ -1,0 +1,22 @@
+mode: set
+github.com/tsawler/bookings/internal/handlers/handlers.go:21.47,25.2 1 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:26.33,28.2 1 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:30.67,35.2 3 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:37.68,47.2 5 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:49.74,58.2 4 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:60.78,62.16 2 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:66.2,80.19 6 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:90.2,91.66 2 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:62.16,65.3 2 0
+github.com/tsawler/bookings/internal/handlers/handlers.go:80.19,89.3 4 0
+github.com/tsawler/bookings/internal/handlers/handlers.go:94.71,96.2 1 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:98.69,100.2 1 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:102.75,104.2 1 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:106.79,111.2 3 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:118.79,125.16 3 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:129.2,130.14 2 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:125.16,127.3 1 0
+github.com/tsawler/bookings/internal/handlers/handlers.go:133.70,135.2 1 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:137.81,139.9 2 1
+github.com/tsawler/bookings/internal/handlers/handlers.go:146.2,152.4 4 0
+github.com/tsawler/bookings/internal/handlers/handlers.go:139.9,144.3 4 1

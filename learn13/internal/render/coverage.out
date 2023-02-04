@@ -1,0 +1,23 @@
+mode: set
+github.com/tsawler/bookings/internal/render/render.go:22.40,24.2 1 1
+github.com/tsawler/bookings/internal/render/render.go:26.84,32.2 5 1
+github.com/tsawler/bookings/internal/render/render.go:34.105,37.18 2 1
+github.com/tsawler/bookings/internal/render/render.go:44.2,45.9 2 1
+github.com/tsawler/bookings/internal/render/render.go:49.2,55.16 5 1
+github.com/tsawler/bookings/internal/render/render.go:59.2,59.12 1 1
+github.com/tsawler/bookings/internal/render/render.go:37.18,39.3 1 0
+github.com/tsawler/bookings/internal/render/render.go:39.8,41.3 1 1
+github.com/tsawler/bookings/internal/render/render.go:45.9,48.3 1 1
+github.com/tsawler/bookings/internal/render/render.go:55.16,58.3 2 0
+github.com/tsawler/bookings/internal/render/render.go:62.67,67.16 3 1
+github.com/tsawler/bookings/internal/render/render.go:71.2,71.29 1 1
+github.com/tsawler/bookings/internal/render/render.go:93.2,93.21 1 1
+github.com/tsawler/bookings/internal/render/render.go:67.16,69.3 1 0
+github.com/tsawler/bookings/internal/render/render.go:71.29,74.17 3 1
+github.com/tsawler/bookings/internal/render/render.go:78.3,79.17 2 1
+github.com/tsawler/bookings/internal/render/render.go:84.3,84.23 1 1
+github.com/tsawler/bookings/internal/render/render.go:91.3,91.21 1 1
+github.com/tsawler/bookings/internal/render/render.go:74.17,77.4 2 0
+github.com/tsawler/bookings/internal/render/render.go:79.17,82.4 2 0
+github.com/tsawler/bookings/internal/render/render.go:84.23,86.18 2 1
+github.com/tsawler/bookings/internal/render/render.go:86.18,89.5 2 0
