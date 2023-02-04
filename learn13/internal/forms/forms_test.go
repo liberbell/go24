@@ -31,4 +31,10 @@ func TestForm_Required(t *testing.T) {
 
 	r, _ = http.NewRequest("POST", "/whatever", nil)
 	r.PostForm = postedData
+
+	form = New(r.PostForm)
+	form.Required("a", "b", "c")
+	if != form.Valid() {
+		t.Error("shows does not have requierd fields when it does")
+	}
 }
