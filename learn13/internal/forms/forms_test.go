@@ -102,6 +102,6 @@ func TestForm_IsEmail(t *testing.T) {
 
 	form.IsEmail("email")
 	if !form.Valid() {
-		t.Error("got an invalid email when we shoud not have")
+		t.Error("got valid for invalid email address")
 	}
 }
