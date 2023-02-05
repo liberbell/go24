@@ -49,4 +49,8 @@ func TestForm_Has(t *testing.T) {
 	if has {
 		t.Error("form shows has field when it does not")
 	}
+
+	postedData := url.Values{}
+	postedData.Add("a", "a")
+	form = New(postedData)
 }
