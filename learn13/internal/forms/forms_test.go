@@ -71,4 +71,5 @@ func TestForm_Minlength(t *testing.T) {
 
 	postedValues := url.Values{}
 	postedValues.Add("some_field", "some value")
+	form = New(postedValues)
 }
