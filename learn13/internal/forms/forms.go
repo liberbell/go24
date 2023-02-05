@@ -34,7 +34,7 @@ func (f *Form) Required(field ...string) {
 	}
 }
 
-func (f *Form) Has(field string, r *http.Request) bool {
+func (f *Form) Has(field string) bool {
 	x := f.Get(field)
 	if x == "" {
 		return false
