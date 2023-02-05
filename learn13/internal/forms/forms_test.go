@@ -44,4 +44,6 @@ func TestForm_Required(t *testing.T) {
 func TestForm_Has(t *testing.T) {
 	r := httptest.NewRequest("POST", "/whatever", nil)
 	form := New(r.PostForm)
+
+	has := form.Has("whatever", r)
 }
