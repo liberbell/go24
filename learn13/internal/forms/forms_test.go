@@ -59,3 +59,7 @@ func TestForm_Has(t *testing.T) {
 		t.Error("shows form does not have field when it should")
 	}
 }
+
+func TestForm_Minlength(t *testting.T) {
+	form := New(r.PostForm)
+}
