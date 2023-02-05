@@ -46,4 +46,7 @@ func TestForm_Has(t *testing.T) {
 	form := New(r.PostForm)
 
 	has := form.Has("whatever", r)
+	if has {
+		t.Error("form shows has field when it does not")
+	}
 }
