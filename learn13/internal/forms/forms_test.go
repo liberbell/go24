@@ -90,7 +90,7 @@ func TestForm_Minlength(t *testing.T) {
 
 func TestForm_IsEmail(t *testing.T) {
 	// r := httptest.NewRequest("POST", "/whatever", nil)
-	postedValues := url.Values()
+	postedValues := url.Values{}
 	// form := New(r.PostForm)
 	form := New(postedValues)
 
