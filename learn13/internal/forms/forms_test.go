@@ -89,19 +89,21 @@ func TestForm_Minlength(t *testing.T) {
 }
 
 func TestForm_IsEmail(t *testing.T) {
-	r := httptest.NewRequest("POST", "/whatever", nil)
-	form := New(r.PostForm)
+	// r := httptest.NewRequest("POST", "/whatever", nil)
+	postedValues := url.Values()
+	// form := New(r.PostForm)
+	form := New(postedValues)
 
 	form.IsEmail("x")
 	if form.Valid() {
 		t.Error("form shows valid email for non-existing field")
 	}
-	postedValues := url.Values{}
+	postedValues = url.Values{}
 	postedValues.Add("email", "x")
 	form = New(postedValues)
 
 	form.IsEmail("email")
-	if !form.Valid() {
+	if form.Valid() {
 		t.Error("got valid for invalid email address")
 	}
 }
