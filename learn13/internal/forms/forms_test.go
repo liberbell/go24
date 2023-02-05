@@ -62,4 +62,9 @@ func TestForm_Has(t *testing.T) {
 
 func TestForm_Minlength(t *testting.T) {
 	form := New(r.PostForm)
+
+	form.MinLength("x", 10, r)
+	if form.Valid() {
+		t.Error("form shows min Length for non-existing field")
+	}
 }
