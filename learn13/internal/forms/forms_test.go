@@ -40,3 +40,8 @@ func TestForm_Required(t *testing.T) {
 		t.Error("shows does not have requierd fields when it does")
 	}
 }
+
+func TestForm_Has(t *testing.T) {
+	r := httptest.NewRequest("POST", "/whatever", nil)
+	form := New(r.PostForm)
+}
