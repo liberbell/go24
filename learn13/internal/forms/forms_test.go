@@ -60,7 +60,7 @@ func TestForm_Has(t *testing.T) {
 	}
 }
 
-func TestForm_Minlength(t *testting.T) {
+func TestForm_Minlength(t *testing.T) {
 	form := New(r.PostForm)
 
 	form.MinLength("x", 10, r)
