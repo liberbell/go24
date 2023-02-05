@@ -61,6 +61,7 @@ func TestForm_Has(t *testing.T) {
 }
 
 func TestForm_Minlength(t *testing.T) {
+	r := httptest.NewRequest("POST", "/whatever", nil)
 	form := New(r.PostForm)
 
 	form.MinLength("x", 10, r)
