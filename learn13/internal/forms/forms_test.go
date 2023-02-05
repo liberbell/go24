@@ -96,4 +96,6 @@ func TestForm_IsEmail(t *testing.T) {
 	if form.Valid() {
 		t.Error("form shows valid email for non-existing field")
 	}
+	postedValues := url.Values{}
+	postedValues.Add("email", "someone@example.com")
 }
