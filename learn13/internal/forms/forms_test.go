@@ -69,7 +69,7 @@ func TestForm_Minlength(t *testing.T) {
 		t.Error("form shows min Length for non-existing field")
 	}
 
-	isError := form.Error.Get("x")
+	isError := form.Errors.Get("x")
 	if isError == "" {
 		t.Error("should have an error, but did not get one")
 	}
@@ -92,7 +92,7 @@ func TestForm_Minlength(t *testing.T) {
 		t.Error("shows min Length of 1 is not met when it is")
 	}
 
-	isError = form.Error.Get("another_field")
+	isError = form.Errors.Get("another_field")
 	if isError != "" {
 		t.Error("should have an error, but not get one")
 	}
