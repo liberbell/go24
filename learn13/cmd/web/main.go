@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
+	"github.com/helpers"
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/handlers"
 	"github.com/tsawler/bookings/internal/models"
@@ -58,8 +59,8 @@ func main() {
 
 	repo := handlers.NewRepo(&app)
 	handlers.NewHandlers(repo)
-
 	render.NewTemplates(&app)
+	helpers.NewTemplates(&app)
 
 	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
 
