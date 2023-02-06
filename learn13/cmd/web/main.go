@@ -30,6 +30,8 @@ func main() {
 
 	app.InProduction = false
 
+	infoLog = log.New()
+
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
 	session.Cookie.Persist = true
