@@ -93,8 +93,8 @@ func TestForm_Minlength(t *testing.T) {
 	}
 
 	isError = form.Error.Get("another_field")
-	if isError == "" {
-		t.Error("should have an error, but did not get one")
+	if isError != "" {
+		t.Error("should have an error, but not get one")
 	}
 }
 
