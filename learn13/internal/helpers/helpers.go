@@ -16,4 +16,6 @@ func ClientError(w http.ResponseWriter, status int) {
 
 }
 
-func ServerError(w http.ResponseWriter, err error)
+func ServerError(w http.ResponseWriter, err error) {
+
+}
