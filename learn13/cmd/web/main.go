@@ -22,7 +22,7 @@ const portNumber = ":8080"
 var app config.AppConfig
 var session *scs.SessionManager
 var infoLog *log.Logger
-var errLog *log.Logger
+var errorLog *log.Logger
 
 func main() {
 
@@ -38,8 +38,8 @@ func main() {
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
 
-	errLog = log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
-	app.ErrorLog = errLog
+	errorLog = log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
+	app.ErrorLog = errorLog
 
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
