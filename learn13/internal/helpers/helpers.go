@@ -4,6 +4,6 @@ import "github.com/tsawler/bookings/internal/config"
 
 var app *config.AppConfig
 
-func NewHandlers(a *config.AppConfig) {
+func NewHelpers(a *config.AppConfig) {
 	app = a
 }
