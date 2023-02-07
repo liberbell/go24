@@ -6,8 +6,10 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/helpers"
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/forms"
+	"github.com/tsawler/bookings/internal/helpers"
 	"github.com/tsawler/bookings/internal/models"
 	"github.com/tsawler/bookings/internal/render"
 )
@@ -58,7 +60,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
 	if err != nil {
-		log.Println(err)
+		helpers.ServerError(w, err)
 		return
 	}
 	reservation := models.Reservation{
