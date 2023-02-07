@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/alexedwards/scs/v2"
-	"github.com/helpers"
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/handlers"
 	"github.com/tsawler/bookings/internal/helpers"
