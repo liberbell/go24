@@ -6,7 +6,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/helpers"
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/forms"
 	"github.com/tsawler/bookings/internal/helpers"
