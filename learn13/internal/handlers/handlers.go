@@ -59,6 +59,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
+	err = error.New("This is an error message")
 	if err != nil {
 		helpers.ServerError(w, err)
 		return
