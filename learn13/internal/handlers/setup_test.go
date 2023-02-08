@@ -29,10 +29,10 @@ func getRoutes() http.Handler {
 	gob.Register(models.Reservation{})
 	app.InProduction = false
 
-	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
 
-	errorLog = log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
+	errorLog := log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
 	app.ErrorLog = errorLog
 
 	session = scs.New()
