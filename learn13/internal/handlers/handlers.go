@@ -123,7 +123,8 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 
 	out, err := json.MarshalIndent(resp, "", "     ")
 	if err != nil {
-		log.Println(err)
+		helpers.ServerError(w, err)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
