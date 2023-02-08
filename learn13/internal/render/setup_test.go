@@ -21,10 +21,10 @@ func TestMain(m *testing.M) {
 	testApp.InProduction = false
 
 	infoLog := log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
-	app.InfoLog = infoLog
+	testApp.InfoLog = infoLog
 
 	errorLog := log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
-	app.ErrorLog = errorLog
+	testApp.ErrorLog = errorLog
 
 	session = scs.New()
 	session.Lifetime = 24 * time.Hour
