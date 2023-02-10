@@ -3,10 +3,6 @@ create_table("users") {
   t.Column("first_name", "string", {"default": ""})
   t.Column("last_name", "string", {"default": ""})
   t.Column("email", "string", {})
-  t.Column("twitter_handle", "string", {"size": 50})
-  t.Column("age", "integer", {"default": 0})
-  t.Column("admin", "bool", {"default": false})
-  t.Column("company_id", "uuid", {"default_raw": "uuid_generate_v1()"})
-  t.Column("bio", "text", {"null": true})
-  t.Column("joined_at", "timestamp", {})
+  t.Column("password", "string", {"size": 60})
+  t.Column("access_level", "integer", {"default": 1})
 }
