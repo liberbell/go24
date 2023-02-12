@@ -29,6 +29,7 @@ func main() {
 
 }
 
-func getAllRows(conn &sql.DB)  {
+func getAllRows(conn &sql.DB) error {
 	
+	return nil
 }
