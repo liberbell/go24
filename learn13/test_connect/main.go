@@ -24,4 +24,5 @@ func main() {
 	if err != nil {
 		log.Fatal("Cannot ping database.")
 	}
+	log.Println("Pinged database.")
 }
