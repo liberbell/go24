@@ -19,4 +19,9 @@ func main() {
 	defer conn.Close()
 
 	log.Println("Connected to database.")
+
+	err = conn.Ping()
+	if err != nil {
+		log.Fatal("Cannot ping database.")
+	}
 }
