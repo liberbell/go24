@@ -23,6 +23,12 @@ func main() {
 	err = conn.Ping()
 	if err != nil {
 		log.Fatal("Cannot ping database.")
+		return
 	}
 	log.Println("Pinged database.")
+
+}
+
+func getAllRows(conn &sql.DB)  {
+	
 }
