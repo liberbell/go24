@@ -33,7 +33,7 @@ func main() {
 	}
 }
 
-func getAllRows(conn &sql.DB) error {
-	
-	return nil
-}
+// func getAllRows(conn &sql.DB) error {
+
+// 	return nil
+// }
