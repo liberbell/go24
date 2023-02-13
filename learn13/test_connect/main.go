@@ -31,6 +31,17 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	query := `INSERT INTO users (first_name, last_name) VALUES ($1, $2)`
+	_, err = conn.Exec(query, "Elton", "Jhon")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = getAllRows(conn)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
