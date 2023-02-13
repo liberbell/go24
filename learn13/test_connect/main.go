@@ -37,6 +37,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("Inserted a row.")
 
 	err = getAllRows(conn)
 	if err != nil {
