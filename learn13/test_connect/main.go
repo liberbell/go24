@@ -55,6 +55,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	query = `SELECT id, first_name, last_name FROM users WHERE id = $1`
+	rows := conn.QueryRow(query)
 }
 
 func getAllRows(conn *sql.DB) error {
