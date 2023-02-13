@@ -55,6 +55,7 @@ func getAllRows(conn *sql.DB) error {
 	if err = rows.Err(); err != nil {
 		log.Fatal("Error scanning rows", err)
 	}
+	fmt.Println("-----------------------")
 
 	return nil
 }
