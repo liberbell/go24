@@ -43,6 +43,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	stmt := `UPDATE users set first_name = $1 WHERE first_name = $2`
+	_, err = conn.Exec(stmt, "Elty", "Elton")
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
