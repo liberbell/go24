@@ -27,13 +27,13 @@ func main() {
 	}
 	log.Println("Pinged database.")
 
-	// err = getAllRows()
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+	err = getAllRows()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
-// func getAllRows(conn &sql.DB) error {
+func getAllRows(conn *sql.DB) error {
 
-// 	return nil
-// }
+	return nil
+}
