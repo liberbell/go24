@@ -27,7 +27,7 @@ func main() {
 	}
 	log.Println("Pinged database.")
 
-	err = getAllRows()
+	err = getAllRows(conn)
 	if err != nil {
 		log.Fatal(err)
 	}
