@@ -44,8 +44,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	stmt := `UPDATE users set first_name = $1 WHERE first_name = $2`
-	_, err = conn.Exec(stmt, "Elty", "Elton")
+	stmt := `UPDATE users set first_name = $1 WHERE id = $2`
+	_, err = conn.Exec(stmt, "Elton", 5)
 	if err != nil {
 		log.Fatal(err)
 	}
