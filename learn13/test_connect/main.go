@@ -57,7 +57,13 @@ func main() {
 	}
 
 	query = `SELECT id, first_name, last_name FROM users WHERE id = $1`
-	rows := conn.QueryRow(query)
+	var firstName, lastName string
+	var id int
+	rows := conn.QueryRow(query, 1)
+	err = rows.Scan(&id, &firstName, &lastName)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
