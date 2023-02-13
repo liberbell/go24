@@ -49,6 +49,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("updated one or more rows")
+
+	err = getAllRows(conn)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
