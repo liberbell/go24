@@ -50,6 +50,10 @@ func getAllRows(conn *sql.DB) error {
 			log.Println(err)
 			return err
 		}
+		fmt.Println("Record is:", id, firstName, lastName)
+	}
+	if err = rows.Err(); err != nil {
+		log.Fatal("Error scanning rows", err)
 	}
 
 	return nil
