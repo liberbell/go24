@@ -34,6 +34,12 @@ func main() {
 }
 
 func getAllRows(conn *sql.DB) error {
+	rows, err := conn.Query("SELECT id, first_name, last_name FROM users")
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	defer rows.Close()
 
 	return nil
 }
