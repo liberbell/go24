@@ -1,6 +1,9 @@
 package driver
 
-import "database/sql"
+import (
+	"database/sql"
+	"time"
+)
 
 type DB struct {
 	SQL *sql.DB
@@ -9,3 +12,5 @@ type DB struct {
 var dbConn = &DB{}
 
 const maxOpenDBConn = 10
+const maxIdleDBConn = 5
+const maxDBLifetime = 5 * time.Minute
