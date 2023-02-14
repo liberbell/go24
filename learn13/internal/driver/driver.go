@@ -29,7 +29,10 @@ func ConnectSQL(dsn string) (*DB, error) {
 }
 
 func testDB(d *sql.DB) error {
-
+	err = d.Ping()
+	if err != nil {
+		return err
+	}
 }
 
 func NewDatabase(dsn string) (*sql.DB, error) {
