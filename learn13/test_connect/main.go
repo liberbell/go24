@@ -65,6 +65,12 @@ func main() {
 		log.Fatal(err)
 	}
 	log.Println("QueryRow returns", id, firstName, lastName)
+
+	query = `DELETE FROM users WHERE id = $1`
+	_, err = conn.Exec(query, 6)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
