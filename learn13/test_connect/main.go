@@ -64,6 +64,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("QueryRow returns", id, firstName, lastName)
 }
 
 func getAllRows(conn *sql.DB) error {
