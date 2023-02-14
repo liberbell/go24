@@ -23,6 +23,13 @@ func ConnectSQL(dsn string) (*DB, error) {
 	d.SetMaxOpenConns(maxOpenDBConn)
 	d.SetMaxIdleConns(maxIdleDBConn)
 	d.SetConnMaxLifetime(maxDBLifetime)
+
+	dbConn.SQL = d
+
+}
+
+func testDB(d *sql.DB) error {
+
 }
 
 func NewDatabase(dsn string) (*sql.DB, error) {
