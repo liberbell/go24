@@ -20,6 +20,9 @@ func ConnectSQL(dsn string) (*DB, error) {
 	if err != nil {
 		panic(err)
 	}
+	d.SetMaxOpenConns(maxOpenDBConn)
+	d.SetMaxIdleConns(maxIdleDBConn)
+	d.SetConnMaxLifetime(maxDBLifetime)
 }
 
 func NewDatabase(dsn string) (*sql.DB, error) {
