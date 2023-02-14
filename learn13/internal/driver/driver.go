@@ -21,4 +21,10 @@ func ConnectSQL(dsn string) (*DB, error) {
 
 func NewDatabase(dsn string) (*sql.DB, error) {
 	db, err := sql.Open("dbx", dsn)
+	if err != nil {
+		return nil, err
+	}
+	if err = db.Ping(); err != nil {
+		return nil, err
+	}
 }
