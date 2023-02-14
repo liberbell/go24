@@ -16,7 +16,10 @@ const maxIdleDBConn = 5
 const maxDBLifetime = 5 * time.Minute
 
 func ConnectSQL(dsn string) (*DB, error) {
-
+	d, err := NewDatabase(dsn)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func NewDatabase(dsn string) (*sql.DB, error) {
@@ -27,4 +30,6 @@ func NewDatabase(dsn string) (*sql.DB, error) {
 	if err = db.Ping(); err != nil {
 		return nil, err
 	}
+
+	return db, nil
 }
