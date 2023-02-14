@@ -71,6 +71,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	log.Println("Deleted a row")
+
+	err = getAllRows(conn)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func getAllRows(conn *sql.DB) error {
