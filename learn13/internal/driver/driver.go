@@ -25,14 +25,19 @@ func ConnectSQL(dsn string) (*DB, error) {
 	d.SetConnMaxLifetime(maxDBLifetime)
 
 	dbConn.SQL = d
+	err = testDB(d)
+	if err != nil {
+		return nil, err
+	}
 
 }
 
 func testDB(d *sql.DB) error {
-	err = d.Ping()
+	err := d.Ping()
 	if err != nil {
 		return err
 	}
+	return nil
 }
 
 func NewDatabase(dsn string) (*sql.DB, error) {
