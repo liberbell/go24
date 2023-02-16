@@ -10,17 +10,21 @@ import (
 	"github.com/tsawler/bookings/internal/helpers"
 	"github.com/tsawler/bookings/internal/models"
 	"github.com/tsawler/bookings/internal/render"
+	"github.com/tsawler/bookings/internal/repository"
+	"github.com/tsawler/bookings/internal/driver"
 )
 
 var Repo *Repository
 
 type Repository struct {
 	App *config.AppConfig
+	DB repository.DatabaseRepo
 }
 
-func NewRepo(a *config.AppConfig) *Repository {
+func NewRepo(a *config.AppConfig, db *driver.DB) *Repository {
 	return &Repository{
 		App: a,
+		DB: dbrepo.NewPostgresRepo(db, a)
 	}
 }
 func NewHandlers(r *Repository) {
