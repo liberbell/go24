@@ -6,25 +6,25 @@ import (
 	"net/http"
 
 	"github.com/tsawler/bookings/internal/config"
+	"github.com/tsawler/bookings/internal/driver"
 	"github.com/tsawler/bookings/internal/forms"
 	"github.com/tsawler/bookings/internal/helpers"
 	"github.com/tsawler/bookings/internal/models"
 	"github.com/tsawler/bookings/internal/render"
 	"github.com/tsawler/bookings/internal/repository"
-	"github.com/tsawler/bookings/internal/driver"
 )
 
 var Repo *Repository
 
 type Repository struct {
 	App *config.AppConfig
-	DB repository.DatabaseRepo
+	DB  repository.DatabaseRepo
 }
 
 func NewRepo(a *config.AppConfig, db *driver.DB) *Repository {
 	return &Repository{
 		App: a,
-		DB: dbrepo.NewPostgresRepo(db, a)
+		DB:  dbrepo.NewPostgresRepo(db.SQL, a),
 	}
 }
 func NewHandlers(r *Repository) {
