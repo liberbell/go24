@@ -76,7 +76,7 @@ func main() {
 	}
 }
 
-func run() error {
+func run() (*driver.DB, error) {
 	gob.Register(models.Reservation{})
 	app.InProduction = false
 
@@ -94,12 +94,11 @@ func run() error {
 	if err != nil {
 		log.Fatal("cannot connect to database. Dying...")
 	}
-	defer db.SQL.Close()
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
-		// return err
+		return nil, err
 	}
 
 	app.TemplateCache = tc
