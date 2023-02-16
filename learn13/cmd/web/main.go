@@ -91,6 +91,10 @@ func run() error {
 	log.Println("connecting to database...")
 
 	db, err := driver.ConnectSQL("host=localhost port=5432 dbname=bookings user=dbmaster password=")
+	if err != nil {
+		log.Fatal("cannot connect to database. Dying...")
+	}
+	defer db.SQL.Close()
 
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
