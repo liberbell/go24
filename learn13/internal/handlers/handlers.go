@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/tsawler/bookings/internal/config"
-	"github.com/tsawler/bookings/internal/dbrepo/dbrepo"
+	"github.com/tsawler/bookings/internal/dbrepo"
 	"github.com/tsawler/bookings/internal/driver"
 	"github.com/tsawler/bookings/internal/forms"
 	"github.com/tsawler/bookings/internal/helpers"
