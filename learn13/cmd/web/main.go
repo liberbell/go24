@@ -10,6 +10,7 @@ import (
 
 	"github.com/alexedwards/scs/v2"
 	"github.com/tsawler/bookings/internal/config"
+	"github.com/tsawler/bookings/internal/driver"
 	"github.com/tsawler/bookings/internal/handlers"
 	"github.com/tsawler/bookings/internal/helpers"
 	"github.com/tsawler/bookings/internal/models"
@@ -86,6 +87,11 @@ func run() error {
 	session.Cookie.Secure = app.InProduction
 
 	app.Session = session
+
+	log.Println("connecting to database...")
+
+	db, err := driver.ConnectSQL("host=localhost port=5432 dbname=bookings user=dbmaster password=")
+
 	tc, err := render.CreateTemplateCache()
 	if err != nil {
 		log.Fatal("cannot create template cache")
