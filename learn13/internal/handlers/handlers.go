@@ -6,13 +6,13 @@ import (
 	"net/http"
 
 	"github.com/tsawler/bookings/internal/config"
-	"github.com/tsawler/bookings/internal/dbrepo"
 	"github.com/tsawler/bookings/internal/driver"
 	"github.com/tsawler/bookings/internal/forms"
 	"github.com/tsawler/bookings/internal/helpers"
 	"github.com/tsawler/bookings/internal/models"
 	"github.com/tsawler/bookings/internal/render"
 	"github.com/tsawler/bookings/internal/repository"
+	"github.com/tsawler/bookings/internal/repository/dbrepo"
 )
 
 var Repo *Repository
