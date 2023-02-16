@@ -45,7 +45,7 @@ func testDB(d *sql.DB) error {
 }
 
 func NewDatabase(dsn string) (*sql.DB, error) {
-	db, err := sql.Open("dbx", dsn)
+	db, err := sql.Open("pgx", dsn)
 	if err != nil {
 		return nil, err
 	}
