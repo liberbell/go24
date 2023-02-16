@@ -31,9 +31,9 @@ func ConnectSQL(dsn string) (*DB, error) {
 	dbConn.SQL = d
 	err = testDB(d)
 	if err != nil {
-		return dbConn, nil
+		return nil, err
 	}
-
+	return dbConn, nil
 }
 
 func testDB(d *sql.DB) error {
