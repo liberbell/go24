@@ -26,10 +26,11 @@ var errorLog *log.Logger
 
 func main() {
 
-	err := run()
+	db, err := run()
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer db.SQL.Close()
 
 	gob.Register(models.Reservation{})
 
@@ -108,6 +109,6 @@ func run() (*driver.DB, error) {
 	handlers.NewHandlers(repo)
 
 	render.NewTemplates(&app)
-	return nil
+	return db, nil
 
 }
