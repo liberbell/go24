@@ -19,3 +19,10 @@ type Users struct {
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }
+
+type Rooms struct {
+	ID        int
+	RoomName  string
+	CreatedAt time.Time
+	UpdatedAt time.Time
+}
