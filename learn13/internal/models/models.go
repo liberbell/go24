@@ -59,4 +59,5 @@ type RoomRestriction struct {
 	UpdatedAt     time.Time
 	Room          Rooms
 	Reservation   Reservations
+	Restriction   Restrictions
 }
