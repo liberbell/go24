@@ -32,7 +32,7 @@ func main() {
 	}
 	defer db.SQL.Close()
 
-	gob.Register(models.Reservations{})
+	gob.Register(models.Reservation{})
 
 	app.InProduction = false
 
