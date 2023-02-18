@@ -45,4 +45,5 @@ type Reservations struct {
 	RoomID    int
 	CreatedAt time.Time
 	UpdatedAt time.Time
+	Room      Rooms
 }
