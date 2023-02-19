@@ -74,6 +74,13 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 	layout := "2023-02-20"
 	startDate, err := time.Parse(layout, sd)
+	if err != nil {
+		helpers.ServerError(w, err)
+	}
+	endDate, err := time.Parse(layout, ed)
+	if err != nil {
+		helpers.ServerError(w, err)
+	}
 
 	reservation := models.Reservation{
 		FirstName: r.Form.Get("first_name"),
