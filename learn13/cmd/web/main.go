@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"time"
 
 	"github.com/alexedwards/scs/v2"
@@ -32,40 +31,40 @@ func main() {
 	}
 	defer db.SQL.Close()
 
-	gob.Register(models.Reservation{})
-	gob.Register(models.User{})
-	gob.Register(models.Room{})
-	gob.Register(models.Restriction{})
+	// gob.Register(models.Reservation{})
+	// gob.Register(models.User{})
+	// gob.Register(models.Room{})
+	// gob.Register(models.Restriction{})
 
-	app.InProduction = false
+	// app.InProduction = false
 
-	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
-	app.InfoLog = infoLog
+	// infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
+	// app.InfoLog = infoLog
 
-	errorLog = log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
-	app.ErrorLog = errorLog
+	// errorLog = log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
+	// app.ErrorLog = errorLog
 
-	session = scs.New()
-	session.Lifetime = 24 * time.Hour
-	session.Cookie.Persist = true
-	session.Cookie.SameSite = http.SameSiteLaxMode
-	session.Cookie.Secure = app.InProduction
+	// session = scs.New()
+	// session.Lifetime = 24 * time.Hour
+	// session.Cookie.Persist = true
+	// session.Cookie.SameSite = http.SameSiteLaxMode
+	// session.Cookie.Secure = app.InProduction
 
-	app.Session = session
+	// app.Session = session
 
-	tc, err := render.CreateTemplateCache()
-	if err != nil {
-		log.Fatal("cannot create template cache")
-		// return err
-	}
+	// tc, err := render.CreateTemplateCache()
+	// if err != nil {
+	// 	log.Fatal("cannot create template cache")
+	// 	// return err
+	// }
 
-	app.TemplateCache = tc
-	app.UseCache = false
+	// app.TemplateCache = tc
+	// app.UseCache = false
 
-	repo := handlers.NewRepo(&app, db)
-	handlers.NewHandlers(repo)
-	render.Template(&app)
-	helpers.NewHelpers(&app)
+	// repo := handlers.NewRepo(&app, db)
+	// handlers.NewHandlers(repo)
+	// render.Template(&app)
+	// helpers.NewHelpers(&app)
 
 	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
 
@@ -82,6 +81,10 @@ func main() {
 
 func run() (*driver.DB, error) {
 	gob.Register(models.Reservation{})
+	gob.Register(models.User{})
+	gob.Register(models.Room{})
+	gob.Register(models.RoomRestriction{})
+
 	app.InProduction = false
 
 	session = scs.New()
