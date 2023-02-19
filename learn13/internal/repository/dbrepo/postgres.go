@@ -27,8 +27,10 @@ func (m *postgresDBRepo) InsertReservation(res models.Reservation) error {
 		time.Now(),
 		time.Now(),
 		)
+		
 	if err =! nil {
 		return err
 	}
+
 	return nil
 }
