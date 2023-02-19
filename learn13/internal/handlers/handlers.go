@@ -98,6 +98,11 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		RoomID:    roomID,
 	}
 
+	err = m.DB.InsertReservation(reservation)
+	if err != nil {
+		helpers.ServerError(w, err)
+	}
+
 	form := forms.New(r.PostForm)
 
 	// form.Has("first_name", r)
