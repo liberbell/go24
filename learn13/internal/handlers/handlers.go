@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/tsawler/bookings/internal/config"
 	"github.com/tsawler/bookings/internal/driver"
@@ -70,6 +71,9 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 	sd := r.Form.Get("start_date")
 	ed := r.Form.Get("end_date")
+
+	layout := "2023-02-20"
+	startDate, err := time.Parse(layout, sd)
 
 	reservation := models.Reservation{
 		FirstName: r.Form.Get("first_name"),
