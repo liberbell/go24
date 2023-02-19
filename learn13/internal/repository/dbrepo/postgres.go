@@ -1,6 +1,7 @@
 package dbrepo
 
 import (
+	"context"
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
@@ -26,9 +27,9 @@ func (m *postgresDBRepo) InsertReservation(res models.Reservation) error {
 		res.RoomID,
 		time.Now(),
 		time.Now(),
-		)
-		
-	if err =! nil {
+	)
+
+	if err != nil {
 		return err
 	}
 
