@@ -12,6 +12,10 @@
                 <form method="post" action="" class="" novalidate>
                     <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
 
+                    <div class="form-group">
+                        <label for="start_date">Start Date</label>
+                        <input type="text" name="start_date">
+
                     <div class="form-group mt-3">
                         <label for="first_name">First Name:</label>
                         {{ with .Form.Errors.Get "first_name"}}
