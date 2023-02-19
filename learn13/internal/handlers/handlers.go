@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/tsawler/bookings/internal/config"
@@ -81,6 +82,8 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		helpers.ServerError(w, err)
 	}
+
+	roomID, err := strconv.Atoi(r.Form.Get("room_id"))
 
 	reservation := models.Reservation{
 		FirstName: r.Form.Get("first_name"),
