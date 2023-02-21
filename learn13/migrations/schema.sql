@@ -32,7 +32,7 @@ CREATE TABLE public.reservations (
     phone character varying(255) DEFAULT ''::character varying NOT NULL,
     start_date date NOT NULL,
     end_date date NOT NULL,
-    room_id integer DEFAULT 1 NOT NULL,
+    room_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -106,9 +106,9 @@ CREATE TABLE public.room_restrictions (
     id integer NOT NULL,
     start_date date NOT NULL,
     end_date date NOT NULL,
-    room_id integer DEFAULT 1 NOT NULL,
-    reservation_id integer DEFAULT 1 NOT NULL,
-    restriction_id integer DEFAULT 1 NOT NULL,
+    room_id integer NOT NULL,
+    reservation_id integer NOT NULL,
+    restriction_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -144,7 +144,7 @@ ALTER SEQUENCE public.room_restrictions_id_seq OWNED BY public.room_restrictions
 
 CREATE TABLE public.rooms (
     id integer NOT NULL,
-    rooms_name character varying(255) DEFAULT ''::character varying NOT NULL,
+    room_name character varying(255) DEFAULT ''::character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -309,6 +309,20 @@ ALTER TABLE ONLY public.users
 
 
 --
+-- Name: reservations_email_idx; Type: INDEX; Schema: public; Owner: hideakiehara
+--
+
+CREATE INDEX reservations_email_idx ON public.reservations USING btree (email);
+
+
+--
+-- Name: reservations_last_name_idx; Type: INDEX; Schema: public; Owner: hideakiehara
+--
+
+CREATE INDEX reservations_last_name_idx ON public.reservations USING btree (last_name);
+
+
+--
 -- Name: room_restrictions_reservation_id_idx; Type: INDEX; Schema: public; Owner: hideakiehara
 --
 
@@ -357,6 +371,14 @@ ALTER TABLE ONLY public.reservations
 
 ALTER TABLE ONLY public.room_restrictions
     ADD CONSTRAINT room_restrictions_reservations_id_fk FOREIGN KEY (reservation_id) REFERENCES public.reservations(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: room_restrictions room_restrictions_restrictions_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hideakiehara
+--
+
+ALTER TABLE ONLY public.room_restrictions
+    ADD CONSTRAINT room_restrictions_restrictions_id_fk FOREIGN KEY (restriction_id) REFERENCES public.restrictions(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
