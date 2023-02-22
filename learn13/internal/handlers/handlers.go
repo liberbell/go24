@@ -120,6 +120,10 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		EndDate:       time.Time{},
 		RoomID:        0,
 		ReservationID: 0,
+		RestrictionID: 0,
+		CreatedAt:     time.Time{},
+		UpdatedAt:     time.Time{},
+		Room:          models.Room{},
 	}
 
 	m.App.Session.Put(r.Context(), "reservation", reservation)
