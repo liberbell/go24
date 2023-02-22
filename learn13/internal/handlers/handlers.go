@@ -116,8 +116,8 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	}
 
 	restriction := models.RoomRestriction{
-		StartDate:     time.Time{},
-		EndDate:       time.Time{},
+		StartDate:     startDate,
+		EndDate:       endDate,
 		RoomID:        0,
 		ReservationID: 0,
 		RestrictionID: 0,
