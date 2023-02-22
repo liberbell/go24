@@ -19,7 +19,7 @@ func (m *postgresDBRepo) InsertReservation(res models.Reservation) (int, error) 
 
 	stmt := `INSERT INTO reservations (first_name, last_name, email, phone, start_date, end_date, room_id, created_at, updated_at)
 	         values ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning id`
-	_, err := m.DB.ExecContext(ctx, stmt,
+	err := m.DB.QueryRowContext(ctx, stmt,
 		res.FirstName,
 		res.LastName,
 		res.Email,
@@ -29,7 +29,7 @@ func (m *postgresDBRepo) InsertReservation(res models.Reservation) (int, error) 
 		res.RoomID,
 		time.Now(),
 		time.Now(),
-	)
+	).Scan(&newID)
 
 	if err != nil {
 		return 0, err
