@@ -11,9 +11,11 @@ func (m *postgresDBRepo) AllUsers() bool {
 	return true
 }
 
-func (m *postgresDBRepo) InsertReservation(res models.Reservation) error {
+func (m *postgresDBRepo) InsertReservation(res models.Reservation) (int, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
+
+	var newID int
 
 	stmt := `INSERT INTO reservations (first_name, last_name, email, phone, start_date, end_date, room_id, created_at, updated_at)
 	         values ($1, $2, $3, $4, $5, $6, $7, $8, $9) returning id`
@@ -30,8 +32,8 @@ func (m *postgresDBRepo) InsertReservation(res models.Reservation) error {
 	)
 
 	if err != nil {
-		return err
+		return 0, err
 	}
 
-	return nil
+	return newID, nil
 }
