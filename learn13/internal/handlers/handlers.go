@@ -120,7 +120,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		EndDate:       endDate,
 		RoomID:        roomID,
 		ReservationID: newReservationID,
-		RestrictionID: 0,
+		RestrictionID: 1,
 		CreatedAt:     time.Time{},
 		UpdatedAt:     time.Time{},
 		Room:          models.Room{},
