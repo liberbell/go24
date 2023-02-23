@@ -39,6 +39,9 @@ func (m *postgresDBRepo) InsertReservation(res models.Reservation) (int, error) 
 }
 
 func (m *postgresDBRepo) InsertRoomRestriction(r models.Restriction) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
 
+	stmt := `INSERT INTO room_restrictions (start_date, end_date, room_id, reservation_id, created_at, updated_at, restriction_id`
 	return nil
 }
