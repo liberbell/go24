@@ -43,5 +43,9 @@ func (m *postgresDBRepo) InsertRoomRestriction(r models.Restriction) error {
 	defer cancel()
 
 	stmt := `INSERT INTO room_restrictions (start_date, end_date, room_id, reservation_id, created_at, updated_at, restriction_id`
+
+	_, err := m.DB.ExecContext(ctx, stmt,
+		a
+	)
 	return nil
 }
