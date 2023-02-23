@@ -42,7 +42,8 @@ func (m *postgresDBRepo) InsertRoomRestriction(r models.Restriction) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	stmt := `INSERT INTO room_restrictions (start_date, end_date, room_id, reservation_id, created_at, updated_at, restriction_id`
+	stmt := `INSERT INTO room_restrictions (start_date, end_date, room_id, reservation_id, created_at, updated_at, restriction_id
+		values ($1, $2, $3, $4, $5, $6, $7)`
 
 	_, err := m.DB.ExecContext(ctx, stmt,
 		a
