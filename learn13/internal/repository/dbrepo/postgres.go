@@ -59,3 +59,7 @@ func (m *postgresDBRepo) InsertRoomRestriction(r models.RoomRestriction) error {
 	}
 	return nil
 }
+
+func (m *postgresDBRepo) SearchAvailabilityByDates(start, end time.Time) (int, error) {
+
+}
