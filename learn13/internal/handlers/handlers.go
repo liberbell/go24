@@ -110,7 +110,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	newReservationID, err = m.DB.InsertReservation(reservation)
+	newReservationID, err := m.DB.InsertReservation(reservation)
 	if err != nil {
 		helpers.ServerError(w, err)
 	}
@@ -118,8 +118,8 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	restriction := models.RoomRestriction{
 		StartDate:     startDate,
 		EndDate:       endDate,
-		RoomID:        0,
-		ReservationID: 0,
+		RoomID:        roomID,
+		ReservationID: newReservationID,
 		RestrictionID: 0,
 		CreatedAt:     time.Time{},
 		UpdatedAt:     time.Time{},
