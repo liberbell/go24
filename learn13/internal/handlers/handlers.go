@@ -121,11 +121,6 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		RoomID:        roomID,
 		ReservationID: newReservationID,
 		RestrictionID: 1,
-		CreatedAt:     time.Time{},
-		UpdatedAt:     time.Time{},
-		Room:          models.Room{},
-		Reservation:   models.Reservation{},
-		Restriction:   models.Restriction{},
 	}
 
 	m.App.Session.Put(r.Context(), "reservation", reservation)
