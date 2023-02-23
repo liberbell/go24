@@ -46,7 +46,16 @@ func (m *postgresDBRepo) InsertRoomRestriction(r models.Restriction) error {
 		values ($1, $2, $3, $4, $5, $6, $7)`
 
 	_, err := m.DB.ExecContext(ctx, stmt,
-		a
+		r.StartDate,
+		r.EndDate,
+		r.RoomID,
+		r.ReservationID,
+		time.Now(),
+		time.Now(),
+		r.RestrictionID,
 	)
+	if err != nil {
+		return err
+	}
 	return nil
 }
