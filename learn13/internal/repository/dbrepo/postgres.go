@@ -85,4 +85,8 @@ func (m *postgresDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time,
 
 func (m *postgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]models.Room, error) {
 
+	query := `
+		select r.id, r.room_name 
+		from rooms r 
+		where r.id not in (select rr.room_id from room_restrictions rr where '2023-01-13' < rr.end_date and '2023-01-09' > rr.start_date)`
 }
