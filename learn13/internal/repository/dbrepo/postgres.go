@@ -2,6 +2,7 @@ package dbrepo
 
 import (
 	"context"
+	"log"
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
@@ -111,6 +112,9 @@ func (m *postgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]
 		}
 
 		rooms = append(rooms, room)
+	}
+	if err = rows.Err(); err != nil {
+		log.Fatal("Error scanning rows", err)
 	}
 	return rooms, nil
 }
