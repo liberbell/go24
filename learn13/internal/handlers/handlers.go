@@ -172,7 +172,7 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 		m.App.InfoLog.Println("Room:", i.ID, i.RoomName)
 	}
 
-	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", start, end)))
+	w.Write([]byte(fmt.Sprintf("start date is #{start} and end date is #{end}")))
 }
 
 type jsonResponse struct {
