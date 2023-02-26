@@ -178,7 +178,7 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 
 	if len(rooms) == 0 {
 		//no availability
-		m.App.InfoLog("No availability")
+		m.App.InfoLog.Println("No availability")
 	}
 
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", startDate, endDate)))
