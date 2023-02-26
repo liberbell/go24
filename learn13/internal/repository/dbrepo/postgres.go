@@ -90,10 +90,10 @@ func (m *postgresDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]
 	var rooms []models.Room
 
 	query := `
-		select r.id, r.room_name 
-		from rooms r 
-		where r.id not in 
-			(select rr.room_id from room_restrictions rr where '2023-01-13' < rr.end_date and '2023-01-09' > rr.start_date)
+		SELECT r.id, r.room_name 
+		FROM rooms r 
+		WHERE r.id not in 
+			(SELECT rr.room_id FROM room_restrictions rr WHERE '2023-01-13' < rr.end_date AND '2023-01-09' > rr.start_date)
 		`
 	rows, err := m.DB.QueryContext(ctx, query, start, end)
 	if err != nil {
