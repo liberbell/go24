@@ -186,7 +186,11 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	data := make(map[string]interface{})
 	data["rooms"] = rooms
 
-	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", startDate, endDate)))
+	render.Template(w, r, "reservation-summary.page.tmpl", &models.TemplateData{
+		Data: data,
+	})
+
+	// w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", startDate, endDate)))
 }
 
 type jsonResponse struct {
