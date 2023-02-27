@@ -7,10 +7,13 @@
                 <h1>Choose a room</h1>
 
                 {{$rooms := index .Data "rooms"}}
+                
+                <ul>
 
-                {{ range $rooms }}
-                    {{.RoomName}}<br>
-                {{ end }}
+                    {{ range $rooms }}
+                        <li>{{.RoomName}}</li>
+                    {{ end }}
+                </ul>
                 
             </div>
         </div>
