@@ -183,6 +183,9 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	data := make(map[string]interface{})
+	data["rooms"] = rooms
+
 	w.Write([]byte(fmt.Sprintf("start date is %s and end date is %s", startDate, endDate)))
 }
 
