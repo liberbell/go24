@@ -186,6 +186,12 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 	data := make(map[string]interface{})
 	data["rooms"] = rooms
 
+	res := models.Reservation{
+		StartDate: time.Time{},
+		EndDate: time.Time{},
+		RoomID: 0,,
+	}
+
 	render.Template(w, r, "choose-rooms.page.tmpl", &models.TemplateData{
 		Data: data,
 	})
