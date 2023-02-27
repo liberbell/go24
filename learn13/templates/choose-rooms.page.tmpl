@@ -1,0 +1,14 @@
+{{ template "base" . }}
+
+{{ define "content" }}
+    <div class="container">
+        <div class="row">
+            <div class="class col">
+                <h1>Choose a room</h1>
+
+                {{$room := index .Data "rooms"}}
+                
+            </div>
+        </div>
+    </div>
+{{ end }}
