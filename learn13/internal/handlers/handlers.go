@@ -241,3 +241,7 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 		Data: data,
 	})
 }
+
+func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
+
+}
