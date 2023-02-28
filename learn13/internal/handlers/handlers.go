@@ -46,7 +46,13 @@ func (m *Repository) About(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
-	var emptyReservation models.Reservation
+	// var emptyReservation models.Reservation
+	res, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
+	if !ok {
+		helpers.ServerError(w, err)
+		return
+	}
+
 	data := make(map[string]interface{})
 	data["reservation"] = emptyReservation
 
@@ -255,6 +261,7 @@ func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
 		helpers.ServerError(w, err)
 		return
 	}
+
 	res.RoomID = roomID
 	m.App.Session.Put(r.Context(), "reservation", res)
 
