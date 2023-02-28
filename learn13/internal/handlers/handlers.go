@@ -58,6 +58,8 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 	ed := res.EndDate.Format("2010-01-01")
 
 	stringMap := make(map[string]string)
+	stringMap["start_date"] = sd
+	stringMap["end_date"] = ed
 
 	data := make(map[string]interface{})
 	data["reservation"] = res
