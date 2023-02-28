@@ -251,5 +251,8 @@ func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
 	}
 	m.App.Session.Get(r.Context(), "reservation")
 
-	res, ok := m.App.Session.Get(r, "foo").(models.Reservation)
+	res, ok := m.App.Session.Get(r.Context(), "foo").(models.Reservation)
+	if !ok {
+		helpers.ServerError(w, err)
+	}
 }
