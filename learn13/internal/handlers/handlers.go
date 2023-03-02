@@ -117,16 +117,18 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	}
 	res.FirstName = r.Form.Get("first_name")
 	res.LastName = r.Form.Get("last_name")
+	res.Phone = r.Form.Get("phone")
+	res.Email = r.Form.Get("email")
 
-	reservation := models.Reservation{
-		FirstName: r.Form.Get("first_name"),
-		LastName:  r.Form.Get("last_name"),
-		Email:     r.Form.Get("email"),
-		Phone:     r.Form.Get("phone"),
-		StartDate: startDate,
-		EndDate:   endDate,
-		RoomID:    roomID,
-	}
+	// reservation := models.Reservation{
+	// 	FirstName: r.Form.Get("first_name"),
+	// 	LastName:  r.Form.Get("last_name"),
+	// 	Email:     r.Form.Get("email"),
+	// 	Phone:     r.Form.Get("phone"),
+	// 	StartDate: startDate,
+	// 	EndDate:   endDate,
+	// 	RoomID:    roomID,
+	// }
 
 	form := forms.New(r.PostForm)
 
