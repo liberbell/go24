@@ -80,7 +80,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
-	res, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
+	reservation, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 	if !ok {
 		helpers.ServerError(w, errors.New("can't get from session"))
 		return
@@ -115,10 +115,10 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		helpers.ServerError(w, err)
 		return
 	}
-	res.FirstName = r.Form.Get("first_name")
-	res.LastName = r.Form.Get("last_name")
-	res.Phone = r.Form.Get("phone")
-	res.Email = r.Form.Get("email")
+	reservation.FirstName = r.Form.Get("first_name")
+	reservation.LastName = r.Form.Get("last_name")
+	reservation.Phone = r.Form.Get("phone")
+	reservation.Email = r.Form.Get("email")
 
 	// reservation := models.Reservation{
 	// 	FirstName: r.Form.Get("first_name"),
