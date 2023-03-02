@@ -80,6 +80,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
+	res, ok := m.App.Session(r.Context(), "reservation").(models.Reservation)
 	err := r.ParseForm()
 
 	if err != nil {
