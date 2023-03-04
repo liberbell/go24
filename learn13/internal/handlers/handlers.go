@@ -153,8 +153,6 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		helpers.ServerError(w, err)
 	}
 
-	m.App.Session.Put(r.Context(), "reservation", reservation)
-
 	restriction := models.RoomRestriction{
 		StartDate:     reservation.StartDate,
 		EndDate:       reservation.EndDate,
@@ -169,6 +167,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	}
 
 	m.App.Session.Put(r.Context(), "reservation", reservation)
+
 	http.Redirect(w, r, "/reservation-summary", http.StatusSeeOther)
 }
 
