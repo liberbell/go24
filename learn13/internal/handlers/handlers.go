@@ -277,6 +277,9 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 	ed := reservation.EndDate.Format("2006-01-01")
 	stringMap := make(map[string]string)
 
+	stringMap["start_date"] = sd
+	stringMap["end_date"] = ed
+
 	render.Template(w, r, "reservation-summary.page.tmpl", &models.TemplateData{
 		Data: data,
 	})
