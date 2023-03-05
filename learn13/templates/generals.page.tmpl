@@ -35,7 +35,7 @@
 
 {{ define "js" }}
     <script>
-        document.getElementById("check-availability-button").addEventListener("click", function(){
+        document.getElementById("check-availability-button").addEventListener("click", function (){
 
             let html = `
             <form id="check-availability-form" action="" method="POST" novalidate class="needs-validation">
@@ -71,7 +71,7 @@
                     document.getElementById("end").removeAttribute("disabled");
                 },
 
-                callback: function(result) {
+                callback: function (result) {
                     console.log("called");
 
                     let form = document.getElementById("check-availability-form");
