@@ -221,7 +221,7 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 
 	resp := jsonResponse{
 		OK:      available,
-		Message: "Available",
+		Message: "",
 	}
 
 	out, err := json.MarshalIndent(resp, "", "     ")
