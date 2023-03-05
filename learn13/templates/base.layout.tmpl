@@ -206,11 +206,13 @@
             }
               async function custom(c) {
               const {
+                  icon = ""
                   msg = "",
                   title = "",
               } = c;
       
               const { value: result } = await Swal.fire({
+                  icon: icon,
                   title: title,
                   html: msg,
                   backdrop: false,
