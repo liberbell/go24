@@ -88,7 +88,9 @@
                             if(data.ok) {
                                 console.log("room is available")
                             } else {
-                                console.log("room is not available")
+                                attention.error({
+                                    msg: "No availability"
+                                })
                             }
                             
                         })
