@@ -288,3 +288,7 @@ func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, "/make-reservation", http.StatusSeeOther)
 }
+
+func (m *Repository) BookRoom(w http.ResponseWriter r *http.Request) {
+	ID, _ := r.URL.Query().Get("id")
+}
