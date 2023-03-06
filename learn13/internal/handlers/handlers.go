@@ -301,6 +301,8 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 
 	var res models.Reservation
 	res.RoomID = roomID
+	res.StartDate = startDate
+	res.EndDate = endDate
 
 	log.Println(roomID, startDate, endDate)
 }
