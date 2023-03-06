@@ -300,9 +300,18 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 	endDate, _ := time.Parse(layout, ed)
 
 	var res models.Reservation
+
+	room, err := m.DB.GetRoomByID(roomID)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+	res.Room.RoomName = room.RoomName
 	res.RoomID = roomID
 	res.StartDate = startDate
 	res.EndDate = endDate
+
+	m.App.Session.Put(r.Context(), "reservation", res)
 
 	log.Println(roomID, startDate, endDate)
 }
