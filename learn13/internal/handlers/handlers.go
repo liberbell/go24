@@ -291,9 +291,16 @@ func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
-	ID, _ := strconv.Atoi(r.URL.Query().Get("id"))
-	startDate := r.URL.Query().Get("s")
-	endDate := r.URL.Query().Get("e")
+	roomID, _ := strconv.Atoi(r.URL.Query().Get("id"))
+	sd := r.URL.Query().Get("s")
+	ed := r.URL.Query().Get("e")
 
-	log.Println(ID, startDate, endDate)
+	layout := "2006-01-02"
+	startDate, _ := time.Parse(layout, sd)
+	endDate, _ := time.Parse(layout, ed)
+
+	var res models.Reservation
+	res.RoomID = roomID
+
+	log.Println(roomID, startDate, endDate)
 }
