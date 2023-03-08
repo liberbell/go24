@@ -77,5 +77,12 @@ func TestHandlers(t *testing.T) {
 }
 
 func TestRepository_Reservation(t *testing.T) {
-	abc
+	reservation := models.Reservation{
+		RoomID: 1,
+		Room: models.Room{
+			ID:       1,
+			RoomName: "General Quarters",
+		},
+	}
+
 }
