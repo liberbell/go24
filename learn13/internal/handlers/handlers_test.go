@@ -5,6 +5,8 @@ import (
 	"net/http/httptest"
 	"net/url"
 	"testing"
+
+	"github.com/tsawler/bookings/internal/models"
 )
 
 type postData struct {
