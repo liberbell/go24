@@ -25,8 +25,7 @@ var app config.AppConfig
 var session *scs.SessionManager
 var pathToTemplates = "./../../templates"
 
-func getRoutes() http.Handler {
-
+func TestMain(m *testing.M) {
 	gob.Register(models.Reservation{})
 	app.InProduction = false
 
@@ -55,6 +54,9 @@ func getRoutes() http.Handler {
 	NewHandlers(repo)
 
 	render.NewRenderer(&app)
+}
+
+func getRoutes() http.Handler {
 
 	mux := chi.NewRouter()
 
