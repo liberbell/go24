@@ -75,3 +75,7 @@ func TestHandlers(t *testing.T) {
 		}
 	}
 }
+
+func TestRepository_Reservation(t *testing.T) {
+	abc
+}
