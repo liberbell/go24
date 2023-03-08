@@ -84,5 +84,6 @@ func TestRepository_Reservation(t *testing.T) {
 			RoomName: "General Quarters",
 		},
 	}
+	req, _ := http.NewRequest("GET", "/make-reservation", nil)
 
 }
