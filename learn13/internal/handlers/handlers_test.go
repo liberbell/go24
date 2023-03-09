@@ -105,7 +105,7 @@ func TestRepository_Reservation(t *testing.T) {
 	ctx = getCtx(req)
 
 	req = req.WithContext(ctx)
-	rr = httptest.NewRequest()
+	rr = httptest.NewRecorder()
 
 	handler.ServeHTTP(rr, req)
 	if rr.Code == http.StatusTemporaryRedirect {
