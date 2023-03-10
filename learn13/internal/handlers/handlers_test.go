@@ -8,7 +8,7 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/tsawler/bookings/internal/driver"
+	// "github.com/tsawler/bookings/internal/driver"
 	"github.com/tsawler/bookings/internal/models"
 )
 
