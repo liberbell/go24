@@ -5,7 +5,6 @@ import (
 	"log"
 	"net/http"
 	"net/http/httptest"
-	"net/url"
 	"testing"
 
 	// "github.com/tsawler/bookings/internal/driver"
@@ -108,6 +107,10 @@ func TestRepository_Reservation(t *testing.T) {
 	if rr.Code != http.StatusTemporaryRedirect {
 		t.Errorf("Reservation handler returned wrong response code got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
 	}
+
+}
+
+func TestRepository_PostReservation(t *testing.T) {
 
 }
 
