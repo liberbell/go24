@@ -91,7 +91,8 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 
 func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	// reservation, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
-	if !ok {
+	err := r.ParseForm()
+	if err != nil {
 		m.App.Session.Put(r.Context(), "error", "can't parse form")
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
