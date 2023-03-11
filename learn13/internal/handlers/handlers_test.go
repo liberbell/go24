@@ -24,7 +24,7 @@ var theTests = []struct {
 	params             []postData
 	expectedStatusCode int
 }{
-	{"name", "/", "GET", []postData{}, http.StatusOK},
+	{"name", "/", "GET", http.StatusOK},
 	{"about", "/about", "GET", []postData{}, http.StatusOK},
 	{"quarters", "/general-quarters", "GET", []postData{}, http.StatusOK},
 	{"major", "/majors-suite", "GET", []postData{}, http.StatusOK},
