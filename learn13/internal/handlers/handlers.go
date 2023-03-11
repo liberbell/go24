@@ -104,27 +104,36 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 
 	startDate, err := time.Parse(layout, sd)
 	if err != nil {
-		helpers.ServerError(w, err)
+		m.App.Session.Put(r.Context(), "error", "can't parse start date")
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
 	endDate, err := time.Parse(layout, ed)
 	if err != nil {
-		helpers.ServerError(w, err)
+		m.App.Session.Put(r.Context(), "error", "can't get parse end date")
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
-	err := r.ParseForm()
-
+	roomID, err := strconv.Atoi(r.Form.Get("room_id"))
 	if err != nil {
-		helpers.ServerError(w, err)
+		m.App.Session.Put(r.Context(), "error", "invalid data")
+		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
 
-	reservation.FirstName = r.Form.Get("first_name")
-	reservation.LastName = r.Form.Get("last_name")
-	reservation.Phone = r.Form.Get("phone")
-	reservation.Email = r.Form.Get("email")
+	// err := r.ParseForm()
+
+	// if err != nil {
+	// 	helpers.ServerError(w, err)
+	// 	return
+	// }
+
+	// reservation.FirstName = r.Form.Get("first_name")
+	// reservation.LastName = r.Form.Get("last_name")
+	// reservation.Phone = r.Form.Get("phone")
+	// reservation.Email = r.Form.Get("email")
 
 	form := forms.New(r.PostForm)
 
