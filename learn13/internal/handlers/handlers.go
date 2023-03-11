@@ -103,6 +103,16 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	layout := "2006-01-02"
 
 	startDate, err := time.Parse(layout, sd)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
+	endDate, err := time.Parse(layout, ed)
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
 
 	err := r.ParseForm()
 
