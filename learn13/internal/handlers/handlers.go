@@ -59,7 +59,7 @@ func (m *Repository) Reservation(w http.ResponseWriter, r *http.Request) {
 	// var emptyReservation models.Reservation
 	res, ok := m.App.Session.Get(r.Context(), "reservation").(models.Reservation)
 	if !ok {
-		m.App.Session.Put(r.Context(), "error", "can't find room")
+		m.App.Session.Put(r.Context(), "error", "can't get reservation from session")
 		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
 		return
 	}
