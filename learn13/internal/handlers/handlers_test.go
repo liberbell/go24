@@ -149,7 +149,7 @@ func TestRepository_PostReservation(t *testing.T) {
 		t.Errorf("PostReservation handler returned wrong response code for missing post body: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
 	}
 
-	reqBody = "start_date=2050-01-01"
+	reqBody = "start_date=invalid"
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
@@ -172,7 +172,7 @@ func TestRepository_PostReservation(t *testing.T) {
 	}
 
 	reqBody = "start_date=2050-01-01"
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=invalid")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@example.com")
@@ -191,6 +191,28 @@ func TestRepository_PostReservation(t *testing.T) {
 	handler.ServeHTTP(rr, req)
 	if rr.Code != http.StatusTemporaryRedirect {
 		t.Errorf("PostReservation handler returned wrong response code for invalid end date: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
+	}
+
+	reqBody = "start_date=2050-01-01"
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@example.com")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=111-222-3333")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=invalid")
+
+	req, _ = http.NewRequest("POST", "/make-reservation", strings.NewReader(reqBody))
+	ctx = getCtx(req)
+	req = req.WithContext(ctx)
+
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	rr = httptest.NewRecorder()
+
+	handler = http.HandlerFunc(Repo.PostReservation)
+
+	handler.ServeHTTP(rr, req)
+	if rr.Code != http.StatusTemporaryRedirect {
+		t.Errorf("PostReservation handler returned wrong response code for invalid room id: got %d, wanted %d", rr.Code, http.StatusTemporaryRedirect)
 	}
 
 	reqBody = "start_date=2050-01-01"
