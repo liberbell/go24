@@ -111,7 +111,12 @@ func TestRepository_Reservation(t *testing.T) {
 }
 
 func TestRepository_PostReservation(t *testing.T) {
-	req, _ := http.NewRequest("GET", "/make-reservation", nil)
+	reqBody := "start_date=2050-01-01"
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
+
+	req, _ := http.NewRequest("POST", "/make-reservation", nil)
 	ctx := getCtx(req)
 	req = req.WithContext(ctx)
 
