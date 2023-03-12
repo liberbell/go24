@@ -111,7 +111,11 @@ func TestRepository_Reservation(t *testing.T) {
 }
 
 func TestRepository_PostReservation(t *testing.T) {
+	req, _ := http.NewRequest("GET", "/make-reservation", nil)
+	ctx := getCtx(req)
+	req = req.WithContext(ctx)
 
+	rr := httptest.NewRecorder()
 }
 
 func getCtx(req *http.Request) context.Context {
