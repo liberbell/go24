@@ -115,6 +115,8 @@ func TestRepository_PostReservation(t *testing.T) {
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@example.com")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=111-222-3333")
 
 	req, _ := http.NewRequest("POST", "/make-reservation", nil)
 	ctx := getCtx(req)
