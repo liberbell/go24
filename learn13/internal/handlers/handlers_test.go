@@ -172,7 +172,7 @@ func TestRepository_PostReservation(t *testing.T) {
 	}
 
 	reqBody = "start_date=2050-01-01"
-	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-02-01")
+	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "first_name=Bob")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "last_name=Mary")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "email=bob@example.com")
