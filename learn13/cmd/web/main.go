@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/smtp"
 	"os"
 	"time"
 
@@ -31,6 +32,10 @@ func main() {
 		log.Fatal(err)
 	}
 	defer db.SQL.Close()
+
+	from := "some@example.com"
+	auth := smtp.PlainAuth("user", from, "password", "localhost")
+	err = smtp.SendMail("localhost:1025", auth, from, []string{"you@example.com"})
 
 	// gob.Register(models.Reservation{})
 	// gob.Register(models.User{})
