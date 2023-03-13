@@ -293,9 +293,15 @@ func TestRepository_AvailabilityJSON(t *testing.T) {
 
 	req.Header.Set("Content-Type", "application//x-www-form-urlencoded")
 	handler = httpHandlerFunc(Repo.AvailabilityJSON)
-	rr = httptest.NewRecorder()
+	rr := httptest.NewRecorder()
 
 	handler.ServeHTTP(rr, req)
+
+	var j jsonResponse
+	err := json.Unmarshal([]byte(rr.Body.String()), &j)
+	if err != nil {
+		t.Error("failed to parse json")
+	}
 }
 
 func getCtx(req *http.Request) context.Context {
