@@ -292,7 +292,7 @@ func TestRepository_AvailabilityJSON(t *testing.T) {
 	req = req.WithContext(ctx)
 
 	req.Header.Set("Content-Type", "application//x-www-form-urlencoded")
-	handler = httpHandlerFunc(Repo.AvailabilityJSON)
+	handler := httpHandlerFunc(Repo.AvailabilityJSON)
 	rr := httptest.NewRecorder()
 
 	handler.ServeHTTP(rr, req)
