@@ -270,6 +270,10 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 			OK:      false,
 			Message: "Internal Server Error",
 		}
+		out, _ := json.Marshal(resp, "", "    ")
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(out)
+		return
 	}
 
 	sd := r.Form.Get("start")
