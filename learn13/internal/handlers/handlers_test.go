@@ -122,6 +122,15 @@ func TestRepository_PostReservation(t *testing.T) {
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "phone=111-222-3333")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=1")
 
+	postedData := url.Values{}
+	postedData.Add("start_date", "2050-01-01")
+	postedData.Add("end_date", "2050-01-02")
+	postedData.Add("first_name", "Bob")
+	postedData.Add("last_name", "Mary")
+	postedData.Add("email", "bob@example.com")
+	postedData.Add("phone", "111-222-3333")
+	postedData.Add("room_id", "1")
+
 	req, _ := http.NewRequest("POST", "/make-reservation", strings.NewReader(reqBody))
 	ctx := getCtx(req)
 	req = req.WithContext(ctx)
