@@ -282,6 +282,10 @@ func TestRepository_PostReservation(t *testing.T) {
 	}
 }
 
+func TestRepository_AvailabilityJSON(t *testing.T) {
+	reqBody := "start_date=2050-01-01"
+}
+
 func getCtx(req *http.Request) context.Context {
 	ctx, err := session.Load(req.Context(), req.Header.Get("X-Session"))
 	if err != nil {
