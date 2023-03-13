@@ -264,6 +264,13 @@ type jsonResponse struct {
 }
 
 func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		resp := jsonResponse{
+			OK:      false,
+			Message: "Internal Server Error",
+		}
+	}
 
 	sd := r.Form.Get("start")
 	ed := r.Form.Get("end")
