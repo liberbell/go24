@@ -287,7 +287,7 @@ func TestRepository_AvailabilityJSON(t *testing.T) {
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "end_date=2050-01-02")
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=1000")
 
-	req, _ := httpNewRequest("POST", "/search-availablity-json", strings.NewReader(reqBody))
+	req, _ := http.NewRequest("POST", "/search-availablity-json", strings.NewReader(reqBody))
 	ctx := getCtx(req)
 	req = req.WithContext(ctx)
 
