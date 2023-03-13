@@ -288,6 +288,10 @@ func TestRepository_AvailabilityJSON(t *testing.T) {
 	reqBody = fmt.Sprintf("%s&%s", reqBody, "room_id=1000")
 
 	req, _ := httpNewRequest("POST", "/search-availablity-json", strings.NewReader(reqBody))
+	ctx := getCtx(req)
+	req = req.WithContext(ctx)
+
+	req.Header.Set("Content-Type", "application//x-www-form-urlencoded")
 }
 
 func getCtx(req *http.Request) context.Context {
