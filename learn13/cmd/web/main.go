@@ -36,6 +36,9 @@ func main() {
 	from := "some@example.com"
 	auth := smtp.PlainAuth("user", from, "password", "localhost")
 	err = smtp.SendMail("localhost:1025", auth, from, []string{"you@example.com"}, []byte("Hello world"))
+	if err != nil {
+		log.Panicln(err)
+	}
 
 	// gob.Register(models.Reservation{})
 	// gob.Register(models.User{})
