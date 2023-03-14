@@ -33,47 +33,14 @@ func main() {
 	}
 	defer db.SQL.Close()
 
+	defer close(app.MailChan)
+
 	from := "some@example.com"
 	auth := smtp.PlainAuth("user", from, "password", "localhost")
 	err = smtp.SendMail("localhost:1025", auth, from, []string{"you@example.com"}, []byte("Hello world"))
 	if err != nil {
 		log.Panicln(err)
 	}
-
-	// gob.Register(models.Reservation{})
-	// gob.Register(models.User{})
-	// gob.Register(models.Room{})
-	// gob.Register(models.Restriction{})
-
-	// app.InProduction = false
-
-	// infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
-	// app.InfoLog = infoLog
-
-	// errorLog = log.New(os.Stdout, "ERROR\n", log.Ldate|log.Ltime|log.Lshortfile)
-	// app.ErrorLog = errorLog
-
-	// session = scs.New()
-	// session.Lifetime = 24 * time.Hour
-	// session.Cookie.Persist = true
-	// session.Cookie.SameSite = http.SameSiteLaxMode
-	// session.Cookie.Secure = app.InProduction
-
-	// app.Session = session
-
-	// tc, err := render.CreateTemplateCache()
-	// if err != nil {
-	// 	log.Fatal("cannot create template cache")
-	// 	// return err
-	// }
-
-	// app.TemplateCache = tc
-	// app.UseCache = false
-
-	// repo := handlers.NewRepo(&app, db)
-	// handlers.NewHandlers(repo)
-	// render.Template(&app)
-	// helpers.NewHelpers(&app)
 
 	fmt.Println(fmt.Sprintf("Starting application on port %s", portNumber))
 
@@ -94,7 +61,9 @@ func run() (*driver.DB, error) {
 	gob.Register(models.Room{})
 	gob.Register(models.RoomRestriction{})
 
-	app.InProduction = false
+	mailChan := make(chan models.MailData)
+	app.
+		app.InProduction = false
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
