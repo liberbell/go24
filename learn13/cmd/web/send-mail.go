@@ -19,7 +19,7 @@ func listenForMail() {
 }
 
 func sendMsg(m models.MailData) {
-	server := mail.NewSMTP
+	server := mail.NewSMTPClient()
 	server.Host = "localhost"
 	server.Port = 1025
 	server.KeepAlive = false
