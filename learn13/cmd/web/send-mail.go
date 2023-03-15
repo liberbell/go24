@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
@@ -33,4 +34,9 @@ func sendMsg(m models.MailData) {
 	email.SetBody(mail.TextHTML, "Hello, <strong>world</strong>")
 
 	err = email.Send(client)
+	if err != nil {
+		log.Println(err)
+	} else {
+		log.Println("Email sent.")
+	}
 }
