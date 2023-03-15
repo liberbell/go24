@@ -1,5 +1,10 @@
 package main
 
+import (
+	"github.com/tsawler/bookings/internal/models"
+	mail "github.com/xhit/go-simple-mail/v2"
+)
+
 func listenForMail() {
 
 	go func() {
@@ -7,4 +12,8 @@ func listenForMail() {
 			msg := <-app.MailChan
 		}
 	}()
+}
+
+func sendMsg(m models.MailData) {
+	server := mail.NewSMTP
 }
