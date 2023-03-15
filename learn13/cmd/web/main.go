@@ -62,8 +62,8 @@ func run() (*driver.DB, error) {
 	gob.Register(models.RoomRestriction{})
 
 	mailChan := make(chan models.MailData)
-	app.
-		app.InProduction = false
+
+	app.InProduction = false
 
 	infoLog = log.New(os.Stdout, "INFO\t", log.Ldate|log.Ltime)
 	app.InfoLog = infoLog
