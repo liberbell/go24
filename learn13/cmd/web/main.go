@@ -34,6 +34,7 @@ func main() {
 	defer db.SQL.Close()
 
 	defer close(app.MailChan)
+	listenForMail()
 
 	from := "some@example.com"
 	auth := smtp.PlainAuth("user", from, "password", "localhost")
