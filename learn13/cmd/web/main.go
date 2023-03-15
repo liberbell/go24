@@ -63,6 +63,7 @@ func run() (*driver.DB, error) {
 	gob.Register(models.RoomRestriction{})
 
 	mailChan := make(chan models.MailData)
+	app.MailChan = mailChan
 
 	app.InProduction = false
 
