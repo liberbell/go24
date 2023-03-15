@@ -36,6 +36,15 @@ func main() {
 	defer close(app.MailChan)
 	listenForMail()
 
+	msg := models.MailData{
+		To:      "bob@example.com",
+		From:    "nobady@example.com",
+		Subject: "some subject",
+		Content: "",
+	}
+
+	app.MailChan <- msg
+
 	from := "some@example.com"
 	auth := smtp.PlainAuth("user", from, "password", "localhost")
 	err = smtp.SendMail("localhost:1025", auth, from, []string{"you@example.com"}, []byte("Hello world"))
