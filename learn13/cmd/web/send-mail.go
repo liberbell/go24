@@ -23,7 +23,7 @@ func sendMsg(m models.MailData) {
 	server.Host = "localhost"
 	server.Port = 1025
 	server.KeepAlive = false
-	server.ConnectionTimeout = 10 * time.Second
+	server.ConnectTimeout = 10 * time.Second
 	server.SendTimeout = 10 * time.Second
 
 	client, err := server.Connect()
