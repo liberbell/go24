@@ -13,6 +13,7 @@ func listenForMail() {
 	go func() {
 		for {
 			msg := <-app.MailChan
+			sendMsg(msg)
 		}
 	}()
 }
