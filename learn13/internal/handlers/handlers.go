@@ -187,13 +187,13 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	}
 
 	msg := models.MailData{
-		To:      "bob@example.com",
+		To:      reservation.Email,
 		From:    "nobady@example.com",
-		Subject: "some subject",
+		Subject: "Reservation confirmation",
 		Content: "",
 	}
 
-	app.MailChan <- msg
+	m.App.MailChan <- msg
 
 	m.App.Session.Put(r.Context(), "reservation", reservation)
 
