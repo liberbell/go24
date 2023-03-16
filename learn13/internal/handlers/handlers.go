@@ -186,6 +186,12 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	htmlMessage := fmt.Sprintf(`
+		<strong>Reservation Confirmation</strong><br>
+		Dear %s: ,<br>
+		this is confirm your reservation from %s to %s.
+		`, reservation.FirstName, reservation.FirstName.Format("2006-01-01"), reservation.EndDate.Format("2006-01-01"))
+
 	msg := models.MailData{
 		To:      reservation.Email,
 		From:    "nobady@example.com",
