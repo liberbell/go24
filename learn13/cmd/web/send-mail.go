@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"strings"
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
@@ -41,6 +42,8 @@ func sendMsg(m models.MailData) {
 		if err != nil {
 			app.ErrorLog.Println(err)
 		}
+		mailTemplate := string(data)
+		msgToSend := strings.Replace(mailTemplate, "[%body%]", m.Content)
 	}
 	email.SetBody(mail.TextHTML, m.Content)
 
