@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
 	"log"
 	"time"
 
@@ -34,6 +36,8 @@ func sendMsg(m models.MailData) {
 	email.SetFrom(m.From).AddTo(m.To).SetSubject(m.Subject)
 	if m.Template == "" {
 		email.SetBody(mail.TextHTML, m.Content)
+	} else {
+		data, err := ioutil.ReadFile(fmt.Sprintf("./email-template/%s"))
 	}
 	email.SetBody(mail.TextHTML, m.Content)
 
