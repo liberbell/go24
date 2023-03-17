@@ -38,6 +38,9 @@ func sendMsg(m models.MailData) {
 		email.SetBody(mail.TextHTML, m.Content)
 	} else {
 		data, err := ioutil.ReadFile(fmt.Sprintf("./email-template/%s"))
+		if err != nil {
+			app.ErrorLog.Println(err)
+		}
 	}
 	email.SetBody(mail.TextHTML, m.Content)
 
