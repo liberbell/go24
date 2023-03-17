@@ -32,6 +32,9 @@ func sendMsg(m models.MailData) {
 	}
 	email := mail.NewMSG()
 	email.SetFrom(m.From).AddTo(m.To).SetSubject(m.Subject)
+	if m.Template == "" {
+		email.SetBody(mail.TextHTML, m.Content)
+	}
 	email.SetBody(mail.TextHTML, m.Content)
 
 	err = email.Send(client)
