@@ -7,12 +7,12 @@
                 <form>
                     <div class="form-group mt-3">
                         <label for="email">Email</label>
-                        {{ with .Form.Errors.Get "first_name"}}
+                        {{ with .Form.Errors.Get "email"}}
                             <label class="text-danger">{{.}}</label>
                         {{ end }}
-                        <input class="form-control {{with .Form.Errors.Get "first_name"}} is-invalid {{end}}"
-                                id="first_name" autocomplete="off" type='text'
-                                name='first_name' value="{{$res.FirstName}}" required>
+                        <input class="form-control {{with .Form.Errors.Get "email"}} is-invalid {{end}}"
+                                id="email" autocomplete="off" type='email'
+                                name='email' value="" required>
                     </div>
                 </form>
             </div>
