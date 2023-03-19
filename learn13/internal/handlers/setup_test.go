@@ -46,7 +46,7 @@ func TestMain(m *testing.M) {
 	app.Session = session
 
 	mailChan := make(chan models.MailData)
-	app.mailChan = mailChan
+	app.MailChan = mailChan
 	defer close(mailChan)
 
 	listenForMail()
