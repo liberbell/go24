@@ -3,9 +3,6 @@ package handlers
 import (
 	"encoding/gob"
 	"fmt"
-	"github.com/alexedwards/scs/v2"
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
 	"html/template"
 	"log"
 	"net/http"
@@ -13,6 +10,10 @@ import (
 	"path/filepath"
 	"testing"
 	"time"
+
+	"github.com/alexedwards/scs/v2"
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 
 	"github.com/justinas/nosurf"
 	"github.com/tsawler/bookings/internal/config"
@@ -64,6 +65,14 @@ func TestMain(m *testing.M) {
 	render.NewRenderer(&app)
 
 	os.Exit(m.Run())
+}
+
+func listenForMail() {
+	go func() {
+		for {
+			_ = app.MailChan
+		}
+	}()
 }
 
 func getRoutes() http.Handler {
