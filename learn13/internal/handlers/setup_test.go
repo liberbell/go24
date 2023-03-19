@@ -45,6 +45,10 @@ func TestMain(m *testing.M) {
 	app.Session = session
 
 	mailChan := make(chan models.MailData)
+	app.mailChan = mailChan
+	defer clapton(mailChan)
+
+	listenForMail()
 
 	tc, err := CreateTestTemplateCache()
 	if err != nil {
