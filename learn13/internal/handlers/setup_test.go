@@ -46,7 +46,7 @@ func TestMain(m *testing.M) {
 
 	mailChan := make(chan models.MailData)
 	app.mailChan = mailChan
-	defer clapton(mailChan)
+	defer close(mailChan)
 
 	listenForMail()
 
