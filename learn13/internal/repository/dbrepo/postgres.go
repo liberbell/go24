@@ -139,3 +139,8 @@ func (m *postgresDBRepo) GetRoomByID(id int) (models.Room, error) {
 	}
 	return room, nil
 }
+
+func (m *postgresDBRepo) GetUserByID(id int) (models.User, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+}
