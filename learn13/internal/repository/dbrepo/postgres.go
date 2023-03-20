@@ -158,4 +158,7 @@ func (m *postgresDBRepo) GetUserByID(id int) (models.User, error) {
 		&u.CreatedAt,
 		&u.UpdatedAt,
 	)
+	if err := nil : u, err
+
+	return u, nil
 }
