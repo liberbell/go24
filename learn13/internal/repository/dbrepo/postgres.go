@@ -4,7 +4,6 @@ import (
 	"context"
 	"time"
 
-	"github.com/pelletier/go-toml/query"
 	"github.com/tsawler/bookings/internal/models"
 )
 
@@ -145,5 +144,5 @@ func (m *postgresDBRepo) GetUserByID(id int) (models.User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	query := select `id, first_name, last_name, email, password, access_level, created_at,`
+	query := `select id, first_name, last_name, email, password, access_level, created_at, updated_at FROM users WHERE id = $1`
 }
