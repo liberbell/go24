@@ -145,4 +145,17 @@ func (m *postgresDBRepo) GetUserByID(id int) (models.User, error) {
 	defer cancel()
 
 	query := `select id, first_name, last_name, email, password, access_level, created_at, updated_at FROM users WHERE id = $1`
+	row := m.DB.QueryRowContext(ctx, query, id)
+
+	var u models.User
+	err := row.Scan(
+		&u.ID,
+		&u.FirstName,
+		&u.LastName,
+		&u.Email,
+		&u.Password,
+		&u.AccessLevel,
+		&u.CreatedAt,
+		&u.UpdatedAt,
+	)
 }
