@@ -416,3 +416,7 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 
 	log.Println(roomID, startDate, endDate)
 }
+
+func (m *Repository) ShowLogin(w http.ResponseWriter, r *http.Request) {
+	render.Template(w, r, "login.page.tmpl", &models.TemplateData{})
+}
