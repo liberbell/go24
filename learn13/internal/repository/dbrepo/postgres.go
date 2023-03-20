@@ -4,6 +4,7 @@ import (
 	"context"
 	"time"
 
+	"github.com/pelletier/go-toml/query"
 	"github.com/tsawler/bookings/internal/models"
 )
 
@@ -143,4 +144,6 @@ func (m *postgresDBRepo) GetRoomByID(id int) (models.Room, error) {
 func (m *postgresDBRepo) GetUserByID(id int) (models.User, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
+
+	query := select `id, first_name, last_name, email, password, access_level, created_at,`
 }
