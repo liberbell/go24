@@ -164,3 +164,10 @@ func (m *postgresDBRepo) GetUserByID(id int) (models.User, error) {
 
 	return u, nil
 }
+
+func (m *postgresDBRepo) UpdateUser(u models.User) error {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	query = `UPDATE users set first_name = $1, last_name = $2`
+}
