@@ -172,7 +172,7 @@ func (m *postgresDBRepo) UpdateUser(u models.User) error {
 	defer cancel()
 
 	query := `UPDATE users set first_name = $1, last_name = $2, email = $3, access_level = $4, updated_at = $5`
-	_, err := m.DB.Exec(ctx, query,
+	_, err := m.DB.ExecContext(ctx, query,
 		u.FirstName,
 		u.LastName,
 		u.Email,
