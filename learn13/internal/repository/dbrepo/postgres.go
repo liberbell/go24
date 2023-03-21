@@ -182,3 +182,7 @@ func (m *postgresDBRepo) UpdateUser(u models.User) error {
 	}
 	return nil
 }
+
+func (m *postgresDBRepo) Authentiate(email, testPassword string) {
+
+}
