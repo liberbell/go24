@@ -188,5 +188,9 @@ func (m *postgresDBRepo) Authentiate(email, testPassword string) (int, string, e
 	defer cancel()
 
 	var id int
+	var hashPassword string
+
+	row := m.DB.QueryRowContext(ctx, "SELECT id, password FROM users WHERE email = $1", email)
+	err := row.Scan(&id, &hashPassword)
 
 }
