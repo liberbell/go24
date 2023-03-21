@@ -169,5 +169,6 @@ func (m *postgresDBRepo) UpdateUser(u models.User) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	query = `UPDATE users set first_name = $1, last_name = $2`
+	query := `UPDATE users set first_name = $1, last_name = $2, email = $3, access_level = $4, updated_at = $5`
+	_, err := m.DB.Exec(ctx, query)
 }
