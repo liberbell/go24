@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func (m *postgresDBRepo) AllUsers() bool {
@@ -195,5 +196,7 @@ func (m *postgresDBRepo) Authentiate(email, testPassword string) (int, string, e
 	if err != nil {
 		return id, "", err
 	}
+
+	err = bcrypt.CompareHashAndPassword([]byte(hashPassword))
 
 }
