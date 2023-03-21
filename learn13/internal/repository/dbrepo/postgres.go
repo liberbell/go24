@@ -2,6 +2,7 @@ package dbrepo
 
 import (
 	"context"
+	"errors"
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
@@ -199,8 +200,8 @@ func (m *postgresDBRepo) Authentiate(email, testPassword string) (int, string, e
 
 	err = bcrypt.CompareHashAndPassword([]byte(hashPassword), []byte(testPassword))
 	if err == bcrypt.ErrMismatchedHashAndPassword {
-
-	} else {
+		return 0, "", errors.New("incorrect password")
+	} else if err != nil {
 		return 0, "", err
 	}
 
