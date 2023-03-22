@@ -447,4 +447,6 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
+
+	m.App.Session.Put(r.Context(), "user_id", id)
 }
