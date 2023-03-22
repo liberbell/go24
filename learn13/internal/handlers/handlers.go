@@ -424,5 +424,5 @@ func (m *Repository) ShowLogin(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
-
+	log.Println("works")
 }
