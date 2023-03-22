@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/justinas/nosurf"
+	"github.com/tsawler/bookings/internal/helpers"
 )
 
 func WriteToConsole(next http.Handler) http.Handler {
@@ -31,5 +32,9 @@ func SessionLoad(next http.Handler) http.Handler {
 }
 
 func Auth(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request))
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !helpers.IsAuthenticate(r) {
+			session.Put(r.Context(), "error", "Login failed")
+		}
+	})
 }
