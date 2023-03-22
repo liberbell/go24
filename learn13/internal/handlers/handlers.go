@@ -434,8 +434,8 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 	var email string
 	var password string
 
-	email = r.Form.Get("email")
-	password = r.Form.Get("password")
+	email := r.Form.Get("email")
+	password := r.Form.Get("password")
 
 	form := forms.New(r.PostForm)
 	form.Required("email", "password")
@@ -443,5 +443,8 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 		//test
 	}
 
-	id, _, err := m.DB.Authentiate()
+	id, _, err := m.DB.Authentiate(email, password)
+	if err != nil {
+		log.Println(err)
+	}
 }
