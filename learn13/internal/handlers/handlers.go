@@ -424,5 +424,16 @@ func (m *Repository) ShowLogin(w http.ResponseWriter, r *http.Request) {
 }
 
 func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
-	log.Println("works")
+	_ = m.App.Session.RenewToken(r.Context())
+
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err)
+	}
+
+	form := forms.New(r.PostForm)
+	form.Required("email", "password")
+	if !form.Valid() {
+		//test
+	}
 }
