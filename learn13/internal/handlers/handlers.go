@@ -431,8 +431,8 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 		log.Println(err)
 	}
 
-	var email string
-	var password string
+	// var email string
+	// var password string
 
 	email := r.Form.Get("email")
 	password := r.Form.Get("password")
