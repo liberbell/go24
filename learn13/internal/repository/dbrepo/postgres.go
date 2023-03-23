@@ -185,7 +185,7 @@ func (m *postgresDBRepo) UpdateUser(u models.User) error {
 	return nil
 }
 
-func (m *postgresDBRepo) Authentiate(email, testPassword string) (int, string, error) {
+func (m *postgresDBRepo) Authenticate(email, testPassword string) (int, string, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
