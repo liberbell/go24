@@ -459,5 +459,5 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 
 	m.App.Session.Put(r.Context(), "user_id", id)
 	m.App.Session.Put(r.Context(), "flush", "Logged in successfully")
-	http.Redirect(w, r, "/user/login", http.StatusSeeOther)
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
