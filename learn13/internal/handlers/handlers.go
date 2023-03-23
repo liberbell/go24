@@ -448,7 +448,7 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	id, _, err := m.DB.Authentiate(email, password)
+	id, _, err := m.DB.Authenticate(email, password)
 	if err != nil {
 		log.Println(err)
 
