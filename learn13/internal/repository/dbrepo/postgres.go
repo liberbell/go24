@@ -238,5 +238,12 @@ func (m *postgresDBRepo) AllReservations() ([]models.Reservation, error) {
 			&i.Room.ID,
 			&i.Room.RoomName,
 		)
+		if err != nil {
+			return reservations, err
+		}
+		reservations = append(reservations, i)
+	}
+	if err = rows.Err(); err != nil {
+		return reservations, err
 	}
 }
