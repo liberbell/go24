@@ -211,4 +211,9 @@ func (m *postgresDBRepo) Authenticate(email, testPassword string) (int, string, 
 func (m *postgresDBRepo) AllReservations() ([]models.Reservation, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
+
+	var reservations []models.Reservation
+	query = `SELECT r.id, r.first_name, r.last_name, r.email, r.phone, r.start_date,
+					r.end_date, r.room_id, r.created_at, r.update_at, rm.id, rm.room_name
+					FROM reservation r left join rooms rm on (r.room_id = rm.id)`
 }
