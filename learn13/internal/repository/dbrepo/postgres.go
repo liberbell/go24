@@ -246,4 +246,5 @@ func (m *postgresDBRepo) AllReservations() ([]models.Reservation, error) {
 	if err = rows.Err(); err != nil {
 		return reservations, err
 	}
+	return reservations, nil
 }
