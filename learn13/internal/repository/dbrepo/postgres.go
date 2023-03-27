@@ -221,4 +221,22 @@ func (m *postgresDBRepo) AllReservations() ([]models.Reservation, error) {
 	if err != nil {
 		return reservations, err
 	}
+
+	for rows.Next() {
+		var i models.Reservation
+		err := rows.Scan(
+			&i.ID,
+			&i.FirstName,
+			&i.LastName,
+			&i.Email,
+			&i.Phone,
+			&i.StartDate,
+			&i.EndDate,
+			&i.RoomID,
+			&i.CreatedAt,
+			&i.UpdatedAt,
+			&i.Room.ID,
+			&i.Room.RoomName,
+		)
+	}
 }
