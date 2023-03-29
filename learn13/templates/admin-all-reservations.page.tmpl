@@ -27,8 +27,8 @@
                     <td>{{.ID}}</td>
                     <td>{{.LastName}}</td>
                     <td>{{.Room.RoomName}}</td>
-                    <td>{{.StartDate}}</td>
-                    <td>{{.EndDate}}</td>
+                    <td>{{humanDate .StartDate}}</td>
+                    <td>{{humanDate .EndDate}}</td>
                 </tr>
                 
                 {{end}}
