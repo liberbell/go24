@@ -256,7 +256,7 @@ func (m *postgresDBRepo) AllNewReservations() ([]models.Reservation, error) {
 
 	var reservations []models.Reservation
 	query := `SELECT r.id, r.first_name, r.last_name, r.email, r.phone, r.start_date,
-					r.end_date, r.room_id, r.created_at, r.updated_at, rm.id, rm.room_name
+					r.end_date, r.room_id, r.created_at, r.updated_at, r.processed, rm.id, rm.room_name
 					FROM reservations r LEFT JOIN rooms rm on (r.room_id = rm.id)
 					WHERE processed = 0
 					ORDER BY r.start_date ASC`
@@ -279,6 +279,7 @@ func (m *postgresDBRepo) AllNewReservations() ([]models.Reservation, error) {
 			&i.RoomID,
 			&i.CreatedAt,
 			&i.UpdatedAt,
+			&i.Processed,
 			&i.Room.ID,
 			&i.Room.RoomName,
 		)
