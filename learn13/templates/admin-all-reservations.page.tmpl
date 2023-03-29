@@ -1,5 +1,9 @@
 {{template "admin" .}}
 
+    {{define "css"}}
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+    {{end}}
+
 {{define "page-title"}}
     All Reservations
 {{end}}
@@ -32,4 +36,8 @@
         </table>
 
     </div>
+{{end}}
+
+{{define "js"}}
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
 {{end}}
