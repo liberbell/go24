@@ -45,8 +45,11 @@
 {{define "js"}}
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
     <script>
-        const dataTable = new simpleDatatables.DataTable("#all-res", {
-            select: 3, sort:"desc"
+        document.addEventListener("DOMContentLoaded", function(){
+            const dataTable = new simpleDatatables.DataTable("#all-res", {
+                select: 3, sort:"desc"
+            })
         })
+        
     </script>
 {{end}}
