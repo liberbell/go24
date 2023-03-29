@@ -15,7 +15,9 @@ import (
 	"github.com/tsawler/bookings/internal/models"
 )
 
-var functions = template.FuncMap{}
+var functions = template.FuncMap{
+	"humanDate": HumanDate(,)
+}
 
 var app *config.AppConfig
 var pathToTemplates = "./templates"
