@@ -500,6 +500,10 @@ func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request
 	})
 }
 
+func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Request) {
+	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{})
+}
+
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{})
 }
