@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -501,6 +502,7 @@ func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request
 }
 
 func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Request) {
+	exploaded := strings.Split(r.RequestURI, "/")
 	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{})
 }
 
