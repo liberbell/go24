@@ -321,4 +321,9 @@ func (m *postgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 		&res.Room.ID,
 		&res.Room.RoomName,
 	)
+
+	if err != nil {
+		return res, err
+	}
+	return res, nil
 }
