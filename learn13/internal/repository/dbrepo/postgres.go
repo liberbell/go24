@@ -307,5 +307,18 @@ func (m *postgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 
 	row := m.DB.QueryRowContext(ctx, query, id)
 	err := row.Scan(
-		&res.ID)
+		&res.ID,
+		&res.FirstName,
+		&res.LastName,
+		&res.Email,
+		&res.Phone,
+		&res.StartDate,
+		&res.EndDate,
+		&res.RoomID,
+		&res.CreatedAt,
+		&res.UpdatedAt,
+		&res.Processed,
+		&res.Room.ID,
+		&res.Room.RoomName,
+	)
 }
