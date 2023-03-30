@@ -1,5 +1,9 @@
 {{template "admin" .}}
 
+{{define "css"}}
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+{{end}}
+
 {{define "page-title"}}
     New Reservations
 {{end}}
@@ -22,7 +26,7 @@
             <tr>
                 <td>{{.ID}}</td>
                 <td>
-                    <a href="/admin/reservations/{{.ID}}">
+                    <a href="/admin/reservations/new/{{.ID}}">
                     {{.LastName}}
                     </a>
                 </td>
