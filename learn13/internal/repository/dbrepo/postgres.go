@@ -301,5 +301,6 @@ func (m *postgresDBRepo) GetReservationByID(id int) (models.Reservation, error) 
 	var res models.Reservation
 	query = `SELECT r.id, r.first_name, r.last_name, r.email, r.phone, r.start_date, r.end_date, r.room_id,
 			 r.created_at, r.updated_at, r.processed, rm.id, rm.room_name,
-			 FROM reservation r left JOIN room rm ON (r.room_id = rm.id)`
+			 FROM reservations r left JOIN room rm ON (r.room_id = rm.id)
+			 WHERE r.id = $1`
 }
