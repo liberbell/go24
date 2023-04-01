@@ -504,6 +504,11 @@ func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request
 func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Request) {
 	exploaded := strings.Split(r.RequestURI, "/")
 	id, err := strconv.Atoi(exploaded[4])
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+	log.Print(id)
 	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{})
 }
 
