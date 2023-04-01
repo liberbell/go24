@@ -6,10 +6,11 @@
 
 {{define "content"}}
     {{$res := index .Data "reservation"}}
+    {{$src := index .StringMap "src"}}
     <div class="col-md-12">
         Show reservation {{$res.FirstName}} {{$res.LastName}}
 
-        <form method="post" action="/admin/reservations/" class="" novalidate>
+        <form method="post" action="/admin/reservations/{{$src}}" class="" novalidate>
             <input type="hidden" name="csrf_token" value="{{.CSRFToken}}">
             <input type="hidden" name="start_date" value="{{index .StringMap "start_date"}}">
             <input type="hidden" name="end_date" value="{{index .StringMap "end_date"}}">
