@@ -7,6 +7,6 @@
 {{define "content"}}
     {{$res := index .Data "reservation"}}
     <div class="col-md-12">
-        Show reservation {{$res.FirstName}}
+        Show reservation {{$res.FirstName}} {{$res.LastName}}
     </div>
 {{end}}
