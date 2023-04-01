@@ -522,6 +522,7 @@ func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Reques
 	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
 		Data:      data,
+		Form:      forms.New(nil),
 	})
 }
 
