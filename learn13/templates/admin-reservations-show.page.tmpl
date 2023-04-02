@@ -11,6 +11,7 @@
         <p>
             <strong>Arrival:</strong> : {{humanDate $res.StartDate}}<br>
             <strong>Departure:</strong> : {{humanDate $res.EndDate}}<br>
+            <strong>Room:</strong> : {{$res.Room.RoomName}}<br>
         </p>
 
         <form method="post" action="/admin/reservations/{{$src}}/{{$res.ID}}" class="" novalidate>
