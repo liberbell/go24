@@ -345,3 +345,7 @@ func (m *postgresDBRepo) UpdateReservation(u models.Reservation) error {
 	}
 	return nil
 }
+
+func (m *postgresDBRepo) DeleteReservation(id int) error {
+
+}
