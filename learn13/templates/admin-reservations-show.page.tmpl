@@ -9,7 +9,8 @@
     {{$src := index .StringMap "src"}}
     <div class="col-md-12">
         <p>
-            <strong>Arrival </strong> : {{humanDate $res.StartDate}}
+            <strong>Arrival:</strong> : {{humanDate $res.StartDate}}<br>
+            <strong>Departure:</strong> : {{humanDate $res.EndDate}}<br>
         </p>
 
         <form method="post" action="/admin/reservations/{{$src}}/{{$res.ID}}" class="" novalidate>
