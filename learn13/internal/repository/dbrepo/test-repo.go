@@ -78,3 +78,7 @@ func (m *testDBRepo) GetReservationByID(id int) (models.Reservation, error) {
 func (m *testDBRepo) UpdateReservation(u models.Reservation) error {
 	return nil
 }
+
+func (m *postgresDBRepo) DeleteReservation(id int) error {
+	return nil
+}
