@@ -363,7 +363,7 @@ func (m *postgresDBRepo) UpdateProcessedReservation(id, processed int) error {
 	defer cancel()
 
 	query := `UPDATE reservations set processed = $1 WHERE id = $2`
-	_, err := m.DB.ExecContext(ctx, query, id)
+	_, err := m.DB.ExecContext(ctx, query, processed, id)
 	if err != nil {
 		return err
 	}
