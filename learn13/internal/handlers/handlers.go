@@ -541,8 +541,8 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 		helpers.ServerError(w, err)
 		return
 	}
-	data := make(map[string]interface{})
-	data["reservation"] = res
+	res.FirstName = r.Form.Get("first_name")
+	res.LastName = r.Form.Get("last_name")
 
 	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
