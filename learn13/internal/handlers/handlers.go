@@ -527,6 +527,11 @@ func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Reques
 }
 
 func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
 	exploaded := strings.Split(r.RequestURI, "/")
 	id, err := strconv.Atoi(exploaded[4])
 	if err != nil {
@@ -543,12 +548,9 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 	}
 	res.FirstName = r.Form.Get("first_name")
 	res.LastName = r.Form.Get("last_name")
+	res.Email = r.Form.Get("email")
+	res.Phone = r.Form.Get("phone")
 
-	render.Template(w, r, "admin-reservations-show.page.tmpl", &models.TemplateData{
-		StringMap: stringMap,
-		Data:      data,
-		Form:      forms.New(nil),
-	})
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
