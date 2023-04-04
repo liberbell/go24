@@ -74,7 +74,7 @@
             message: "Are you sure?",
             callback: function(result) {
                 if (result !== false) {
-                    window.location.href = "/admin/process-reseration/"
+                    window.location.href = "/admin/process-reseration/{{$src}}/" + id;
                 }
             }
         })
