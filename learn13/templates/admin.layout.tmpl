@@ -146,6 +146,34 @@
     <!-- End custom js for this page-->
     <script>
         let attention = Prompt();
+
+        function notify(msg, msgType) {
+            notie.alert({
+            type: msgType,
+            text: msg,
+            })
+        }
+    
+        function notifyModel(title, text, icon, confirmationButtonText) {
+            Swal.fire({
+            title: title,
+            html: text,
+            icon: icon,
+            confirmButtonText: confirmationButtonText
+            })
+        }
+        
+        {{with .Error}}
+        notify("{{.}}", "error")
+        {{end}}
+
+        {{with .Flash}}
+        notify("{{.}}", "success")
+        {{end}}
+
+        {{with .Warning}}
+        notify("{{.}}", "warning")
+        {{end}}
     </script>
     {{block "js" . }}
 
