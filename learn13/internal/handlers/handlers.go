@@ -569,5 +569,6 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 func (m *Repository) AdminProcessReservation(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(chi.URLParam(r, "id"))
 	src := chi.URLParam(r, "src")
+	_ = m.DB.UpdateProcessedReservation(id, 1)
 	render.Template(w, r, "admin-processed-reservation.page.tmpl", &models.TemplateData{})
 }
