@@ -83,6 +83,6 @@ func (m *testDBRepo) DeleteReservation(id int) error {
 	return nil
 }
 
-func (m *testDBRepo) UpdateProcessedReservation(id, processed int) error {
+func (m *testDBRepo) UpdateProcessedForReservation(id, processed int) error {
 	return nil
 }
