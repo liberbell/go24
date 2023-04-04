@@ -68,7 +68,13 @@
 {{define "js"}}
 <script>
     function processRes(id) {
-        
+        attention.custom({
+            icon: "warning",
+            message: "Are you sure?",
+            callback: function(result) {
+                if (result !== false)
+            }
+        })
     }
 </script>
 {{end}}
