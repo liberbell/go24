@@ -563,6 +563,11 @@ func (m *Repository) AdminPostShowReservation(w http.ResponseWriter, r *http.Req
 }
 
 func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Request) {
+	now := time.Now()
+	if r.URL.Query().Get("y") != "" {
+		year, _ := strconv.Atoi(r.URL.Query().Get("y"))
+		month, _ := strconv.Atoi(r.URL.Query().Get("m"))
+	}
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{})
 }
 
