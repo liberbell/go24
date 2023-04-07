@@ -13,18 +13,12 @@
 
         <div class="flex">
             <div>
-                <a class="btn btn-sm btn-outline-secondary" href="/admin/reservations-calender?y={{index .StringMap "last_month_year"}}&m={{index .StringMap "last_month"}}">
-                    &lt;&lt;
-                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="/admin/reservations-calender?y={{index .StringMap "last_month_year"}}&m={{index .StringMap "last_month"}}">&lt;&lt;</a>
             </div>
 
             <div>
-                <a class="btn btn-sm btn-outline-secondary" href="/admin/reservations-calender?y={{index .StringMap "next_month_year"}}&m={{index .StringMap "next_month"}}">
-                    &gt;&gt;
-                </a>
+                <a class="btn btn-sm btn-outline-secondary" href="/admin/reservations-calender?y={{index .StringMap "next_month_year"}}&m={{index .StringMap "next_month"}}">&gt;&gt;</a>
             </div>
-
-            <div class="clearfix"></div>
         </div>
     </div>
 {{end}}
