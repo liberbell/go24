@@ -588,6 +588,10 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 	stringMap["this_month"] = now.Format("01")
 	stringMap["this_month_year"] = now.Format("2006")
 
+	currentYear, currentMonth, _ := now.Date()
+	currentLocation := now.Location()
+	firstOfMonth := time.Date(currentYear, currentMonth, 1, 0, 0, 0, 0, currentLocation)
+
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
 		Data:      data,
