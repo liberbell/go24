@@ -591,6 +591,7 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 	currentYear, currentMonth, _ := now.Date()
 	currentLocation := now.Location()
 	firstOfMonth := time.Date(currentYear, currentMonth, 1, 0, 0, 0, 0, currentLocation)
+	lastOfMonth := firstOfMonth.AddDate(0, 1, -1)
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
