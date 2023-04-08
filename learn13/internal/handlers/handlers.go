@@ -570,6 +570,7 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 		now = time.Date(year, time.Month(month), 1, 0, 0, 0, 0, time.UTC)
 	}
 	data := make(map[string]interface{})
+	data["now"] = now
 
 	next := now.AddDate(0, 1, 0)
 	last := now.AddDate(0, -1, 0)
