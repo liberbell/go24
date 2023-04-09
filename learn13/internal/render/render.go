@@ -23,6 +23,11 @@ var functions = template.FuncMap{
 var app *config.AppConfig
 var pathToTemplates = "./templates"
 
+func Iterate(count int) []int {
+	var i int
+	var items []int
+}
+
 func NewRenderer(a *config.AppConfig) {
 	app = a
 }
