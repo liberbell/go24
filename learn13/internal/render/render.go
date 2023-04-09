@@ -26,6 +26,10 @@ var pathToTemplates = "./templates"
 func Iterate(count int) []int {
 	var i int
 	var items []int
+	for i = 0; i < count; i++ {
+		items = append(items, i)
+	}
+	return items
 }
 
 func NewRenderer(a *config.AppConfig) {
