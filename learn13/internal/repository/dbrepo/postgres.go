@@ -385,4 +385,14 @@ func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
 	}
 	defer rows.Close()
 
+	for rows.Next() {
+		var rm models.Room
+		err := rows.Scan(
+			&rm.ID,
+			&rm.RoomName,
+			&rm.CreatedAt,
+			&rm.UpdatedAt,
+		)
+	}
+
 }
