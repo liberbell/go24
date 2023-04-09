@@ -383,5 +383,6 @@ func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
 	if err != nil {
 		return rooms, err
 	}
+	defer rows.Close()
 
 }
