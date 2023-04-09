@@ -27,7 +27,11 @@
             <div class="table-response">
                 <table class="table table-bordered table-sm">
                     <tr class="table-dark">
-
+                        {{range $dim}}
+                            <td class="text-center">
+                                {{.}}
+                            </td>
+                        {{end}}
                     </tr>
                 </table>
             </div>
