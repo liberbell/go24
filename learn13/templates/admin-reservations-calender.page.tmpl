@@ -22,7 +22,10 @@
         <div class="clearfix"></div>
 
         {{range $rooms}}
-            {{.RoomName}}
+            <h4>{{.RoomName}}</h4>
+            <div class="table-response">
+                <table class="table table-bordered"></table>
+            </div>
         {{end}}
     </div>
 {{end}}
