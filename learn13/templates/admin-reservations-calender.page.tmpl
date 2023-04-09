@@ -6,6 +6,7 @@
 
 {{define "content"}}
     {{$now := index .Data "now"}}
+    {{$rooms := index .Data "rooms"}}
     <div class="col-md-12">
         
         <div class="text-center">
@@ -19,5 +20,9 @@
             <a class="btn btn-sm btn-outline-secondary" href="/admin/reservations-calendar?y={{index .StringMap "next_month_year"}}&m={{index .StringMap "next_month"}}">&gt;&gt;</a>
         </div>
         <div class="clearfix"></div>
+
+        {{range $rooms}}
+            {{.RoomName}}
+        {{end}}
     </div>
 {{end}}
