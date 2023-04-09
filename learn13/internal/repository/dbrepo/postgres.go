@@ -371,3 +371,17 @@ func (m *postgresDBRepo) UpdateProcessedForReservation(id, processed int) error 
 	}
 	return nil
 }
+
+func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+
+	var rooms []models.Room
+
+	query := `SELECT id, room_name, created_at, updated_at FROM rooms ORDER BY id room_name`
+	rows, err := m.DB.QueryContext(ctx, query)
+	if err != nil {
+		return rooms, err
+	}
+
+}
