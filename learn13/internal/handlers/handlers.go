@@ -596,7 +596,12 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 	intMap := make(map[string]int)
 	intMap["days_in_month"] = lastOfMonth.Day()
 
-	rooms, err := m.DB.ALLRooms
+	rooms, err := m.DB.AllRooms()
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+	data["rooms"] = rooms
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
 		StringMap: stringMap,
