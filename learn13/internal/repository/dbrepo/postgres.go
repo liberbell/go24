@@ -393,6 +393,9 @@ func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
 			&rm.CreatedAt,
 			&rm.UpdatedAt,
 		)
+		if err != nil {
+			return rooms, err
+		}
 	}
 
 }
