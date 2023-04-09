@@ -402,5 +402,6 @@ func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
 	if err = rows.Err(); err != nil {
 		return rooms, err
 	}
+	return rooms, nil
 
 }
