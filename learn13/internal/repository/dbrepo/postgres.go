@@ -403,5 +403,4 @@ func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
 		return rooms, err
 	}
 	return rooms, nil
-
 }
