@@ -432,5 +432,6 @@ func (m *postgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end, ti
 		if err != nil {
 			return nil, err
 		}
+		restrictions = append(restrictions, r)
 	}
 }
