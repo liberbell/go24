@@ -404,3 +404,8 @@ func (m *postgresDBRepo) AllRooms() ([]models.Room, error) {
 	}
 	return rooms, nil
 }
+
+func (m *postgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end, time.Time) ([]models.Restriction, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+	defer cancel()
+}
