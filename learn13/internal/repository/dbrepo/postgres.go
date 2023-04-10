@@ -417,6 +417,7 @@ func (m *postgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end, ti
 	if err != nil {
 		return nil, err
 	}
+
 	defer rows.Close()
 	for rows.Next() {
 		var r models.RoomRestriction
@@ -428,5 +429,8 @@ func (m *postgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end, ti
 			&r.StartDate,
 			&r.EndDate,
 		)
+		if err != nil {
+			return nil, err
+		}
 	}
 }
