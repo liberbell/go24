@@ -606,6 +606,10 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 	for _, x := range rooms {
 		reservationMap := make(map[string]int)
 		blockMap := make(map[string]int)
+
+		for d := firstOfMonth; d.After(lastOfMonth) == false; d = d.AddDate(0, 0, 1) {
+			reservationMap[d.Format("2006 01 2")] = 0
+		}
 	}
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
