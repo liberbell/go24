@@ -23,10 +23,10 @@ type Room struct {
 }
 
 type Restriction struct {
-	ID        int
-	RoomName  string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID              int
+	RestrictionName string
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
 }
 
 type Reservation struct {
