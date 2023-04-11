@@ -622,9 +622,10 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 					reservationMap[d.Format("2006 01 2")] = y.ReservationID
 				}
 			} else {
-
+				blockMap[y.StartDate.Format("2006 01 2")] = y.RestrictionID
 			}
 		}
+
 	}
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
