@@ -616,6 +616,13 @@ func (m *Repository) AdminReservationsCalender(w http.ResponseWriter, r *http.Re
 			helpers.ServerError(w, err)
 			return
 		}
+		for _, y := range restrictions {
+			if y.ReservationID > 0 {
+				a
+			} else {
+
+			}
+		}
 	}
 
 	render.Template(w, r, "admin-reservations-calender.page.tmpl", &models.TemplateData{
