@@ -94,7 +94,7 @@ func (m *testDBRepo) AllRooms() ([]models.Room, error) {
 }
 
 func (m *testDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end time.Time) ([]models.RoomRestriction, error) {
-	var restrictions []models.Restriction
+	var restrictions []models.RoomRestriction
 
 	return restrictions, nil
 }
