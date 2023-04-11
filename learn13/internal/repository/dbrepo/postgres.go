@@ -409,7 +409,7 @@ func (m *postgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end tim
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	var restrictions []models.Restriction
+	var restrictions []models.RoomRestriction
 	query := `SELECT id, COALESCE(reservation_id, 0), restriction_id, room_id, start_date, end_date FROM room_restrictions< 
 			  WHERE $1 < end_date AND $2 >= start_date AND room_id = $3`
 
