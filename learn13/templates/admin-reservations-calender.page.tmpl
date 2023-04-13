@@ -46,6 +46,7 @@
                                     <input 
                                         {{if gt (index $blocks (printf "%s-%s-%d" $curYear $curMonth (add $index 1))) 0}}
                                             checked
+                                            name="remove_block_{{$roomID}}_{{printf "%s-%s-%d" $curYear $curMonth (add $index 1)}}"
                                         {{else}}
                                             type="checkbox">
                             </td>
