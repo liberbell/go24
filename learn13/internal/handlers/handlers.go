@@ -135,18 +135,6 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 		RoomID:    roomID,
 	}
 
-	// err := r.ParseForm()
-
-	// if err != nil {
-	// 	helpers.ServerError(w, err)
-	// 	return
-	// }
-
-	// reservation.FirstName = r.Form.Get("first_name")
-	// reservation.LastName = r.Form.Get("last_name")
-	// reservation.Phone = r.Form.Get("phone")
-	// reservation.Email = r.Form.Get("email")
-
 	form := forms.New(r.PostForm)
 
 	form.Required("first_name", "last_name", "email")
@@ -156,7 +144,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	if !form.Valid() {
 		data := make(map[string]interface{})
 		data["reservation"] = reservation
-		http.Error(w, "my own error message", http.StatusSeeOther)
+		// http.Error(w, "my own error message", http.StatusSeeOther)
 
 		render.Template(w, r, "make-reservation.page.tmpl", &models.TemplateData{
 			Form: form,
@@ -168,7 +156,7 @@ func (m *Repository) PostReservation(w http.ResponseWriter, r *http.Request) {
 	newReservationID, err := m.DB.InsertReservation(reservation)
 	if err != nil {
 		m.App.Session.Put(r.Context(), "error", "can't insert reservation into database")
-		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
