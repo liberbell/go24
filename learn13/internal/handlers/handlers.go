@@ -669,9 +669,18 @@ func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *htt
 		return
 	}
 
-	forms := forms.New(r.PostForm)
+	form := forms.New(r.PostForm)
 	for _, x := range rooms {
 		curMap := m.App.Session.Get(r.Context(), fmt.Sprintf("block_map_%d", x.ID)).(map[string]int)
+		for name, value := range curMap {
+			if val, ok := curMap[name]; ok {
+				if val > 0 {
+					if !form.Has(fmt.Sprintf("remove_block_%d_%s", x.ID, name)) {
+
+					}
+				}
+			}
+		}
 	}
 
 	m.App.Session.Put(r.Context(), "flash", "Changes saved")
