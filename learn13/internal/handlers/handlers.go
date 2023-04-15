@@ -663,6 +663,17 @@ func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *htt
 	year, _ := strconv.Atoi(r.Form.Get("y"))
 	month, _ := strconv.Atoi(r.Form.Get("m"))
 
+	rooms, err := m.DB.AllRooms()
+	if err != nil {
+		helpers.ServerError(w, err)
+		return
+	}
+
+	forms := forms.New(r.PostForm)
+	for _, x := range rooms {
+		curMap := m.App.Session.Get(r.Context(), fmt.Sprintf("block_map_%d", x.ID)).(map[string]int)
+	}
+
 	m.App.Session.Put(r.Context(), "flash", "Changes saved")
 	http.Redirect(w, r, fmt.Sprintf("/admin/reservations-calendar?y=%d&m=%d", year, month), http.StatusSeeOther)
 }
