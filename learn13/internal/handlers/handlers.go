@@ -252,10 +252,6 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// for _, i := range rooms {
-	// 	m.App.InfoLog.Println("Room:", i.ID, i.RoomName)
-	// }
-
 	if len(rooms) == 0 {
 		//no availability
 		m.App.Session.Put(r.Context(), "error", "No availability")
@@ -314,7 +310,7 @@ func (m *Repository) AvailabilityJSON(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		resp := jsonResponse{
 			OK:      false,
-			Message: "Error connecting to database",
+			Message: "Error querying database",
 		}
 
 		out, _ := json.MarshalIndent(resp, "", "    ")
@@ -367,7 +363,9 @@ func (m *Repository) ReservationSummary(w http.ResponseWriter, r *http.Request) 
 }
 
 func (m *Repository) ChooseRoom(w http.ResponseWriter, r *http.Request) {
-	roomID, err := strconv.Atoi(chi.URLParam(r, "id"))
+	exploded := strings.Split(r.RequestURI, "/")
+	roomID, err := strconv.Atoi(exploded[2])
+
 	if err != nil {
 		helpers.ServerError(w, err)
 		return
