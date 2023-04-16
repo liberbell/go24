@@ -424,7 +424,6 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 	form.Required("email", "password")
 	form.IsEmail("email")
 	if !form.Valid() {
-		//test
 		render.Template(w, r, "login.page.tmpl", &models.TemplateData{
 			Form: form,
 		})
@@ -433,8 +432,6 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 
 	id, _, err := m.DB.Authenticate(email, password)
 	if err != nil {
-		log.Println(err)
-
 		m.App.Session.Put(r.Context(), "error", "Invalid login credentials")
 		http.Redirect(w, r, "/user/login", http.StatusSeeOther)
 		return
@@ -484,15 +481,21 @@ func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request
 }
 
 func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Request) {
-	exploaded := strings.Split(r.RequestURI, "/")
-	id, err := strconv.Atoi(exploaded[4])
+	exploded := strings.Split(r.RequestURI, "/")
+	id, err := strconv.Atoi(exploded[4])
 	if err != nil {
 		helpers.ServerError(w, err)
 		return
 	}
-	src := exploaded[3]
+	src := exploded[3]
 	stringMap := make(map[string]string)
 	stringMap["src"] = src
+
+	year := r.URL.Query().Get("y")
+	month := r.URL.Query().Get("m")
+	stringMap["month"] = month
+	stringMap["year"] = year
+
 	res, err := m.DB.GetReservationByID(id)
 	if err != nil {
 		helpers.ServerError(w, err)
