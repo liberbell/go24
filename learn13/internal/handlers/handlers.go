@@ -401,8 +401,6 @@ func (m *Repository) BookRoom(w http.ResponseWriter, r *http.Request) {
 
 	m.App.Session.Put(r.Context(), "reservation", res)
 	http.Redirect(w, r, "/make-reservation", http.StatusSeeOther)
-
-	log.Println(roomID, startDate, endDate)
 }
 
 func (m *Repository) ShowLogin(w http.ResponseWriter, r *http.Request) {
@@ -418,9 +416,6 @@ func (m *Repository) PostShowLogin(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-
-	// var email string
-	// var password string
 
 	email := r.Form.Get("email")
 	password := r.Form.Get("password")
