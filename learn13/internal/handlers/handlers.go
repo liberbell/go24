@@ -249,8 +249,8 @@ func (m *Repository) PostAvailability(w http.ResponseWriter, r *http.Request) {
 
 	rooms, err := m.DB.SearchAvailabilityForAllRooms(startDate, endDate)
 	if err != nil {
-		fmt.Println(err)
-		helpers.ServerError(w, err)
+		m.App.Session.Put(r.Context(), "error", "can't get availability for rooms")
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
 
