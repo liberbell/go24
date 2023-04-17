@@ -691,7 +691,8 @@ func (m *Repository) AdminPostReservationsCalendar(w http.ResponseWriter, r *htt
 		if strings.HasPrefix(name, "add_block") {
 			exploded := strings.Split(name, "_")
 			roomID, _ := strconv.Atoi(exploded[2])
-			log.Println("would insert block for room id", roomID, "for date", exploded[3])
+			t, _ := time.Parse("2006 01-2", exploded[3])
+			err := m.DB.InsertBlockForRooom(roomID, t)
 		}
 		log.Println("Form has name", name)
 	}
