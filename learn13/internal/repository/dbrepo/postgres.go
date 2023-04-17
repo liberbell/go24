@@ -460,9 +460,9 @@ func (m *postgresDBRepo) DeleteBlockByID(id int) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	query := `DELETE FROM room_restrictions`
+	query := `DELETE FROM room_restrictions WHERE id = $1`
 
-	_, err := m.DB.ExecContext(ctx, query, startDate, startDate.AddDate(0, 0, 1), id, 2, time.Now(), time.Now())
+	_, err := m.DB.ExecContext(ctx, query, id)
 	if err != nil {
 		log.Println(err)
 		return err
