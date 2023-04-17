@@ -99,10 +99,10 @@ func (m *testDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end time.Ti
 	return restrictions, nil
 }
 
-func (m *postgresDBRepo) InsertBlockForRooom(id int, startDate time.Time) error {
+func (m *testDBRepo) InsertBlockForRooom(id int, startDate time.Time) error {
 	return nil
 }
 
-func (m *postgresDBRepo) DeleteBlockByID(id int) error {
+func (m *testDBRepo) DeleteBlockByID(id int) error {
 	return nil
 }
