@@ -3,6 +3,7 @@ package dbrepo
 import (
 	"context"
 	"errors"
+	"log"
 	"time"
 
 	"github.com/tsawler/bookings/internal/models"
@@ -448,4 +449,9 @@ func (m *postgresDBRepo) InsertBlockForRooom(id int, startDate time.Time) error 
 			  created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6)`
 
 	_, err := m.DB.ExecContext(ctx, query, startDate, startDate.AddDate(0, 0, 1), id, 2, time.Now(), time.Now())
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+	return nil
 }
