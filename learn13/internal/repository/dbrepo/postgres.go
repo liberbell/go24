@@ -441,7 +441,7 @@ func (m *postgresDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end tim
 	return restrictions, nil
 }
 
-func (m *postgresDBRepo) InsertBlockForRooom(id int, startDate time.Time) error {
+func (m *postgresDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
