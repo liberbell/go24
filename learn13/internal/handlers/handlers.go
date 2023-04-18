@@ -651,9 +651,9 @@ func (m *Repository) AdminProcessReservation(w http.ResponseWriter, r *http.Requ
 	month := r.URL.Query().Get("m")
 	if year == "" {
 		http.Redirect(w, r, fmt.Sprintf("/admin/reservations-#{src}"), http.StatusSeeOther)
+	} else {
+		http.Redirect(w, r, fmt.Sprintf("/admin/reservations-calendar?y=%s&m=%s", year, month), http.StatusSeeOther)
 	}
-	m.App.Session.Put(r.Context(), "flash", "Reservation marked as processed.")
-	http.Redirect(w, r, fmt.Sprintf("/admin/reservations-%s", src), http.StatusSeeOther)
 }
 
 func (m *Repository) AdminDeleteReservation(w http.ResponseWriter, r *http.Request) {
