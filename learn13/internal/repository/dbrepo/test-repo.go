@@ -99,7 +99,7 @@ func (m *testDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end time.Ti
 	return restrictions, nil
 }
 
-func (m *testDBRepo) InsertBlockForRooom(id int, startDate time.Time) error {
+func (m *testDBRepo) InsertBlockForRoom(id int, startDate time.Time) error {
 	return nil
 }
 
