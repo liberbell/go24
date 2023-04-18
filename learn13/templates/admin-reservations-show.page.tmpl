@@ -103,7 +103,7 @@
                 if (result !== false) {
                     window.location.href = "/admin/delete-reservation/{{$src}}/" + id;
                         + id
-                        + "/do?y={{index .StringMap "year"}}";
+                        + "/do?y={{index .StringMap "year"}}&m={{index .StringMap "month"}}";
                 }
             }
         })
