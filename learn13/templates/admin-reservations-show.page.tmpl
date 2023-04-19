@@ -71,7 +71,9 @@
             </div>
 
             <div class="float-end">
-                <a href="#!" class="btn btn-danger" onclick="deleteRes({{$res.ID}})">Delete</a>
+                {{if eq $res.Processed 0}}
+                    <a href="#!" class="btn btn-danger" onclick="deleteRes({{$res.ID}})">Delete</a>
+                {{end}}
             </div>
             <div class="clearfix"></div>
         </form>
