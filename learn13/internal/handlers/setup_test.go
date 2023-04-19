@@ -100,12 +100,11 @@ func getRoutes() http.Handler {
 	mux.Get("/search-availability", Repo.Availability)
 	mux.Post("/search-availability", Repo.PostAvailability)
 	mux.Post("/search-availability-json", Repo.AvailabilityJSON)
+	mux.Get("/contact", Repo.Contact)
 
 	mux.Get("/make-reservation", Repo.Reservation)
 	mux.Post("/make-reservation", Repo.PostReservation)
 	mux.Get("/reservation-summary", Repo.ReservationSummary)
-
-	mux.Get("/contact", Repo.Contact)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
@@ -142,19 +141,19 @@ func CreateTestTemplateCache() (map[string]*template.Template, error) {
 		name := filepath.Base(page)
 		ts, err := template.New(name).Funcs(functions).ParseFiles(page)
 		if err != nil {
-			log.Fatalln(err, "1")
+			log.Println(err, "1")
 			return myCache, err
 		}
 		matches, err := filepath.Glob(fmt.Sprintf("%s/*.layout.tmpl", pathToTemplates))
 		if err != nil {
-			log.Fatalln(err, "2")
+			log.Println(err, "2")
 			return myCache, err
 		}
 
 		if len(matches) > 0 {
 			ts, err = ts.ParseGlob(fmt.Sprintf("%s/*.layout.tmpl", pathToTemplates))
 			if err != nil {
-				log.Fatalln(err, "3")
+				log.Println(err, "3")
 				return myCache, err
 			}
 		}
