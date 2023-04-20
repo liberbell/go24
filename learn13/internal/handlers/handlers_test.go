@@ -346,7 +346,7 @@ func TestLogin(*testing.T) {
 		postedData.Add("password", "password2")
 
 		req, _ := http.NewRequest("POST", "/user/login", strings.NewReader(postedData.Encode()))
-		ctx := get.Context(req)
+		ctx := getCtx(req)
 		req = req.WithContext(ctx)
 
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
