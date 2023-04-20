@@ -110,6 +110,17 @@ func getRoutes() http.Handler {
 	mux.Post("/user/login", Repo.PostShowLogin)
 	mux.Get("/user/logout", Repo.Logout)
 
+	mux.Get("/dashboard", Repo.AdminDashboard)
+	mux.Get("/reservations-new", Repo.AdminNewReservations)
+	mux.Get("/reservations-all", Repo.AdminAllReservations)
+	mux.Get("/reservations-calendar", Repo.AdminReservationsCalendar)
+	mux.Post("/reservations-calendar", Repo.AdminPostReservationsCalendar)
+	mux.Get("/process-reservation/{src}/{id}/do", Repo.AdminProcessReservation)
+	mux.Get("/delete-reservation/{src}/{id}/do", Repo.AdminDeleteReservation)
+
+	mux.Get("/reservations/{src}/{id}/show", Repo.AdminShowReservations)
+	mux.Post("/reservations/{src}/{id}", Repo.AdminPostShowReservation)
+
 	fileServer := http.FileServer(http.Dir("./static/"))
 	mux.Handle("/static/*", http.StripPrefix("/static", fileServer))
 
