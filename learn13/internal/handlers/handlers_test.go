@@ -353,6 +353,7 @@ func TestLogin(*testing.T) {
 		rr := httptest.NewRecorder()
 
 		handler := http.HandlerFunc(Repo.PostShowLogin)
+		handler.ServeHTTP(rr, req)
 
 	}
 }
