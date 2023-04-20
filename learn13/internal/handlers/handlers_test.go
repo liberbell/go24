@@ -37,6 +37,8 @@ var theTests = []struct {
 	{"login", "/user/login", "GET", http.StatusOK},
 	{"logout", "/user/logout", "GET", http.StatusOK},
 	{"dashboard", "/admin/dashboard", "GET", http.StatusOK},
+	{"new res", "/admin/reservations-new", "GET", http.StatusOK},
+	{"all res", "/admin/reservations-all", "GET", http.StatusOK},
 
 	// {"postavailability", "/search-availability", "POST", []postData{
 	// 	{key: "start", value: "2023-01-31"},
