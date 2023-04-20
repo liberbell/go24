@@ -34,6 +34,10 @@ var theTests = []struct {
 	{"contact", "/contact", "GET", http.StatusOK},
 	{"non-existent", "/green/eggs/and/ham", "GET", http.StatusNotFound},
 
+	{"login", "/user/login", "GET", http.StatusOK},
+	{"logout", "/user/logout", "GET", http.StatusOK},
+	{"dashboard", "/admin/dashboard", "GET", http.StatusOK},
+
 	// {"postavailability", "/search-availability", "POST", []postData{
 	// 	{key: "start", value: "2023-01-31"},
 	// 	{key: "end", value: "2023-01-31"},
