@@ -347,6 +347,13 @@ func TestLogin(*testing.T) {
 
 		req, _ := http.NewRequest("POST", "/user/login", strings.NewReader(postedData.Encode()))
 		ctx := get.Context(req)
+		req = req.WithContext(ctx)
+
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		rr := httptest.NewRecorder()
+
+		handler := http.HandlerFunc(Repo.PostShowLogin)
+
 	}
 }
 
