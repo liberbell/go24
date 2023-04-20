@@ -343,7 +343,10 @@ func TestLogin(*testing.T) {
 	for _, e := range loginTest {
 		postedData := url.Values{}
 		postedData.Add("email", e.mail)
-		postedData.Add("password", e.password)
+		postedData.Add("password", "password2")
+
+		req, _ := http.NewRequest("POST", "/user/login", strings.NewReader(postedData.Encode()))
+		ctx := get.Context(req)
 	}
 }
 
