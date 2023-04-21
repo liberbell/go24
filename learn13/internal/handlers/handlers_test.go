@@ -355,6 +355,10 @@ func TestLogin(*testing.T) {
 		handler := http.HandlerFunc(Repo.PostShowLogin)
 		handler.ServeHTTP(rr, req)
 
+		if rr.Code != e.expectedStatusCode {
+			t.Errorf("failed %s: expected code %d, but got %d", e.name, e.expectedStatusCode, rr.Code)
+		}
+
 	}
 }
 
