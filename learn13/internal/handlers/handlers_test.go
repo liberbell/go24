@@ -77,6 +77,14 @@ func TestHandlers(t *testing.T) {
 	}
 }
 
+var reservationTests = []struct {
+	name string
+	reservation models.reservation
+	expectedStatusCode int
+	expectedLocation string
+	expectedHTML string
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
