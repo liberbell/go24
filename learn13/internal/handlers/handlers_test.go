@@ -40,6 +40,8 @@ var theTests = []struct {
 	{"new res", "/admin/reservations-new", "GET", http.StatusOK},
 	{"all res", "/admin/reservations-all", "GET", http.StatusOK},
 	{"show res", "/admin/reservations/new/2/show", "GET", http.StatusOK},
+	{"show res cal", "/admin/reservations-calendar", "GET", http.StatusOK},
+	{"show res cal with params", "/admin/reservations-calendar?y=2023&m=5", "GET", http.StatusOK},
 
 	// {"postavailability", "/search-availability", "POST", []postData{
 	// 	{key: "start", value: "2023-01-31"},
