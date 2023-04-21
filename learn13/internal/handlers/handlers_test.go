@@ -339,7 +339,7 @@ var loginTest = []struct {
 	},
 }
 
-func TestLogin(*testing.T) {
+func TestLogin(t *testing.T) {
 	for _, e := range loginTest {
 		postedData := url.Values{}
 		postedData.Add("email", e.mail)
