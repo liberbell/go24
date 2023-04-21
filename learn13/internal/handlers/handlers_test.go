@@ -342,7 +342,7 @@ var loginTest = []struct {
 func TestLogin(t *testing.T) {
 	for _, e := range loginTest {
 		postedData := url.Values{}
-		postedData.Add("email", e.mail)
+		postedData.Add("email", e.email)
 		postedData.Add("password", "password2")
 
 		req, _ := http.NewRequest("POST", "/user/login", strings.NewReader(postedData.Encode()))
