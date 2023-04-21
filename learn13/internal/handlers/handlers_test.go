@@ -337,6 +337,13 @@ var loginTest = []struct {
 		"",
 		"/",
 	},
+	{
+		"invalid-credentials",
+		"eric2@example.com",
+		http.StatusSeeOther,
+		"",
+		"/user/login",
+	},
 }
 
 func TestLogin(t *testing.T) {
