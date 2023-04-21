@@ -83,6 +83,13 @@ var reservationTests = []struct {
 	expectedStatusCode int
 	expectedLocation string
 	expectedHTML string
+}{
+	{
+		name: "reservation-in-session",
+		reservation: models.Reservation{
+			RoomID: 1,
+		}
+	}
 }
 
 func TestRepository_Reservation(t *testing.T) {
