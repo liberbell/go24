@@ -123,6 +123,11 @@ func (t *testing.T)  {
 		req, _ := http.NewRequest("GET", "/make-reservation", nil)
 		ctx := getCtx(req)
 		req = req.WithContext(ctx)
+
+		rr := httptest.NewRecorder()
+		if e.reservation.RoomID > 0 {
+			session.Put(ctx, "reservation", e.reservation)
+		}
 	}
 }
 
