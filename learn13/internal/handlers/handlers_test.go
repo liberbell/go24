@@ -91,8 +91,10 @@ var reservationTests = []struct {
 			Room: models.Room{
 				ID: 1,
 				RoomName: "General's Quarters",
-			}
-		}
+			},
+		},
+		expectedStatusCode: http.StatusOK,
+		expectedHTML: `action="/make-reservation"`,
 	}
 }
 
