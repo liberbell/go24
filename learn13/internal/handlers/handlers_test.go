@@ -137,7 +137,7 @@ func TestReservation(t *testing.T) {
 
 		if e.expectedLocation != "" {
 			actualLoc, _ := rr.Result().Location()
-			if actualLoc != e.expectedLocation {
+			if actualLoc.String() != e.expectedLocation {
 				t.Errorf("failed %s: expected location %s, but got location %s", e.name, e.expectedLocation, actualLoc)
 			}
 		}
