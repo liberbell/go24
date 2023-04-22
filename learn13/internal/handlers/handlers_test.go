@@ -118,7 +118,7 @@ var reservationTests = []struct {
 	},
 }
 
-func (t *testing.T)  {
+func TestReservation(t *testing.T) {
 	for _, e := range reservationTests {
 		req, _ := http.NewRequest("GET", "/make-reservation", nil)
 		ctx := getCtx(req)
@@ -128,6 +128,8 @@ func (t *testing.T)  {
 		if e.reservation.RoomID > 0 {
 			session.Put(ctx, "reservation", e.reservation)
 		}
+		handler := http.HandlerFunc(Repo.Reservation)
+		handler.ServeHTTP(rr, req)
 	}
 }
 
