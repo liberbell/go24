@@ -105,11 +105,12 @@ var reservationTests = []struct {
 	},
 	{
 		name:        "non-existent-room",
-		reservation: models.Reservation{},
-		RoomID:      100,
-		Room: models.Room{
-			ID:       100,
-			RoomName: "General's Quarters",
+		reservation: models.Reservation{,
+			RoomID:      100,
+			Room: models.Room{
+				ID:       100,
+				RoomName: "General's Quarters",
+			},
 		},
 		expectedStatusCode: http.StatusSeeOther,
 		expectedLocation:   "/",
