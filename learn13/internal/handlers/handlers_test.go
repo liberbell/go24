@@ -78,24 +78,24 @@ func TestHandlers(t *testing.T) {
 }
 
 var reservationTests = []struct {
-	name string
-	reservation models.Reservation
+	name               string
+	reservation        models.Reservation
 	expectedStatusCode int
-	expectedLocation string
-	expectedHTML string
+	expectedLocation   string
+	expectedHTML       string
 }{
 	{
 		name: "reservation-in-session",
 		reservation: models.Reservation{
 			RoomID: 1,
 			Room: models.Room{
-				ID: 1,
+				ID:       1,
 				RoomName: "General's Quarters",
 			},
 		},
 		expectedStatusCode: http.StatusOK,
-		expectedHTML: `action="/make-reservation"`,
-	}
+		expectedHTML:       `action="/make-reservation"`,
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
