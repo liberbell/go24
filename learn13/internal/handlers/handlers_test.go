@@ -79,7 +79,7 @@ func TestHandlers(t *testing.T) {
 
 var reservationTests = []struct {
 	name string
-	reservation models.reservation
+	reservation models.Reservation
 	expectedStatusCode int
 	expectedLocation string
 	expectedHTML string
@@ -88,6 +88,10 @@ var reservationTests = []struct {
 		name: "reservation-in-session",
 		reservation: models.Reservation{
 			RoomID: 1,
+			Room: models.Room{
+				ID: 1,
+				RoomName: "General's Quarters",
+			}
 		}
 	}
 }
