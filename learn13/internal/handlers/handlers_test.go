@@ -118,6 +118,14 @@ var reservationTests = []struct {
 	},
 }
 
+func (t *testing.T)  {
+	for _, e := range reservationTests {
+		req, _ := http.NewRequest("GET", "/make-reservation", nil)
+		ctx := getCtx(req)
+		req = req.WithContext(ctx)
+	}
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
