@@ -103,6 +103,18 @@ var reservationTests = []struct {
 		expectedLocation:   "/",
 		expectedHTML:       "",
 	},
+	{
+		name:        "non-existent-room",
+		reservation: models.Reservation{},
+		RoomID:      100,
+		Room: models.Room{
+			ID:       100,
+			RoomName: "General's Quarters",
+		},
+		expectedStatusCode: http.StatusSeeOther,
+		expectedLocation:   "/",
+		expectedHTML:       "",
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
