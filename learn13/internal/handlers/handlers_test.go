@@ -96,6 +96,12 @@ var reservationTests = []struct {
 		expectedStatusCode: http.StatusOK,
 		expectedHTML:       `action="/make-reservation"`,
 	},
+	{
+		name:               "reservation-in-session",
+		reservation:        models.Reservation{},
+		expectedStatusCode: "/",
+		expectedHTML:       "",
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
