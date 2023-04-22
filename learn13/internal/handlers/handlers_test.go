@@ -99,7 +99,8 @@ var reservationTests = []struct {
 	{
 		name:               "reservation-in-session",
 		reservation:        models.Reservation{},
-		expectedStatusCode: "/",
+		expectedStatusCode: http.StatusSeeOther,
+		expectedLocation:   "/",
 		expectedHTML:       "",
 	},
 }
