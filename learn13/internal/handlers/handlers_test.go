@@ -104,9 +104,9 @@ var reservationTests = []struct {
 		expectedHTML:       "",
 	},
 	{
-		name:        "non-existent-room",
-		reservation: models.Reservation{,
-			RoomID:      100,
+		name: "non-existent-room",
+		reservation: models.Reservation{
+			RoomID: 100,
 			Room: models.Room{
 				ID:       100,
 				RoomName: "General's Quarters",
