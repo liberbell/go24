@@ -171,6 +171,10 @@ var PostReservationTest = []struct {
 		},
 		expectedResponseCode: http.StatusSeeOther,
 		expectedHTML: "",
+		expectedLocation: "/reservation-summary",
+	},
+	{
+		
 	}
 }
 func TestRepository_Reservation(t *testing.T) {
