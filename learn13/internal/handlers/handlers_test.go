@@ -163,7 +163,14 @@ var PostReservationTest = []struct {
 		postedData: url.Values{
 			"start_date": {"2050-01-01"},
 			"end_date": {"2050-01-02"},
-		}
+			"first_name": "John",
+			"last_name": "Smith",
+			"email": "john@example.com",
+			"phone": "123-456-7890",
+			"room_id": "1",
+		},
+		expectedResponseCode: http.StatusSeeOther,
+		expectedHTML: "",
 	}
 }
 func TestRepository_Reservation(t *testing.T) {
