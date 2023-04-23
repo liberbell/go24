@@ -144,6 +144,9 @@ func TestReservation(t *testing.T) {
 
 		if e.expectedHTML != "" {
 			html := rr.Body.String()
+			if !strings.Contains(html, e.expectedHTML) {
+				t.Errorf("failed %s: expected to find %s but did not", e.name, e.expectedHTML)
+			}
 		}
 	}
 }
