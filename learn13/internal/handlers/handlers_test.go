@@ -151,6 +151,21 @@ func TestReservation(t *testing.T) {
 	}
 }
 
+var PostReservationTest = []struct {
+	name string
+	postedData url.Values
+	expectedStatusCode int
+	expectedLocation string
+	expectedHTML string
+}{
+	{
+		name: "valid-data",
+		postedData: url.Values{
+			"start_date": {"2050-01-01"},
+			"end_date": {"2050-01-02"},
+		}
+	}
+}
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
