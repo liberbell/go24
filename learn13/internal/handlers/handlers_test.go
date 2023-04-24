@@ -152,81 +152,80 @@ func TestReservation(t *testing.T) {
 }
 
 var PostReservationTest = []struct {
-	name string
-	postedData url.Values
+	name               string
+	postedData         url.Values
 	expectedStatusCode int
-	expectedLocation string
-	expectedHTML string
+	expectedLocation   string
+	expectedHTML       string
 }{
 	{
 		name: "valid-data",
 		postedData: url.Values{
 			"start_date": {"2050-01-01"},
-			"end_date": {"2050-01-02"},
+			"end_date":   {"2050-01-02"},
 			"first_name": {"John"},
-			"last_name": {"Smith"},
-			"email": {"john@example.com"},
-			"phone": {"123-456-7890"},
-			"room_id": {"1"},
+			"last_name":  {"Smith"},
+			"email":      {"john@example.com"},
+			"phone":      {"123-456-7890"},
+			"room_id":    {"1"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
-		expectedHTML: "",
-		expectedLocation: "/reservation-summary",
+		expectedHTML:         "",
+		expectedLocation:     "/reservation-summary",
 	},
 	{
-		name: "missing-post-body",
-		postedData: nil,
-		expectedResponseCode http.StatusSeeOther,
-		expectedHTML: "",
-		expectedLocation: "/",
+		name:                 "missing-post-body",
+		postedData:           nil,
+		expectedResponseCode: http.StatusSeeOther,
+		expectedHTML:         "",
+		expectedLocation:     "/",
 	},
 	{
 		name: "invalid-start-date",
 		postedData: url.Values{
 			"start_date": {"invalid"},
-			"end_date": {"2050-01-02"},
+			"end_date":   {"2050-01-02"},
 			"first_name": {"John"},
-			"last_name": {"Smith"},
-			"email": {"john@example.com"},
-			"phone": {"123-456-7890"},
-			"room_id": {"1"},
+			"last_name":  {"Smith"},
+			"email":      {"john@example.com"},
+			"phone":      {"123-456-7890"},
+			"room_id":    {"1"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
-		expectedHTML: "",
-		expectedLocation: "/",
+		expectedHTML:         "",
+		expectedLocation:     "/",
 	},
 	{
 		name: "invalid-end-date",
 		postedData: url.Values{
 			"start_date": {"2050-01-01"},
-			"end_date": {"invalid"},
+			"end_date":   {"invalid"},
 			"first_name": {"John"},
-			"last_name": {"Smith"},
-			"email": {"john@example.com"},
-			"phone": {"123-456-7890"},
-			"room_id": {"1"},
+			"last_name":  {"Smith"},
+			"email":      {"john@example.com"},
+			"phone":      {"123-456-7890"},
+			"room_id":    {"1"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
-		expectedHTML: "",
-		expectedLocation: "/",
+		expectedHTML:         "",
+		expectedLocation:     "/",
 	},
 	{
 		name: "invalid-room-id",
 		postedData: url.Values{
 			"start_date": {"2050-01-01"},
-			"end_date": {"2050-01-02"},
+			"end_date":   {"2050-01-02"},
 			"first_name": {"John"},
-			"last_name": {"Smith"},
-			"email": {"john@example.com"},
-			"phone": {"123-456-7890"},
-			"room_id": {"invalid"},
+			"last_name":  {"Smith"},
+			"email":      {"john@example.com"},
+			"phone":      {"123-456-7890"},
+			"room_id":    {"invalid"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
-		expectedHTML: "",
-		expectedLocation: "/",
+		expectedHTML:         "",
+		expectedLocation:     "/",
 	},
 }
-
 
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
