@@ -309,6 +309,14 @@ var testAvailabilityJSONData = []struct {
 	postedData url.Values
 	expectedOK bool
 	expectedMessage string
+}{
+	{
+		name: "rooms not avalilable",
+		postedData: url.Values{
+			"start": {"2050-01-01"},
+			"end": {"2050-01-02"},
+		}
+	}
 }
 
 func TestRepository_Reservation(t *testing.T) {
