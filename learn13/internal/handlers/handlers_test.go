@@ -275,7 +275,7 @@ func TestPostReservation(t *testing.T) {
 		handler.ServeHTTP(rr, req)
 
 		if rr.Code != e.expectedResponseCode {
-			t.Errorf("%s returned wrong response code: got %d, wanted %d", rr.name, rr.Code, e.expectedResponseCode)
+			t.Errorf("%s returned wrong response code: got %d, wanted %d", e.name, rr.Code, e.expectedResponseCode)
 		}
 	}
 }
