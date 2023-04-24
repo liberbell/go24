@@ -225,6 +225,36 @@ var PostReservationTest = []struct {
 		expectedHTML:         "",
 		expectedLocation:     "/",
 	},
+	{
+		name: "invalid-data",
+		postedData: url.Values{
+			"start_date": {"2050-01-01"},
+			"end_date":   {"2050-01-02"},
+			"first_name": {"J"},
+			"last_name":  {"Smith"},
+			"email":      {"john@example.com"},
+			"phone":      {"123-456-7890"},
+			"room_id":    {"1"},
+		},
+		expectedResponseCode: http.StatusOK,
+		expectedHTML:         `action="/make-reservation"`,
+		expectedLocation:     "",
+	},
+	{
+		name: "database-insert-fails-reservation",
+		postedData: url.Values{
+			"start_date": {"2050-01-01"},
+			"end_date":   {"2050-01-02"},
+			"first_name": {"John"},
+			"last_name":  {"Smith"},
+			"email":      {"john@example.com"},
+			"phone":      {"123-456-7890"},
+			"room_id":    {"2"},
+		},
+		expectedResponseCode: http.StatusSeeOther,
+		expectedHTML:         "",
+		expectedLocation:     "/",
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
