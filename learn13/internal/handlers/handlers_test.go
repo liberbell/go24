@@ -298,6 +298,10 @@ func TestPostReservation(t *testing.T) {
 func TestNewRepo(t *testing.T) {
 	var db driver.DB
 	testRepo := NewRepo(&app, &db)
+
+	if reflect.TypeOf(testRepo).String() != "*handlers.Repository" {
+		t.Errorf("Did not get correct type got: %s", reflect.TypeOf(testRepo).String())
+	}
 }
 
 func TestRepository_Reservation(t *testing.T) {
