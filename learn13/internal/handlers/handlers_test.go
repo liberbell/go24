@@ -285,6 +285,13 @@ func TestPostReservation(t *testing.T) {
 				t.Errorf("failed %s: expected location %s,but got location ", e.name, e.expectedLocation)
 			}
 		}
+
+		if e.expectedHTML != "" {
+			html := rr.Body.String()
+			if !strings.Contains(html, e.expectedHTML) {
+				t.Errorf("failed %s: expected to find %s but did not", e.name, e.expectedHTML)
+			}
+		}
 	}
 }
 
