@@ -152,11 +152,11 @@ func TestReservation(t *testing.T) {
 }
 
 var PostReservationTest = []struct {
-	name               string
-	postedData         url.Values
-	expectedStatusCode int
-	expectedLocation   string
-	expectedHTML       string
+	name                 string
+	postedData           url.Values
+	expectedResponseCode int
+	expectedLocation     string
+	expectedHTML         string
 }{
 	{
 		name: "valid-data",
