@@ -270,6 +270,13 @@ func TestPostReservation(t *testing.T)  {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 		rr := httptest.NewRecorder()
+		handler := http.HandlerFunc(Repo.PostReservation)
+
+		handler.ServeHTTP(rr, req)
+
+		if rr.Code != e.expectedResponseCode {
+			t.Errorf("%s returned wrong response code: got %d, wanted %d", rr.name, rr.Code, e.expectedResponseCode)
+		}
 	}
 }
 
