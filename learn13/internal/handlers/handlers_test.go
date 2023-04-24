@@ -295,6 +295,11 @@ func TestPostReservation(t *testing.T) {
 	}
 }
 
+func TestNewRepo(t *testing.T) {
+	var db driver.DB
+	testRepo := NewRepo(&app, &db)
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
