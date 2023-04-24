@@ -174,7 +174,10 @@ var PostReservationTest = []struct {
 		expectedLocation: "/reservation-summary",
 	},
 	{
-		
+		name: "missing-post-body",
+		postedData: nil,
+		expectedResponseCode http.StatusSeeOther,
+		expectedHTML: "",
 	}
 }
 func TestRepository_Reservation(t *testing.T) {
