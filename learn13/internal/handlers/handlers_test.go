@@ -304,6 +304,13 @@ func TestNewRepo(t *testing.T) {
 	}
 }
 
+var testAvailabilityJSONData = []struct {
+	name string
+	postedData url.Values
+	expectedOK bool
+	expectedMessage string
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
