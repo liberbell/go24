@@ -268,6 +268,8 @@ func TestPostReservation(t *testing.T)  {
 		ctx := getCtx(req)
 		req = req.WithContext(ctx)
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+		rr := httptest.NewRecorder()
 	}
 }
 
