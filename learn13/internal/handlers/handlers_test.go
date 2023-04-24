@@ -265,6 +265,9 @@ func TestPostReservation(t *testing.T)  {
 		}else {
 			req, _ = http.NewRequest("POST", "/make-reservation", nil)
 		}
+		ctx := getCtx(req)
+		req = req.WithContext(ctx)
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	}
 }
 
