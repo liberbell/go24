@@ -194,7 +194,22 @@ var PostReservationTest = []struct {
 		expectedResponseCode: http.StatusSeeOther,
 		expectedHTML: "",
 		expectedLocation: "/",
-	}
+	},
+	{
+		name: "invalid-end-date",
+		postedData: url.Values{
+			"start_date": {"2050-01-01"},
+			"end_date": {"invalid"},
+			"first_name": "John",
+			"last_name": "Smith",
+			"email": "john@example.com",
+			"phone": "123-456-7890",
+			"room_id": "1",
+		},
+		expectedResponseCode: http.StatusSeeOther,
+		expectedHTML: "",
+		expectedLocation: "/",
+	},
 }
 
 
