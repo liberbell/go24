@@ -370,7 +370,7 @@ func testAvailabilityJSON(t *testing.T) {
 	}
 }
 
-var testPostAvailabilityData = struct {
+var testPostAvailabilityData = []struct {
 	name               string
 	postedData         url.Values
 	expectedStatusCode int
