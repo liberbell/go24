@@ -315,7 +315,17 @@ var testAvailabilityJSONData = []struct {
 		postedData: url.Values{
 			"start": {"2050-01-01"},
 			"end": {"2050-01-02"},
-		}
+			"room_id": {"1"},
+		},
+		expectedOK: false,
+	}, {
+		name: "rooms are available",
+		postedData: url.Values{
+			"start": {"2050-01-01"},
+			"end": {"2050-01-02"},
+			"room_id": {"1"},
+		},
+		expectedOK: true,
 	}
 }
 
