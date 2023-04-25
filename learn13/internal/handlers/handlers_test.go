@@ -358,6 +358,11 @@ func testAvailabilityJSON(t *testing.T) {
 		handler := http.HandlerFunc(Repo.PostReservation)
 		handler.ServeHTTP(rr, req)
 
+		var j jsonResponse
+		err := json.Unmarshal([]byte(rr.Body.String()), &j)
+		if err != nil {
+			t.Error("failed to parse json!")
+		}
 	}
 }
 
