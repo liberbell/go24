@@ -370,6 +370,13 @@ func testAvailabilityJSON(t *testing.T) {
 	}
 }
 
+var testPostAvailabilityData = struct {
+	name string
+	postedData url.Values
+	expectedStatusCode int
+	expectedLocation string
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
