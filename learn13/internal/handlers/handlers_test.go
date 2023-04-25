@@ -8,10 +8,11 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"reflect"
 	"strings"
 	"testing"
 
-	// "github.com/tsawler/bookings/internal/driver"
+	"github.com/tsawler/bookings/internal/driver"
 	"github.com/tsawler/bookings/internal/models"
 )
 
