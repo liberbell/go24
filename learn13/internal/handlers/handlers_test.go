@@ -341,6 +341,13 @@ var testAvailabilityJSONData = []struct {
 	},
 }
 
+func testAvailabilityJSON(t *testing.T) {
+	for _, e := range testAvailabilityJSONData {
+
+		var req *http.Request
+	}
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
