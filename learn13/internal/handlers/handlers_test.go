@@ -345,6 +345,9 @@ func testAvailabilityJSON(t *testing.T) {
 	for _, e := range testAvailabilityJSONData {
 
 		var req *http.Request
+		if e.postedData != nil {
+			req, _ = http.NewRequest("POST", "/serarch-availability-json", strings.NewReader(e.PostedData.Encode()))
+		}
 	}
 }
 
