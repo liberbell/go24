@@ -375,6 +375,15 @@ var testPostAvailabilityData = struct {
 	postedData url.Values
 	expectedStatusCode int
 	expectedLocation string
+}{
+	{
+		name: "room not available",
+		postedData: url.Values {
+			"start": {"2050-01-01"},
+			"end": {"2050-01-02"},
+		}
+		expectedStatusCode: http.StatusSeeOther,
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
