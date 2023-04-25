@@ -371,18 +371,27 @@ func testAvailabilityJSON(t *testing.T) {
 }
 
 var testPostAvailabilityData = struct {
-	name string
-	postedData url.Values
+	name               string
+	postedData         url.Values
 	expectedStatusCode int
-	expectedLocation string
+	expectedLocation   string
 }{
 	{
 		name: "room not available",
-		postedData: url.Values {
+		postedData: url.Values{
 			"start": {"2050-01-01"},
-			"end": {"2050-01-02"},
-		}
+			"end":   {"2050-01-02"},
+		},
 		expectedStatusCode: http.StatusSeeOther,
+	},
+	{
+		name: "rooms are available",
+		postedData: url.Values{
+			"start":   {"2050-01-01"},
+			"end":     {"2050-01-02"},
+			"room_id": {"1"},
+		},
+		expectedStatusCode: http.StatusOK,
 	},
 }
 
