@@ -365,7 +365,7 @@ func testAvailabilityJSON(t *testing.T) {
 		}
 
 		if j.OK != e.expectedOK {
-			t.Errorf("%s: expected %b but got %b", e.name, e.expectedOK, j.OK)
+			t.Errorf("%s: expected %t but got %t", e.name, e.expectedOK, j.OK)
 		}
 	}
 }
