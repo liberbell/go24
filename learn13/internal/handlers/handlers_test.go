@@ -305,28 +305,39 @@ func TestNewRepo(t *testing.T) {
 }
 
 var testAvailabilityJSONData = []struct {
-	name string
-	postedData url.Values
-	expectedOK bool
+	name            string
+	postedData      url.Values
+	expectedOK      bool
 	expectedMessage string
 }{
 	{
 		name: "rooms not avalilable",
 		postedData: url.Values{
-			"start": {"2050-01-01"},
-			"end": {"2050-01-02"},
+			"start":   {"2050-01-01"},
+			"end":     {"2050-01-02"},
 			"room_id": {"1"},
 		},
 		expectedOK: false,
-	}, {
+	},
+	{
 		name: "rooms are available",
 		postedData: url.Values{
-			"start": {"2050-01-01"},
-			"end": {"2050-01-02"},
+			"start":   {"2050-01-01"},
+			"end":     {"2050-01-02"},
 			"room_id": {"1"},
 		},
 		expectedOK: true,
-	}
+	},
+	{
+		name: "empty post body",
+		postedData: url.Values{
+			"start":   {"2050-01-01"},
+			"end":     {"2050-01-02"},
+			"room_id": {"1"},
+		},
+		expectedOK:      false,
+		expectedMessage: "Error querying database",
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
