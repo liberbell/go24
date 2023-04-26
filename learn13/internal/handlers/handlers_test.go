@@ -454,9 +454,19 @@ var reservationSummaryTests = []struct {
 			Room: models.Room {
 				ID: 1,
 				RoomName: "General Quarters"
-			}
-		}
-	}
+			},
+		},
+		url: "/reservation-summary",
+		expectedStatusCode: http.StatusOK,
+		expectedLocation: "",
+	},
+	{
+		name: "not-res-in-session",
+		reservation: models.Reservation {},
+		url: "/reservation-summary",
+		expectedStatusCode: http.StatusSeeOther,
+		expectedLocation: "/",
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
