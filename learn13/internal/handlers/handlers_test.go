@@ -440,6 +440,14 @@ func testPostAvailability(t *testing.T) {
 	}
 }
 
+var reservationSummaryTests = []struct {
+	name string
+	reservation models.Reservation
+	url string
+	expectedStatusCode int
+	expectedLocation string
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
