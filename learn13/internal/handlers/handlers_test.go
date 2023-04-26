@@ -411,6 +411,14 @@ var testPostAvailabilityData = []struct {
 		},
 		expectedStatusCode: http.StatusSeeOther,
 	},
+	{
+		name: "database query fails",
+		postedData: url.Values{
+			"start": {"2050-01-01"},
+			"end":   {"2050-01-02"},
+		},
+		expectedStatusCode: http.StatusSeeOther,
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
