@@ -441,35 +441,35 @@ func testPostAvailability(t *testing.T) {
 }
 
 var reservationSummaryTests = []struct {
-	name string
-	reservation models.Reservation
-	url string
+	name               string
+	reservation        models.Reservation
+	url                string
 	expectedStatusCode int
-	expectedLocation string
+	expectedLocation   string
 }{
 	{
 		name: "res-in-session",
-		reservation: models.Reservation {
+		reservation: models.Reservation{
 			RoomID: 1,
-			Room: models.Room {
-				ID: 1,
-				RoomName: "General Quarters"
+			Room: models.Room{
+				ID:       1,
+				RoomName: "General Quarters",
 			},
 		},
-		url: "/reservation-summary",
+		url:                "/reservation-summary",
 		expectedStatusCode: http.StatusOK,
-		expectedLocation: "",
+		expectedLocation:   "",
 	},
 	{
-		name: "not-res-in-session",
-		reservation: models.Reservation {},
-		url: "/reservation-summary",
+		name:               "not-res-in-session",
+		reservation:        models.Reservation{},
+		url:                "/reservation-summary",
 		expectedStatusCode: http.StatusSeeOther,
-		expectedLocation: "/",
+		expectedLocation:   "/",
 	},
 }
 
-func TestReservationSumary(t *testing.T)  {
+func TestReservationSumary(t *testing.T) {
 	for _, e := range reservationSummaryTests {
 
 		req, _ := http.NewRequest("GET", e.url, nil)
