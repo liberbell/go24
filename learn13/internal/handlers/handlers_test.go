@@ -431,7 +431,7 @@ func testPostAvailability(t *testing.T) {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(Repo.PostReservation)
+		handler := http.HandlerFunc(Repo.PostAvailability)
 		handler.ServeHTTP(rr, req)
 
 		if rr.Code != e.expectedStatusCode {
@@ -482,7 +482,7 @@ func TestReservationSumary(t *testing.T)  {
 			session.Put(ctx, "reservation", e.reservation)
 		}
 
-		handler := http.HandlerFunc(Repo.PostReservation)
+		handler := http.HandlerFunc(Repo.ReservationSummary)
 		handler.ServeHTTP(rr, req)
 
 		if rr.Code != e.expectedStatusCode {
