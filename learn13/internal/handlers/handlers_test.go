@@ -422,7 +422,7 @@ var testPostAvailabilityData = []struct {
 }
 
 func testPostAvailability(t *testing.T) {
-	for _, e := range testAvailabilityData {
+	for _, e := range testPostAvailabilityData {
 
 		req, _ = http.NewRequest("POST", "/serarch-availability", strings.NewReader(e.postedData.Encode()))
 
