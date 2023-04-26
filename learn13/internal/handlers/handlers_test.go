@@ -393,6 +393,15 @@ var testPostAvailabilityData = []struct {
 		},
 		expectedStatusCode: http.StatusOK,
 	},
+	{
+		name: "start date wrong format",
+		postedData: url.Values{
+			"start":   {"invalid"},
+			"end":     {"2050-01-02"},
+			"room_id": {"1"},
+		},
+		expectedStatusCode: http.StatusSeeOther,
+	}
 }
 
 func TestRepository_Reservation(t *testing.T) {
