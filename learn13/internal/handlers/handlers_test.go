@@ -91,7 +91,7 @@ var reservationTests = []struct {
 			RoomID: 1,
 			Room: models.Room{
 				ID:       1,
-				RoomName: "General's Quarters",
+				RoomName: "General Quarters",
 			},
 		},
 		expectedStatusCode: http.StatusOK,
@@ -110,7 +110,7 @@ var reservationTests = []struct {
 			RoomID: 100,
 			Room: models.Room{
 				ID:       100,
-				RoomName: "General's Quarters",
+				RoomName: "General Quarters",
 			},
 		},
 		expectedStatusCode: http.StatusSeeOther,
@@ -446,6 +446,17 @@ var reservationSummaryTests = []struct {
 	url string
 	expectedStatusCode int
 	expectedLocation string
+}{
+	{
+		name: "res-in-session",
+		reservation: models.Reservation {
+			RoomID: 1,
+			Room: models.Room {
+				ID: 1,
+				RoomName: "General Quarters"
+			}
+		}
+	}
 }
 
 func TestRepository_Reservation(t *testing.T) {
