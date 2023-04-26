@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/gob"
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -56,6 +57,8 @@ func run() (*driver.DB, error) {
 	gob.Register(models.Room{})
 	gob.Register(models.Restriction{})
 	gob.Register(map[string]int{})
+
+	inProduction := flag.Bool("production", true, "Application is production")
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
