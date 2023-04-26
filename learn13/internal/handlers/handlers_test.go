@@ -421,6 +421,25 @@ var testPostAvailabilityData = []struct {
 	},
 }
 
+func testPostAvailability(t *testing.T) {
+	for _, e := range testAvailabilityData {
+
+		req, _ = http.NewRequest("POST", "/serarch-availability", strings.NewReader(e.postedData.Encode()))
+
+		ctx := getCtx(req)
+		req = req.WithContext(ctx)
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+
+		rr := httptest.NewRecorder()
+		handler := http.HandlerFunc(Repo.PostReservation)
+		handler.ServeHTTP(rr, req)
+
+		if rr.Code != e.expectedStatusCode {
+			t.Errorf("%s gave wrong status code: got %d, wanted %d", e.name, rr.Code, e.expectedStatusCode)
+		}
+	}
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
