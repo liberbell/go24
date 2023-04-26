@@ -424,7 +424,7 @@ var testPostAvailabilityData = []struct {
 func testPostAvailability(t *testing.T) {
 	for _, e := range testPostAvailabilityData {
 
-		req, _ = http.NewRequest("POST", "/serarch-availability", strings.NewReader(e.postedData.Encode()))
+		req, _ := http.NewRequest("POST", "/serarch-availability", strings.NewReader(e.postedData.Encode()))
 
 		ctx := getCtx(req)
 		req = req.WithContext(ctx)
