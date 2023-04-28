@@ -71,7 +71,7 @@ func run() (*driver.DB, error) {
 
 	if *dbName == "" || *dbUser == "" {
 		fmt.Println("Missing required flags")
-		os.Exit()
+		os.Exit(1)
 	}
 
 	mailChan := make(chan models.MailData)
