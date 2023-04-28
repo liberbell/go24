@@ -2,4 +2,4 @@
 
 go build -o bookings cmd/web/*.go
 # ./bookings
-./bookings -dbname=bookings -dbuser=dbmaser -cache=false -production=false
+./bookings -dbname=bookings -dbuser=dbmaster -cache=false -production=false
