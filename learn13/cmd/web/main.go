@@ -60,10 +60,12 @@ func run() (*driver.DB, error) {
 
 	inProduction := flag.Bool("production", true, "Application is in production")
 	useCache := flag.Bool("cache", true, "use template cache")
+	dbHost := flag.String("dbhost", "localhost", "Database name")
 	dbName := flag.String("dbname", "", "Database name")
 	dbUser := flag.String("dbuser", "", "Database user")
 	dbPass := flag.String("dbpass", "", "Database password")
-	dbPort := flag.String("dbport", "", "Database port")
+	dbPort := flag.String("dbport", "5432", "Database port")
+	dbSSL := flag.String("dbssl", "disable", "Database ssl settings(disable, prefer, require)")
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
