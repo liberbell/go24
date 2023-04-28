@@ -62,6 +62,8 @@ func run() (*driver.DB, error) {
 	useCache := flag.Bool("cache", true, "use template cache")
 	dbName := flag.String("dbname", "", "Database name")
 	dbUser := flag.String("dbuser", "", "Database user")
+	dbPass := flag.String("dbpass", "", "Database password")
+	dbPort := flag.String("dbport", "", "Database port")
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
