@@ -90,7 +90,7 @@ func run() (*driver.DB, error) {
 	app.Session = session
 
 	log.Println("connecting to database...")
-	connectionString := fmt.Sprintf("host=localhost port=5432 dbname=bookings user=dbmaster password=")
+	connectionString := fmt.Sprintf("host=%s port=%s dbname=%s user=%s password=%s", *dbHost, *dbPort, *dbName, *dbUser, *dbPass)
 
 	db, err := driver.ConnectSQL("host=localhost port=5432 dbname=bookings user=dbmaster password=")
 	if err != nil {
