@@ -90,6 +90,7 @@ func run() (*driver.DB, error) {
 	app.Session = session
 
 	log.Println("connecting to database...")
+	connectionString := fmt.Sprintf("host=localhost port=5432 dbname=bookings user=dbmaster password=")
 
 	db, err := driver.ConnectSQL("host=localhost port=5432 dbname=bookings user=dbmaster password=")
 	if err != nil {
@@ -104,7 +105,7 @@ func run() (*driver.DB, error) {
 	}
 
 	app.TemplateCache = tc
-	app.UseCache = false
+	// app.UseCache = false
 
 	repo := handlers.NewRepo(&app, db)
 	handlers.NewHandlers(repo)
