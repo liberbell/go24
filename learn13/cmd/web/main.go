@@ -58,7 +58,8 @@ func run() (*driver.DB, error) {
 	gob.Register(models.Restriction{})
 	gob.Register(map[string]int{})
 
-	inProduction := flag.Bool("production", true, "Application is production")
+	inProduction := flag.Bool("production", true, "Application is in production")
+	useCache := flag.Bool("cache", true, "use template cache")
 
 	mailChan := make(chan models.MailData)
 	app.MailChan = mailChan
