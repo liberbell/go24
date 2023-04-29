@@ -508,14 +508,15 @@ var chooseRoomTests = []struct {
 	{
 		name: "reservation-in-session",
 		reservation: models.Reservation{
-			roomID: 1,
+			RoomID: 1,
 			Room: models.Room{
 				ID:       1,
 				RoomName: "General Quarters",
 			},
-			url:                "/choose-room",
-			expectedStatusCode: http.StatusSeeOther,
-			expectedLocation:   "/make-reservation",
+		},
+		url:                "/choose-room",
+		expectedStatusCode: http.StatusSeeOther,
+		expectedLocation:   "/make-reservation",
 		},
 		{
 			name:               "reservation-not-in-session",
