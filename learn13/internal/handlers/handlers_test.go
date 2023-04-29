@@ -498,41 +498,40 @@ func TestReservationmSumary(t *testing.T) {
 	}
 }
 
-var chooseRoomTest = []struct {
-	name string
-	reservation models.Reservation
-	url string
+var chooseRoomTests = []struct {
+	name               string
+	reservation        models.Reservation
+	url                string
 	expectedStatusCode int
-	expectedLocation string
+	expectedLocation   string
 }{
 	{
 		name: "reservation-in-session",
-		reservation: models.Reservation {
-
+		reservation: models.Reservation{
 			roomID: 1,
-			Room: models.Room {
-				ID: 1,
+			Room: models.Room{
+				ID:       1,
 				RoomName: "General Quarters",
 			},
-			url: "/choose-room",
+			url:                "/choose-room",
 			expectedStatusCode: http.StatusSeeOther,
-			expectedLocation: "/make-reservation",
+			expectedLocation:   "/make-reservation",
 		},
-		{	
-			name: "reservation-not-in-session",	
-			reservation: models.Reservation{},	
-			url: "/choose-room/1",	
-			expectedStatusCode: http.StatusSeeOther,	
-			expectedLocation: "/",	
-		},	
-		{	
-			name: "malformed-url",	
-			reservation: models.Reservation{},	
-			url: "/choose-room/fish",	
-			expectedStatusCode: http.StatusSeeOther,	
-			expectedLocation: "/",	
+		{
+			name:               "reservation-not-in-session",
+			reservation:        models.Reservation{},
+			url:                "/choose-room/1",
+			expectedStatusCode: http.StatusSeeOther,
+			expectedLocation:   "/",
 		},
-	}
+		{
+			name:               "malformed-url",
+			reservation:        models.Reservation{},
+			url:                "/choose-room/fish",
+			expectedStatusCode: http.StatusSeeOther,
+			expectedLocation:   "/",
+		},
+	},
 }
 
 func TestRepository_Reservation(t *testing.T) {
