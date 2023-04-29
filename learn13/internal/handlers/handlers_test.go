@@ -259,7 +259,7 @@ var postReservationTests = []struct {
 }
 
 func TestPostReservation(t *testing.T) {
-	for _, e := range PostReservationTest {
+	for _, e := range postReservationTests {
 		var req *http.Request
 		if e.postedData != nil {
 			req, _ = http.NewRequest("POST", "/make-reservation", strings.NewReader(e.postedData.Encode()))
