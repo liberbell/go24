@@ -137,7 +137,7 @@ func TestReservation(t *testing.T) {
 	}
 }
 
-var PostReservationTest = []struct {
+var PostReservationTests = []struct {
 	name                 string
 	postedData           url.Values
 	expectedResponseCode int
