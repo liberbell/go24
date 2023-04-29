@@ -346,9 +346,9 @@ func testAvailabilityJSON(t *testing.T) {
 
 		var req *http.Request
 		if e.postedData != nil {
-			req, _ = http.NewRequest("POST", "/serarch-availability-json", strings.NewReader(e.postedData.Encode()))
+			req, _ = http.NewRequest("POST", "/search-availability-json", strings.NewReader(e.postedData.Encode()))
 		} else {
-			req, _ = http.NewRequest("POST", "/serarch-availability-json", nil)
+			req, _ = http.NewRequest("POST", "/search-availability-json", nil)
 		}
 		ctx := getCtx(req)
 		req = req.WithContext(ctx)
