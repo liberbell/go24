@@ -498,6 +498,28 @@ func TestReservationmSumary(t *testing.T) {
 	}
 }
 
+var chooseRoomTest = []struct {
+	name string
+	reservation models.Reservation
+	url string
+	expectedStatusCode int
+	expectedLocation string
+}{
+	{
+		name: "reservation-in-session",
+		reservation: models.Reservation {
+
+			roomID: 1,
+			Room: models.Room {
+				ID: 1,
+				RoomName: "General Quarters",
+			},
+			url: "/choose-room",
+			expectedStatusCode: http.StatusSeeOther,
+		}
+	}
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
