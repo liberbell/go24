@@ -283,7 +283,7 @@ func TestPostReservation(t *testing.T) {
 			actualLoc, _ := rr.Result().Location()
 			if actualLoc.String() != e.expectedLocation {
 				// t.Errorf("failed %s: expected location %s,but got location %s", e.name, e.expectedLocation, actualLoc.String)
-				t.Errorf("failed %s: expected location %s,but got location ", e.name, e.expectedLocation)
+				t.Errorf("failed %s: expected location %s,but got location %s", e.name, e.expectedLocation, e.actualLoc.String())
 			}
 		}
 
