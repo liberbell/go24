@@ -43,21 +43,6 @@ var theTests = []struct {
 	{"show res", "/admin/reservations/new/2/show", "GET", http.StatusOK},
 	{"show res cal", "/admin/reservations-calendar", "GET", http.StatusOK},
 	{"show res cal with params", "/admin/reservations-calendar?y=2023&m=5", "GET", http.StatusOK},
-
-	// {"postavailability", "/search-availability", "POST", []postData{
-	// 	{key: "start", value: "2023-01-31"},
-	// 	{key: "end", value: "2023-01-31"},
-	// }, http.StatusOK},
-	// {"postavailabilityjson", "/search-availability-json", "POST", []postData{
-	// 	{key: "start", value: "2023-01-31"},
-	// 	{key: "end", value: "2023-01-31"},
-	// }, http.StatusOK},
-	// {"makereservation", "/make-reservation", "POST", []postData{
-	// 	{key: "first_name", value: "eric"},
-	// 	{key: "last_name", value: "clapton"},
-	// 	{key: "email", value: "a@b.com"},
-	// 	{key: "phone", value: "123-456-7890"},
-	// }, http.StatusOK},
 }
 
 func TestHandlers(t *testing.T) {
