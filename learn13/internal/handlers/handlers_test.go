@@ -283,7 +283,7 @@ func TestPostReservation(t *testing.T) {
 			actualLoc, _ := rr.Result().Location()
 			if actualLoc.String() != e.expectedLocation {
 				// t.Errorf("failed %s: expected location %s,but got location %s", e.name, e.expectedLocation, actualLoc.String)
-				t.Errorf("failed %s: expected location %s,but got location %s", e.name, e.expectedLocation, e.actualLoc.String())
+				t.Errorf("failed %s: expected location %s,but got location %s", e.name, e.expectedLocation, actualLoc.String())
 			}
 		}
 
@@ -312,7 +312,7 @@ var testAvailabilityJSONData = []struct {
 	expectedMessage string
 }{
 	{
-		name: "rooms not avalilable",
+		name: "rooms not avalable",
 		postedData: url.Values{
 			"start":   {"2050-01-01"},
 			"end":     {"2050-01-02"},
