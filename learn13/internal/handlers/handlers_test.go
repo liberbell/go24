@@ -469,7 +469,7 @@ var reservationSummaryTests = []struct {
 	},
 }
 
-func TestReservationmSumary(t *testing.T) {
+func TestReservationSummary(t *testing.T) {
 	for _, e := range reservationSummaryTests {
 
 		req, _ := http.NewRequest("GET", e.url, nil)
