@@ -312,7 +312,7 @@ var testAvailabilityJSONData = []struct {
 	expectedMessage string
 }{
 	{
-		name: "rooms not avalable",
+		name: "rooms not available",
 		postedData: url.Values{
 			"start":   {"2050-01-01"},
 			"end":     {"2050-01-02"},
