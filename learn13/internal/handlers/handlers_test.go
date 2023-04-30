@@ -519,12 +519,12 @@ var chooseRoomTests = []struct {
 		expectedLocation:   "/make-reservation",
 	},
 	{
-			name:               "reservation-not-in-session",
-			reservation:        models.Reservation{},
-			url:                "/choose-room/1",
-			expectedStatusCode: http.StatusSeeOther,
-			expectedLocation:   "/",
-		},
+		name:               "reservation-not-in-session",
+		reservation:        models.Reservation{},
+		url:                "/choose-room/1",
+		expectedStatusCode: http.StatusSeeOther,
+		expectedLocation:   "/",
+	},
 		{
 			name:               "malformed-url",
 			reservation:        models.Reservation{},
