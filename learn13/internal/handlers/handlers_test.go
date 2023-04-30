@@ -514,7 +514,7 @@ var chooseRoomTests = []struct {
 				RoomName: "General Quarters",
 			},
 		},
-		url:                "/choose-room",
+		url:                "/choose-room/1",
 		expectedStatusCode: http.StatusSeeOther,
 		expectedLocation:   "/make-reservation",
 	},
@@ -532,6 +532,12 @@ var chooseRoomTests = []struct {
 		expectedStatusCode: http.StatusSeeOther,
 		expectedLocation:   "/",
 	},
+}
+
+func TestChooseRoom(t *testing.T) {
+	for _, e := range chooseRoomTests {
+		req, _ := http.NewRequest("GET", e.url, nil)
+	}
 }
 
 func TestRepository_Reservation(t *testing.T) {
