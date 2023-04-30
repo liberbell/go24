@@ -525,13 +525,12 @@ var chooseRoomTests = []struct {
 		expectedStatusCode: http.StatusSeeOther,
 		expectedLocation:   "/",
 	},
-		{
-			name:               "malformed-url",
-			reservation:        models.Reservation{},
-			url:                "/choose-room/fish",
-			expectedStatusCode: http.StatusSeeOther,
-			expectedLocation:   "/",
-		},
+	{
+		name:               "malformed-url",
+		reservation:        models.Reservation{},
+		url:                "/choose-room/fish",
+		expectedStatusCode: http.StatusSeeOther,
+		expectedLocation:   "/",
 	},
 }
 
