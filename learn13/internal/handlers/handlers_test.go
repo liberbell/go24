@@ -403,7 +403,7 @@ var testPostAvailabilityData = []struct {
 		expectedStatusCode: http.StatusSeeOther,
 	},
 	{
-		name: "start date wrong format",
+		name: "end date wrong format",
 		postedData: url.Values{
 			"start":   {"2050-01-01"},
 			"end":     {"invalid"},
