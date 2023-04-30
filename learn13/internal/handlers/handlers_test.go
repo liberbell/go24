@@ -562,6 +562,50 @@ func TestChooseRoom(t *testing.T) {
 	}
 }
 
+var bookRoomTests = []struct {
+	name               string
+	url                string
+	expectedStatusCode int
+}{
+	{
+		name:               "database-works",
+		url:                "/book-room?s=2050-01-01&e=2050-01-02&id=1",
+		expectedStatusCode: http.StatusSeeOther,
+	},
+	{
+		name:               "database-fails",
+		url:                "/book-room?s=2040-01-01&e=2040-01-02&id=4",
+		expectedStatusCode: http.StatusSeeOther,
+	},
+}
+
+func TestBookRoom(t *testing.T) {
+	reservation := models.Reservation{
+		RoomID: 1,
+		Room: models.Room{
+			ID:       1,
+			RoomName: "General's Quarters",
+		},
+	}
+
+	for _, e := range bookRoomTests {
+		req, _ := http.NewRequest("GET", e.url, nil)
+		ctx := getCtx(req)
+		req = req.WithContext(ctx)
+
+		rr := httptest.NewRecorder()
+		session.Put(ctx, "reservation", reservation)
+
+		handler := http.HandlerFunc(Repo.BookRoom)
+
+		handler.ServeHTTP(rr, req)
+
+		if rr.Code != http.StatusSeeOther {
+			t.Errorf("%s failed: returned wrong response code: got %d, wanted %d", e.name, rr.Code, e.expectedStatusCode)
+		}
+	}
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
