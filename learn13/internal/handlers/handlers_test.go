@@ -540,6 +540,25 @@ func TestChooseRoom(t *testing.T) {
 		ctx := getCtx(req)
 		req = req.WithContext(ctx)
 		req.RequestURI = e.url
+
+		rr := httptest.NewRecorder()
+		if e.reservation.RoomID > 0 {
+			session.Put(ctx, "reservation", e.reservation)
+		}
+
+		handler := http.HandlerFunc(Repo.ChooseRoom)
+		handler.ServeHTTP(rr, req)
+
+		if rr.Code != e.expectedStatusCode {
+			t.Errorf("%s returned wrong response code: got %d, wanted %d", e.name, rr.Code, e.expectedStatusCode)
+		}
+
+		if e.expectedLocation != "" {
+			actualLoc, _ := rr.Result().Location()
+			if actualLoc.String() != e.expectedLocation {
+				t.Errorf("failed %s: expected location %s, but got location %s", e.name, e.expectedLocation, actualLoc.String())
+			}
+		}
 	}
 }
 
