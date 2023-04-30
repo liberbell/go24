@@ -537,6 +537,9 @@ var chooseRoomTests = []struct {
 func TestChooseRoom(t *testing.T) {
 	for _, e := range chooseRoomTests {
 		req, _ := http.NewRequest("GET", e.url, nil)
+		ctx := getCtx(req)
+		req = req.WithContext(ctx)
+		req.RequestURI = e.url
 	}
 }
 
