@@ -365,7 +365,7 @@ func testAvailabilityJSON(t *testing.T) {
 		}
 
 		if j.OK != e.expectedOK {
-			t.Errorf("%s: expected %t but got %t", e.name, e.expectedOK, j.OK)
+			t.Errorf("%s: expected %v but got %v", e.name, e.expectedOK, j.OK)
 		}
 	}
 }
@@ -377,7 +377,7 @@ var testPostAvailabilityData = []struct {
 	expectedLocation   string
 }{
 	{
-		name: "room not available",
+		name: "rooms not available",
 		postedData: url.Values{
 			"start": {"2050-01-01"},
 			"end":   {"2050-01-02"},
