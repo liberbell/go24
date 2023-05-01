@@ -584,7 +584,7 @@ func TestBookRoom(t *testing.T) {
 		RoomID: 1,
 		Room: models.Room{
 			ID:       1,
-			RoomName: "General's Quarters",
+			RoomName: "General Quarters",
 		},
 	}
 
@@ -618,9 +618,9 @@ var adminPostShowReservationTests = []struct {
 		name: "valid-data-from-new",
 		url:  "/admin/reservations/new/1/show",
 		postedData: url.Values{
-			"first_name": {"John"},
-			"last_name":  {"Smith"},
-			"email":      {"john@smith.com"},
+			"first_name": {"eric"},
+			"last_name":  {"clapton"},
+			"email":      {"eric@example.com"},
 			"phone":      {"555-555-5555"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
@@ -631,9 +631,9 @@ var adminPostShowReservationTests = []struct {
 		name: "valid-data-from-all",
 		url:  "/admin/reservations/all/1/show",
 		postedData: url.Values{
-			"first_name": {"John"},
-			"last_name":  {"Smith"},
-			"email":      {"john@example.com"},
+			"first_name": {"eric"},
+			"last_name":  {"clapton"},
+			"email":      {"eric@example.com"},
 			"phone":      {"555-555-5555"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
@@ -644,9 +644,9 @@ var adminPostShowReservationTests = []struct {
 		name: "valid-data-from-cal",
 		url:  "/admin/reservations/cal/1/show",
 		postedData: url.Values{
-			"first_name": {"John"},
-			"last_name":  {"Smith"},
-			"email":      {"john@example.com"},
+			"first_name": {"eric"},
+			"last_name":  {"clapton"},
+			"email":      {"eric@example.com"},
 			"phone":      {"555-555-5555"},
 			"year":       {"2023"},
 			"month":      {"01"},
