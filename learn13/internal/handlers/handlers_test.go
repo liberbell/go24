@@ -633,7 +633,7 @@ var adminPostShowReservationTests = []struct {
 		postedData: url.Values{
 			"first_name": {"John"},
 			"last_name":  {"Smith"},
-			"email":      {"john@smith.com"},
+			"email":      {"john@example.com"},
 			"phone":      {"555-555-5555"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
@@ -646,13 +646,13 @@ var adminPostShowReservationTests = []struct {
 		postedData: url.Values{
 			"first_name": {"John"},
 			"last_name":  {"Smith"},
-			"email":      {"john@smith.com"},
+			"email":      {"john@example.com"},
 			"phone":      {"555-555-5555"},
-			"year":       {"2022"},
+			"year":       {"2023"},
 			"month":      {"01"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
-		expectedLocation:     "/admin/reservations-calendar?y=2022&m=01",
+		expectedLocation:     "/admin/reservations-calendar?y=2023&m=04",
 		expectedHTML:         "",
 	},
 }
