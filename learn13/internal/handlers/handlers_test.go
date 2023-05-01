@@ -606,6 +606,57 @@ func TestBookRoom(t *testing.T) {
 	}
 }
 
+var adminPostShowReservationTests = []struct {
+	name                 string
+	url                  string
+	postedData           url.Values
+	expectedResponseCode int
+	expectedLocation     string
+	expectedHTML         string
+}{
+	{
+		name: "valid-data-from-new",
+		url:  "/admin/reservations/new/1/show",
+		postedData: url.Values{
+			"first_name": {"John"},
+			"last_name":  {"Smith"},
+			"email":      {"john@smith.com"},
+			"phone":      {"555-555-5555"},
+		},
+		expectedResponseCode: http.StatusSeeOther,
+		expectedLocation:     "/admin/reservations-new",
+		expectedHTML:         "",
+	},
+	{
+		name: "valid-data-from-all",
+		url:  "/admin/reservations/all/1/show",
+		postedData: url.Values{
+			"first_name": {"John"},
+			"last_name":  {"Smith"},
+			"email":      {"john@smith.com"},
+			"phone":      {"555-555-5555"},
+		},
+		expectedResponseCode: http.StatusSeeOther,
+		expectedLocation:     "/admin/reservations-all",
+		expectedHTML:         "",
+	},
+	{
+		name: "valid-data-from-cal",
+		url:  "/admin/reservations/cal/1/show",
+		postedData: url.Values{
+			"first_name": {"John"},
+			"last_name":  {"Smith"},
+			"email":      {"john@smith.com"},
+			"phone":      {"555-555-5555"},
+			"year":       {"2022"},
+			"month":      {"01"},
+		},
+		expectedResponseCode: http.StatusSeeOther,
+		expectedLocation:     "/admin/reservations-calendar?y=2022&m=01",
+		expectedHTML:         "",
+	},
+}
+
 func TestRepository_Reservation(t *testing.T) {
 	reservation := models.Reservation{
 		RoomID: 1,
