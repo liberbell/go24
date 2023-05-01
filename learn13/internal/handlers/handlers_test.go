@@ -650,7 +650,7 @@ var adminPostShowReservationTests = []struct {
 			"email":      {"eric@example.com"},
 			"phone":      {"555-555-5555"},
 			"year":       {"2023"},
-			"month":      {"01"},
+			"month":      {"04"},
 		},
 		expectedResponseCode: http.StatusSeeOther,
 		expectedLocation:     "/admin/reservations-calendar?y=2023&m=04",
