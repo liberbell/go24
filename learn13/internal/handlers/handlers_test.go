@@ -798,7 +798,7 @@ var adminProcessReservationTests = []struct {
 	},
 	{
 		name:                 "process-reservation-back-to-cal",
-		queryParams:          "?y=2021&m=12",
+		queryParams:          "?y=2023&m=04",
 		expectedResponseCode: http.StatusSeeOther,
 		expectedLocation:     "",
 	},
