@@ -331,7 +331,13 @@ var testAvailabilityJSONData = []struct {
 		expectedOK: true,
 	},
 	{
-		name: "empty post body",
+		name:            "empty post body",
+		postedData:      nil,
+		expectedOK:      false,
+		expectedMessage: "Internal server error",
+	},
+	{
+		name: "database query fails",
 		postedData: url.Values{
 			"start":   {"2050-01-01"},
 			"end":     {"2050-01-02"},
