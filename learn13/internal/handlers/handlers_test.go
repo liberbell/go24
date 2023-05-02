@@ -362,7 +362,7 @@ func testAvailabilityJSON(t *testing.T) {
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 
 		rr := httptest.NewRecorder()
-		handler := http.HandlerFunc(Repo.PostReservation)
+		handler := http.HandlerFunc(Repo.AvailabilityJSON)
 		handler.ServeHTTP(rr, req)
 
 		var j jsonResponse
