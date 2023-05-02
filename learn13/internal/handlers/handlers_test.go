@@ -417,9 +417,8 @@ var testPostAvailabilityData = []struct {
 	{
 		name: "end date wrong format",
 		postedData: url.Values{
-			"start":   {"2050-01-01"},
-			"end":     {"invalid"},
-			"room_id": {"1"},
+			"start": {"2050-01-01"},
+			"end":   {"invalid"},
 		},
 		expectedStatusCode: http.StatusSeeOther,
 	},
