@@ -498,7 +498,7 @@ func (m *Repository) AdminAllReservations(w http.ResponseWriter, r *http.Request
 	})
 }
 
-func (m *Repository) AdminShowReservations(w http.ResponseWriter, r *http.Request) {
+func (m *Repository) AdminShowReservation(w http.ResponseWriter, r *http.Request) {
 	exploded := strings.Split(r.RequestURI, "/")
 	id, err := strconv.Atoi(exploded[4])
 	if err != nil {
