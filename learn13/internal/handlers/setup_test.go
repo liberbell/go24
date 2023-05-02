@@ -118,7 +118,7 @@ func getRoutes() http.Handler {
 	mux.Get("/admin/process-reservation/{src}/{id}/do", Repo.AdminProcessReservation)
 	mux.Get("/admin/delete-reservation/{src}/{id}/do", Repo.AdminDeleteReservation)
 
-	mux.Get("/admin/reservations/{src}/{id}/show", Repo.AdminShowReservations)
+	mux.Get("/admin/reservations/{src}/{id}/show", Repo.AdminShowReservation)
 	mux.Post("/admin/reservations/{src}/{id}", Repo.AdminPostShowReservation)
 
 	fileServer := http.FileServer(http.Dir("./static/"))
