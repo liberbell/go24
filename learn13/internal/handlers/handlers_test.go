@@ -401,6 +401,11 @@ var testPostAvailabilityData = []struct {
 		expectedStatusCode: http.StatusOK,
 	},
 	{
+		name:               "empty post body",
+		postedData:         url.Values{},
+		expectedStatusCode: http.StatusSeeOther,
+	},
+	{
 		name: "start date wrong format",
 		postedData: url.Values{
 			"start":   {"invalid"},
