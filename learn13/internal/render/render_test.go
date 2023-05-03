@@ -11,7 +11,7 @@ func TestAddDefaultData(t *testing.T) {
 
 	r, err := getSession()
 	if err != nil {
-		t.Fatal(err)
+		t.Error(err)
 	}
 
 	session.Put(r.Context(), "flash", "123")
@@ -39,12 +39,12 @@ func TestRenderTemplate(t *testing.T) {
 
 	err = Template(&ww, r, "home.page.tmpl", &models.TemplateData{})
 	if err != nil {
-		t.Error("error writing template to browser", err)
+		t.Error("error writing template to browser")
 	}
 
 	err = Template(&ww, r, "non-existent.page.tmpl", &models.TemplateData{})
 	if err == nil {
-		t.Error("render template does not exit")
+		t.Error("render template does not exit", err)
 	}
 
 }
