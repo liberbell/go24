@@ -34,6 +34,15 @@ func (m *testDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time, roo
 		log.Println(err)
 	}
 
+	testDateToFail, err := time.Parse(layout, "2060-01-01")
+	if err != nil {
+		log.Println(err)
+	}
+
+	if start == testDateToFail {
+		return false, errors.New("some error")
+	}
+
 	return false, nil
 }
 
