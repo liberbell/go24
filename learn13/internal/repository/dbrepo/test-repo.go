@@ -47,7 +47,7 @@ func (m *testDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time, roo
 		return false, nil
 	}
 
-	return false, nil
+	return true, nil
 }
 
 func (m *testDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]models.Room, error) {
