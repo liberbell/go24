@@ -43,6 +43,10 @@ func (m *testDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time, roo
 		return false, errors.New("some error")
 	}
 
+	if start.After(t) {
+		return false, nil
+	}
+
 	return false, nil
 }
 
