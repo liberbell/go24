@@ -53,6 +53,13 @@ func (m *testDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]mode
 		return rooms, nil
 	}
 
+	room := models.Room{
+		ID: 1,
+	}
+	rooms = append(rooms, room)
+
+	return rooms, nil
+
 }
 
 func (m *testDBRepo) GetRoomByID(id int) (models.Room, error) {
