@@ -79,7 +79,10 @@ func Template(w http.ResponseWriter, r *http.Request, tmpl string, td *models.Te
 	buf := new(bytes.Buffer)
 	td = AddDefaultData(td, r)
 
-	_ = t.Execute(buf, td)
+	err := t.Execute(buf, td)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	_, err := buf.WriteTo(w)
 	if err != nil {
