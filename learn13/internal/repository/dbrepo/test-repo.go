@@ -27,6 +27,13 @@ func (m *testDBRepo) InsertRoomRestriction(r models.RoomRestriction) error {
 }
 
 func (m *testDBRepo) SearchAvailabilityByDatesByRoomID(start, end time.Time, roomID int) (bool, error) {
+	layout := "2006-01-02"
+	str := "2049-12-31"
+	t, err := time.Parse(layout, str)
+	if err != nil {
+		log.Println(err)
+	}
+
 	return false, nil
 }
 
@@ -59,7 +66,6 @@ func (m *testDBRepo) SearchAvailabilityForAllRooms(start, end time.Time) ([]mode
 	rooms = append(rooms, room)
 
 	return rooms, nil
-
 }
 
 func (m *testDBRepo) GetRoomByID(id int) (models.Room, error) {
