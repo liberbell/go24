@@ -154,6 +154,15 @@ func (m *testDBRepo) GetRestrictionsForRoomByDate(roomID int, start, end time.Ti
 		RestrictionID: 2,
 	})
 
+	restrictions = append(restrictions, models.RoomRestriction{
+		ID:            2,
+		StartDate:     time.Now().AddDate(0, 0, 2),
+		EndDate:       time.Now().AddDate(0, 0, 3),
+		RoomID:        1,
+		ReservationID: 1,
+		RestrictionID: 1,
+	})
+
 	return restrictions, nil
 }
 
