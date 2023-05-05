@@ -103,7 +103,7 @@
             msg: "Are you sure?",
             callback: function(result) {
                 if (result !== false) {
-                    window.location.href = "/admin/delete-reservation/{{$src}}/" + id;
+                    window.location.href = "/admin/delete-reservation/{{$src}}/"
                         + id
                         + "/do?y={{index .StringMap "year"}}&m={{index .StringMap "month"}}";
                 }
